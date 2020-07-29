@@ -1,25 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# WaveWatch
 
-Things you may want to cover:
+## サイト概要
+ユーザーがその日の波の情報を、ローカル（近隣のサーフショップ）が波情報や予測をシェアする事によって、全てのサーファーにより良いサーフライフを手に入れてもらうためのサービス。
 
-* Ruby version
+### サイトテーマ
+サーファーによるサーファーのための波情報シェアサービス
 
-* System dependencies
+### テーマを選んだ理由
+サーフィンに行くと必ずと言っていいほど、入水前後で波をチェックするために陸からしばらくの間その状況を観察します。そしてその状況をメッセージや電話で知人友人に伝えたり、写真や動画を撮ってSNSにあげているのを見て、それらの情報を誰でも入手できればと思いこのサービスを作りました。投稿する手間をできるだけ減らしながら、写真を投稿したり、いいね機能をつける事によってよりSNSに近い形でのサービスが望ましいと考えました。
+また気象情報や駐車場の有無などの細かい情報も組み込む事によって、必要な情報がこのWebアプリケーションだけで手に入れられる事を目指しました。
 
-* Configuration
+### ターゲットユーザ
+全てのレベルのサーファー
 
-* Database creation
+### 主な利用シーン
+・ユーザー
+入水の前後での波情報の投稿。
+投稿された波情報の閲覧。
+投稿された波予報の閲覧。
+指定したエリアのサーフスポット検索、閲覧。
+指定したエリアのサーフショップ検索、閲覧
 
-* Database initialization
+・ローカル（アドミン）
+波予報の投稿。
+サーフショップ情報の投稿。
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## 設計書
+・テーブル定義書
+https://drive.google.com/file/d/1N7UnWsIViadWkChYylo2Ta8W20Ybcqxd/view?usp=sharing
 
-* Deployment instructions
+・ER図
+https://drive.google.com/file/d/1vW9X5CDsCMFxAPfOCwFJTM6Eo93oqjyE/view?usp=sharing
 
-* ...
-# Portfolio
+
+
+### 機能一覧
+https://docs.google.com/spreadsheets/d/18H2W50RWywkL6Kbgo8JKhTgWl8CnNYvjB5AStDSno5A/edit?usp=sharing
+
