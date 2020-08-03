@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  root to: 'public/top#top'
+
+  get 'users' => 'public/top#top'
+  get 'admin' => 'admin/top#top'
+  get 'about' => 'about#about'
+  get "users/confirm" => "public/users#confirm"
+
   scope module: :public do
     resources :users, :reports, :forecasts, :shops, :spots, :areas
   end
