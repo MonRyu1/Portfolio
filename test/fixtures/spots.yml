@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area_id: 1
+  name: MyString
+  spot_image_id: MyString
+  address: MyString
+  feature: 1
+  parking: 1
+
+two:
+  area_id: 1
+  name: MyString
+  spot_image_id: MyString
+  address: MyString
+  feature: 1
+  parking: 1
