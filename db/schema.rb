@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_073843) do
+ActiveRecord::Schema.define(version: 2020_08_03_133851) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_073843) do
     t.integer "user_id"
     t.integer "spot_id"
     t.float "rate"
-    t.integer "size"
+    t.integer "size", default: 0, null: false
     t.string "date"
     t.text "review"
     t.time "sunrise"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_073843) do
     t.integer "user_id"
     t.integer "spot_id"
     t.float "rate"
-    t.integer "size"
+    t.integer "size", default: 0, null: false
     t.string "report_image_id"
     t.text "review"
     t.string "board"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2020_08_03_073843) do
     t.string "name"
     t.string "spot_image_id"
     t.string "address"
-    t.integer "feature"
-    t.integer "parking"
+    t.integer "feature", default: 0, null: false
+    t.integer "parking", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_073843) do
     t.string "last_name"
     t.string "user_name"
     t.string "user_image_id"
-    t.integer "level"
+    t.integer "level", default: 0, null: false
     t.boolean "is_active", default: true, null: false
     t.boolean "local", default: true, null: false
     t.integer "shop_id"
