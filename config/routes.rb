@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  scope module: :public do
+    resources :users, :reports, :forecasts, :shops, :spots, :areas
+  end
+
+  namespace :admin do
+    resources :users, :reports, :forecasts, :shops, :spots, :areas
+  end
+
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
