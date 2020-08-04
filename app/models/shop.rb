@@ -2,6 +2,6 @@ class Shop < ApplicationRecord
 
 	belongs_to :area
 
-	has_many :users, dependent: :destroy
+	has_many :locals, dependent: :destroy
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_133851) do
+ActiveRecord::Schema.define(version: 2020_08_04_031843) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,6 +44,25 @@ ActiveRecord::Schema.define(version: 2020_08_03_133851) do
     t.float "water_temperature"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locals", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "user_name"
+    t.string "local_image_id"
+    t.integer "level"
+    t.boolean "is_active", default: true, null: false
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_locals_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_locals_on_reset_password_token", unique: true
   end
 
   create_table "reports", force: :cascade do |t|
@@ -97,8 +116,6 @@ ActiveRecord::Schema.define(version: 2020_08_03_133851) do
     t.string "user_image_id"
     t.integer "level", default: 0, null: false
     t.boolean "is_active", default: true, null: false
-    t.boolean "local", default: true, null: false
-    t.integer "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -1,6 +1,6 @@
 class Forecast < ApplicationRecord
 
-	belongs_to :spots
-	belongs_to :users
+	belongs_to :spot
+	belongs_to :local
 
 end
