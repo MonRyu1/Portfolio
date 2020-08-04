@@ -1,2 +1,36 @@
 <h1>Admin::Spots#index</h1>
 <p>Find me in app/views/admin/spots/index.html.erb</p>
+
+<h1>サーフスポット新規登録</h1>
+<%= form_for @spot, url: admin_spots_path do |f| %>
+
+	<%= f.attachment_field :spot_image %>
+
+	<%= f.label :エリア %>
+	<%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %>
+
+	<%= f.label :スポット名 %>
+	<%= f.text_field :name %>
+
+	<%= f.label :住所 %>
+	<%= f.text_field :address %>
+
+	<%= f.label :地形 %>
+	<%= f.select :feature, Spot.features.keys, {} %>
+
+	<%= f.label :駐車場 %>
+	<%= f.select :parking, Spot.parkings.keys, {} %>
+
+	<%= f.submit "追加" %>
+<% end %>
+
+<h1>サーフスポット一覧</h1>
+<% @spots.each do |spot| %>
+	<%= spot.id %>
+	<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x100" %>
+	<%= spot.name%>
+	<%= spot.address %>
+	<%= spot.feature %>
+	<%= spot.parking %>
+	<%= spot.id %>
+<% end %>
