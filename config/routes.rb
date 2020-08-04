@@ -7,15 +7,6 @@ Rails.application.routes.draw do
   get 'about' => 'about#about'
   get "users/confirm" => "public/users#confirm"
 
-  scope module: :public do
-    resources :users, :reports, :forecasts, :shops, :spots, :areas
-  end
-
-  namespace :admin do
-    resources :users, :reports, :forecasts, :shops, :spots, :areas
-  end
-
-
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -26,5 +17,19 @@ devise_for :users, controllers: {
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
+
+devise_for :locals, controllers: {
+  sessions:      'locals/sessions',
+  passwords:     'locals/passwords',
+  registrations: 'locals/registrations'
+}
+
+scope module: :public do
+    resources :users, :reports, :forecasts, :shops, :spots, :areas
+  end
+
+  namespace :admin do
+    resources :users, :reports, :forecasts, :shops, :spots, :areas
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
