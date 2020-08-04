@@ -27,8 +27,7 @@
       <%= current_local.is_active %>
       <%= link_to "ログアウト", destroy_local_session_path, method: :delete, class: "btn btn-default" %>
     <% elsif admin_signed_in? %>
-      <%= "アドミンログイン成功" %>
-      <%= current_admin.id %>
+      <%= link_to "トップ", admin_path %>
       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %>
     <% end %>
     <%= yield %>
