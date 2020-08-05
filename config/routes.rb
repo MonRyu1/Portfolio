@@ -12,24 +12,24 @@ Rails.application.routes.draw do
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
-devise_for :users, controllers: {
+  devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
 
-devise_for :locals, controllers: {
+  devise_for :locals, controllers: {
   sessions:      'locals/sessions',
   passwords:     'locals/passwords',
   registrations: 'locals/registrations'
 }
 
-scope module: :public do
-    resources :users, :reports, :forecasts, :shops, :spots, :areas
+  scope module: :public do
+    resources :users, :reports, :forecasts, :shops, :spots, :areas, :locals
   end
 
   namespace :admin do
-    resources :users, :reports, :forecasts, :shops, :spots, :areas
+    resources :users, :reports, :forecasts, :shops, :spots, :areas, :locals
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

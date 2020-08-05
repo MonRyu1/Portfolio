@@ -1,2 +1,31 @@
 <h1>Public::Users#show</h1>
 <p>Find me in app/views/public/users/show.html.erb</p>
+
+<h1>プロフィール	</h1>
+<table>
+	<thead>
+		<tr>
+		<th>プロフィール画像</th>
+		<th>性</th>
+		<th>名</th>
+		<th>ユーザーネーム</th>
+		<th>メールアドレス</th>
+		<th>レベル</th>
+		<th>有効</th>
+		<th>id</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+		<td><%= attachment_image_tag @user, :user_image, fallback: "no-image.png", :size => "70x70" %></td>
+		<td><%= @user.last_name %></td>
+		<td><%= @user.first_name %></td>
+		<td><%= @user.user_name %></td>
+		<td><%= @user.email %></td>
+		<td><%= @user.level %></td>
+		<td><%= @user.is_active %></td>
+		<td><%= @user.id %></td>
+		</tr>
+	</tbody>
+</table>
+<%= link_to "編集する", edit_user_path(current_user) %>

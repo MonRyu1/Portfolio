@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   		when Admin
   			admin_path
   		when User
-  			users_path
-  		when local
-  			users_path
+  			root_path
+  		when Local
+  			root_path
   	end
   end
 
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   		when Admin
   			admin_path
   		when User
-  			users_path
-  		when local
-  			users_path
+  			root_path
+  		when Local
+  			root_path
   	end
   end
 
