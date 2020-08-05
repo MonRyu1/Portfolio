@@ -11,24 +11,18 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= current_user.id %>
-      <%= current_user.user_name %>
-      <%= current_user.first_name %>
-      <%= current_user.last_name %>
-      <%= current_user.level %>
-      <%= current_user.is_active %>
+      <%= link_to "マイページ", user_path(current_user) %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
     <% elsif local_signed_in? %>
-      <%= current_local.id %>
-      <%= current_local.user_name %>
-      <%= current_local.first_name %>
-      <%= current_local.last_name %>
-      <%= current_local.level %>
-      <%= current_local.is_active %>
+      <%= link_to "マイページ", user_path(current_local) %>
       <%= link_to "ログアウト", destroy_local_session_path, method: :delete, class: "btn btn-default" %>
     <% elsif admin_signed_in? %>
       <%= link_to "トップ", admin_path %>
       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %>
+    <% else %>
+      <%= link_to "ユーザーの方", user_session_path %>
+      <%= link_to "ローカルの方", local_session_path %>
+      <%= link_to "管理者の方", admin_session_path  %>
     <% end %>
     <%= yield %>
   </body>
