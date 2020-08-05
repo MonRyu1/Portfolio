@@ -3,30 +3,30 @@
 
 <h1>サーフスポット新規登録</h1>
 <%= form_for @spot, url: admin_spots_path do |f| %>
-
-	<%= f.attachment_field :spot_image %>
+	<%= attachment_image_tag @spot, :spot_image, fallback: "no-image.png", :size => "100x100" %><br>
+	<%= f.attachment_field :spot_image %><br>
 
 	<%= f.label :エリア %>
-	<%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %>
+	<%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %><br>
 
 	<%= f.label :スポット名 %>
-	<%= f.text_field :name %>
+	<%= f.text_field :name %><br>
 
 	<%= f.label :住所 %>
-	<%= f.text_field :address %>
+	<%= f.text_field :address %><br>
 
 	<%= f.label :地形 %>
-	<%= f.select :feature, Spot.features.keys, {} %>
+	<%= f.select :feature, Spot.features.keys, {} %><br>
 
 	<%= f.label :駐車場 %>
-	<%= f.select :parking, Spot.parkings.keys, {} %>
+	<%= f.select :parking, Spot.parkings.keys, {} %><br>
 
 	<%= f.submit "追加" %>
 <% end %>
 
 <h1>サーフスポット一覧</h1>
 <% @spots.each do |spot| %>
-	<%= spot.id %>
+	<%= spot.area.name %>
 	<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x100" %>
 	<%= spot.name%>
 	<%= spot.address %>

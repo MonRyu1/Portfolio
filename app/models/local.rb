@@ -9,6 +9,8 @@ class Local < ApplicationRecord
 
   belongs_to :shop
 
+  attachment :local_image
+
   enum level: { ビギナー: 0, 初級: 1, 中級: 2, 上級: 3, セミプロ: 4, プロ: 5}
 
 end

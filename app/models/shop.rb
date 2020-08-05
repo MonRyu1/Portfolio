@@ -4,4 +4,6 @@ class Shop < ApplicationRecord
 
 	has_many :locals, dependent: :destroy
 
+	attachment :shop_image
+
 end
