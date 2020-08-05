@@ -1,6 +1,6 @@
-class Public::UsersController < ApplicationController
+class Public::LocalsController < ApplicationController
   def show
-    @user = current_user
+    @local = current_local
   end
 
   def edit
