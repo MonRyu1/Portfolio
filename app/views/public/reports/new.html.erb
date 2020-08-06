@@ -2,18 +2,32 @@
 <p>Find me in app/views/public/reports/new.html.erb</p>
 <h1>新規波情報投稿</h1>
 
-<%= form_for @report, url: reports_path do |f| %>
-<% f.label :ユーザーID %>
-<% f.text_field :user_id, value:current_user.id %>
+<%= form_for @report do |f| %>
 
 <%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "100x100" %><br>
 <%= f.attachment_field :report_image %><br>
 
+<%= f.label :ユーザーID %>
+<%= f.text_field :user_id, value:current_user.id %><br>
+
 <%= f.label :サーフスポット %>
 <%= f.collection_select :spot_id, Spot.all, :id, :name, :prompt => "select" %><br>
 
-<%= f.label :評価 %>
-<%= f.number_field :rate %><br>
+<div id="star">
+	<%= f.label :評価 %>
+	<%= f.hidden_field :rate, id: :review_star %>
+</div>
+
+<script>
+	$('#star').raty({
+		size      : 50,
+		starOff   : '<%= asset_path('star-off.png') %>',
+		starOn    : '<%= asset_path('star-on.png') %>',
+		starHalf  : '<%= asset_path('star-half.png') %>',
+		scoreName : 'report[rate]',
+		half      : true,
+	});
+</script>
 
 <%= f.label :サイズ %>
 <%= f.select :size, Report.sizes.keys, {} %><br>

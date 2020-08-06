@@ -5,7 +5,6 @@ class Local < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :forecasts, dependent: :destroy
-  has_many :reports, dependent: :destroy
 
   belongs_to :shop
 
