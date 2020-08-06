@@ -1,7 +1,7 @@
 <h1>Public::Top#top</h1>
 <p>Find me in app/views/public/top/top.html.erb</p>
-
-<h1>波情報一覧</h1>
+<div class="container"><div class="row"><div class="col-sm-8">
+<h3>波情報一覧</h3>
 <table>
 	<thead>
 		<tr>
@@ -48,5 +48,31 @@
 		<% end %>
 	</tbody>
 </table>
-
-
+</div>
+<div class="col-sm-4">
+	<h3>波予報一覧</h3>
+	<% @forecasts.each do |forecast| %>
+		<%= forecast.local.user_name %><br>
+		<%= forecast.spot.name %><br>
+		<div id="star-rate-<%= forecast.id %>"></div><br>
+			<script>
+				$('#star-rate-<%= forecast.id %>').raty({
+					size      : 50,
+					starOff   : '<%= asset_path('star-off.png') %>',
+					starOn    : '<%= asset_path('star-on.png') %>',
+					starHalf  : '<%= asset_path('star-half.png') %>',
+					half      : true,
+					readOnly  : true,
+					score     : <%= forecast.rate %>,
+				});
+			</script>
+		<%= forecast.size %><br>
+		<%= forecast.date %><br>
+		<%= forecast.review %><br>
+		<%= forecast.sunset %><br>
+		<%= forecast.sunset %><br>
+		<%= forecast.wind %><br>
+		<%= forecast.temperature %><br>
+		<%= forecast.water_temperature %><br>
+	<% end %>
+</div></div></div>

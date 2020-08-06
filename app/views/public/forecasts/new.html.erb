@@ -1,2 +1,56 @@
 <h1>Public::Forecasts#new</h1>
 <p>Find me in app/views/public/forecasts/new.html.erb</p>
+
+<h1>新規波予報登録</h1>
+
+<%= form_for @forecast do |f| %>
+
+<%= f.label :ローカルID %>
+<%= f.text_field :local_id, value:current_local.id %><br>
+
+<%= f.label :サーフスポット %>
+<%= f.collection_select :spot_id, Spot.all, :id, :name, :prompt => "select" %><br>
+
+<div id="star">
+	<%= f.label :評価 %>
+	<%= f.hidden_field :rate, id: :review_star %>
+</div>
+
+<script>
+	$('#star').raty({
+		size      : 50,
+		starOff   : '<%= asset_path('star-off.png') %>',
+		starOn    : '<%= asset_path('star-on.png') %>',
+		starHalf  : '<%= asset_path('star-half.png') %>',
+		scoreName : 'forecast[rate]',
+		half      : true,
+	});
+</script><br>
+
+<%= f.label :サイズ %>
+<%= f.select :size, Forecast.sizes.keys, {} %><br>
+
+<%= f.label :予測日 %>
+<%= f.text_field :date, value:@tomorrow %><br>
+
+<%= f.label :詳細 %>
+<%= f.text_area :review %><br>
+
+<%= f.label :日の出 %>
+<%= f.time_field :sunrise %><br>
+
+<%= f.label :日の入り %>
+<%= f.time_field :sunset %><br>
+
+<%= f.label :風 %>
+<%= f.number_field :wind, step: "0.1" %><br>
+
+<%= f.label :気温 %>
+<%= f.number_field :temperature, step: "0.1" %><br>
+
+<%= f.label :水温 %>
+<%= f.number_field :water_temperature, step: "0.1" %><br>
+
+<%= f.submit %>
+
+<% end %>
