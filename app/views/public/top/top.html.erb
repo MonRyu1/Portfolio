@@ -50,13 +50,22 @@
 </table>
 </div>
 <div class="col-sm-4">
-	<h3>波予報一覧</h3>
-	<% @forecasts.each do |forecast| %>
-		<%= forecast.local.user_name %><br>
-		<%= forecast.spot.name %><br>
-		<div id="star-rate-<%= forecast.id %>"></div><br>
+<h3>波予報一覧</h3>
+<% @forecasts.each do |forecast| %>
+	<table>
+		<tr>
+			<th>ユーザーネーム</th>
+			<td colspan="4"><%= forecast.local.user_name %></td>
+		</tr>
+		<tr>
+			<th>スポット名</th>
+			<td colspan="4"><%= forecast.spot.name %></td>
+		</tr>
+		<tr>
+			<th>評価</th>
+			<td colspan="4"><div id="star-rate2-<%= forecast.id %>"></div>
 			<script>
-				$('#star-rate-<%= forecast.id %>').raty({
+				$('#star-rate2-<%= forecast.id %>').raty({
 					size      : 50,
 					starOff   : '<%= asset_path('star-off.png') %>',
 					starOn    : '<%= asset_path('star-on.png') %>',
@@ -65,14 +74,20 @@
 					readOnly  : true,
 					score     : <%= forecast.rate %>,
 				});
-			</script>
-		<%= forecast.size %><br>
-		<%= forecast.date %><br>
-		<%= forecast.review %><br>
-		<%= forecast.sunset %><br>
-		<%= forecast.sunset %><br>
-		<%= forecast.wind %><br>
-		<%= forecast.temperature %><br>
-		<%= forecast.water_temperature %><br>
-	<% end %>
+			</script></td>
+		</tr>
+		<tr><th>サイズ</th><td colspan="4"><%= forecast.size %></td></tr>
+		<tr><th>日付</th><td colspan="4"><%= forecast.date %></td></tr>
+		<tr><th>詳細</th><td colspan="4"><%= forecast.review %></td></tr>
+		<tr>
+			<th>日の出</th>	<td colspan="2"><%= forecast.sunset.strftime('%H:%M') %></td>
+			<th>日没</th><td colspan="2"><%= forecast.sunset.strftime('%H:%M') %></td>
+		</tr>
+		<tr>
+			<th>風</th><td><%= forecast.wind %></td>
+			<th>気温</th><td><%= forecast.temperature %></td>
+			<th>水温</th><td><%= forecast.water_temperature %></td>
+		</tr>
+	</table>
+<% end %>
 </div></div></div>

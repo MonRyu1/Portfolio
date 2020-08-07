@@ -1,5 +1,6 @@
 class Public::ForecastsController < ApplicationController
   def index
+    @forecasts = Forecast.all
   end
 
   def new
