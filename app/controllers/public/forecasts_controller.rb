@@ -1,6 +1,6 @@
 class Public::ForecastsController < ApplicationController
   def index
-    @forecasts = Forecast.all
+    @forecasts = Forecast.all.order(created_at: :desc)
   end
 
   def new

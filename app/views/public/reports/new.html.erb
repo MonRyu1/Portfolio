@@ -42,13 +42,13 @@
 <%= f.time_field :time, value:Time.now %><br>
 
 <%= f.label :風 %>
-<%= f.number_field :wind %><br>
+<%= f.number_field :wind, step: "0.1" %><br>
 
 <%= f.label :気温 %>
-<%= f.number_field :temperature %><br>
+<%= f.number_field :temperature, step: "0.1" %><br>
 
 <%= f.label :水温 %>
-<%= f.number_field :water_temperature %><br>
+<%= f.number_field :water_temperature, step: "0.1" %><br>
 
 <%= f.submit %>
 

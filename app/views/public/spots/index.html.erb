@@ -1,2 +1,13 @@
 <h1>Public::Spots#index</h1>
 <p>Find me in app/views/public/spots/index.html.erb</p>
+<% @areas.each do |area| %>
+<%= link_to area.name, spots_path(@spot, area_id: area.id) %>
+<% end %><br>
+
+<% @area.spots.each do |spot| %>
+<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "150x150" %><br>
+<%= spot.name %><br>
+<%= spot.address %><br>
+<%= spot.feature %><br>
+<%= spot.parking %><br>
+<% end %>
