@@ -25,11 +25,11 @@
 			</td>
 			<td><%= report.user.user_name %></td>
 			<td><%= report.spot.name %></td>
-			<td><div id="star-rate-<%= report.id %>"></div>
+			<td><div id="star-rate-<%= report.id %>"></div></td>
 				<script>
 					$('#star-rate-<%= report.id %>').raty({
 						size      : 36,
-						numberMux : 5,
+						numberMax : 5,
 						starOff   : '<%= asset_path('star-off.png') %>',
 						starOn    : '<%= asset_path('star-on.png') %>',
 						starHalf  : '<%= asset_path('star-half.png') %>',
@@ -38,7 +38,6 @@
 						score     : <%= report.rate %>,
 					});
 				</script>
-			</td>
 			<td><%= report.size %></td>
 		</tr>
 		<% end %>
