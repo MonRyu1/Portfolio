@@ -1,2 +1,49 @@
 <h1>Admin::Reports#index</h1>
 <p>Find me in app/views/admin/reports/index.html.erb</p>
+<h3>波情報一覧</h3>
+<table>
+	<thead>
+		<tr>
+			<th>投稿写真</th>
+			<th>ユーザー</th>
+			<th>スポット</th>
+			<th>波評価</th>
+			<th>波の大きさ</th>
+			<th>レビュー</th>
+			<th>使用板</th>
+			<th>入水時間</th>
+			<th>風</th>
+			<th>気温</th>
+			<th>水温</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @reports.each do |report| %>
+		<tr>
+			<td><%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "100x100" %></td>
+			<td><%= report.user.user_name %></td>
+			<td><%= report.spot.name %></td>
+			<td><div id="star-rate-<%= report.id %>"></div>
+				<script>
+					$('#star-rate-<%= report.id %>').raty({
+						size      : 50,
+						starOff   : '<%= asset_path('star-off.png') %>',
+						starOn    : '<%= asset_path('star-on.png') %>',
+						starHalf  : '<%= asset_path('star-half.png') %>',
+						half      : true,
+						readOnly  : true,
+						score     : <%= report.rate %>,
+					});
+				</script>
+			</td>
+			<td><%= report.size %></td>
+			<td><%= report.review %></td>
+			<td><%= report.board %></td>
+			<td><%= report.time.strftime('%H:%M') %></td>
+			<td><%= report.wind %></td>
+			<td><%= report.temperature %></td>
+			<td><%= report.water_temperature %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

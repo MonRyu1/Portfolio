@@ -1,2 +1,34 @@
 <h1>Admin::Locals#index</h1>
 <p>Find me in app/views/admin/locals/index.html.erb</p>
+<h1>ローカル一覧</h1>
+<table>
+	<thead>
+		<tr>
+		<th>プロフィール画像</th>
+		<th>性</th>
+		<th>名</th>
+		<th>ユーザーネーム</th>
+		<th>メールアドレス</th>
+		<th>レベル</th>
+		<th>有効</th>
+		<th>id</th>
+		<th>ショップ</th>
+	</tr>
+</thead>
+<tbody>
+<% @locals.each do |local| %>
+<tr>
+<td><%= attachment_image_tag local, :local_image, fallback: "no-image.png", :size => "70x70" %></td>
+<td><%= local.last_name %></td>
+<td><%= local.first_name %></td>
+<td><%= local.user_name %></td>
+<td><%= local.email %></td>
+<td><%= local.level %></td>
+<td><%= local.is_active %></td>
+<td><%= local.id %></td>
+<td><%= local.shop.name %></td>
+</tr>
+<% end %>
+
+</tbody>
+</table>
