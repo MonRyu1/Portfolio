@@ -26,6 +26,13 @@
       <%= current_local.first_name %>
     <% elsif admin_signed_in? %>
       <%= link_to "トップ", admin_path, class: "btn btn-default"  %>
+      <%= link_to "ユーザー", admin_users_path, class: "btn btn-default" %>
+      <%= link_to "ローカル", admin_locals_path, class: "btn btn-default" %>
+      <%= link_to "波情報", admin_reports_path, class: "btn btn-default" %>
+      <%= link_to "波予報", admin_forecasts_path, class: "btn btn-default" %>
+      <%= link_to "ショップ", admin_shops_path, class: "btn btn-default" %>
+      <%= link_to "スポット", admin_spots_path, class: "btn btn-default" %>
+      <%= link_to "エリア", admin_areas_path, class: "btn btn-default" %>
       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %>
     <% else %>
       <%= link_to "ユーザーの方", user_session_path, class: "btn btn-default"  %>

@@ -1,5 +1,6 @@
 class Admin::LocalsController < ApplicationController
   def index
+  	@locals = Local.all
   end
 
   def show
