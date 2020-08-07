@@ -10,6 +10,35 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to "トップ", root_path, class: "btn btn-default"  %>
+      <%= link_to "アバウト", about_path, class: "btn btn-default"  %>
+      <%= link_to "マイページ（ユーザー）", user_path(current_user), class: "btn btn-default"  %>
+      <%= link_to "波情報投稿", new_report_path, class: "btn btn-default"  %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
+      <%= current_user.first_name %>
+    <% elsif local_signed_in? %>
+      <%= link_to "トップ", root_path, class: "btn btn-default"  %>
+      <%= link_to "アバウト", about_path, class: "btn btn-default"  %>
+      <%= link_to "マイページ（ローカル）", local_path(current_local), class: "btn btn-default"  %>
+      <%= link_to "波予報投稿", new_forecast_path, class: "btn btn-default"  %>
+      <%= link_to "ログアウト", destroy_local_session_path, method: :delete, class: "btn btn-default" %>
+      <%= current_local.first_name %>
+    <% elsif admin_signed_in? %>
+      <%= link_to "トップ", admin_path, class: "btn btn-default"  %>
+      <%= link_to "ユーザー", admin_users_path, class: "btn btn-default" %>
+      <%= link_to "ローカル", admin_locals_path, class: "btn btn-default" %>
+      <%= link_to "波情報", admin_reports_path, class: "btn btn-default" %>
+      <%= link_to "波予報", admin_forecasts_path, class: "btn btn-default" %>
+      <%= link_to "ショップ", admin_shops_path, class: "btn btn-default" %>
+      <%= link_to "スポット", admin_spots_path, class: "btn btn-default" %>
+      <%= link_to "エリア", admin_areas_path, class: "btn btn-default" %>
+      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %>
+    <% else %>
+      <%= link_to "ユーザーの方", user_session_path, class: "btn btn-default"  %>
+      <%= link_to "ローカルの方", local_session_path, class: "btn btn-default"  %>
+      <%= link_to "管理者の方", admin_session_path, class: "btn btn-default"   %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
