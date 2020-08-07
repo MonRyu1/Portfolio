@@ -1,2 +1,31 @@
 <h1>Public::Users#edit</h1>
 <p>Find me in app/views/public/users/edit.html.erb</p>
+<%= form_for @user  do |f| %>
+
+	<%= attachment_image_tag @user, :user_image, fallback: "no-image.png", :size => "200x200" %>
+	<%= f.attachment_field :user_image %>
+
+  <div class="field">
+    <%= f.label :性 %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :名 %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ユーザーネーム %><br />
+    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :レベル %><br />
+    <%= f.select :level, User.levels.keys, {} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>

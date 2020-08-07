@@ -1,2 +1,33 @@
 <h1>Public::Reports#show</h1>
 <p>Find me in app/views/public/reports/show.html.erb</p>
+<h3><%= @report.spot.name %></h3>
+<%= link_to report_path(@report) do %>
+<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "600x450" %>
+<% end %>
+<h4>Posted by...  <%= @report.user.user_name %></h4>
+<table>
+	<tr><th>波評価</th>
+		<td colspan="2"><div id="star-rate-<%= @report.id %>"></div>
+			<script>
+				$('#star-rate-<%= @report.id %>').raty({
+				size      : 50,
+				number    : 5,
+				starOff   : '<%= asset_path('star-off.png') %>',
+				starOn    : '<%= asset_path('star-on.png') %>',
+				starHalf  : '<%= asset_path('star-half.png') %>',
+				half      : true,
+				readOnly  : true,
+				score     : <%= @report.rate %>,
+				});
+			</script>
+		</td>
+  <th>波の大きさ</th><td colspan="2"><%= @report.size %></td></tr>
+	<tr><th>レビュー</th><td colspan="4"><%= @report.review %></td></tr>
+	<tr><th>使用板</th><td colspan="2"><%= @report.board %></td></tr>
+	<tr><th>入水時間</th><td colspan="2"><%= @report.time.strftime('%H:%M') %></td></tr>
+	<tr>
+		<th>風</th><td><%= @report.wind %></td>
+		<th>気温</th><td><%= @report.temperature %></td>
+		<th>水温</th><td><%= @report.water_temperature %></td>
+	</tr>
+</table>
