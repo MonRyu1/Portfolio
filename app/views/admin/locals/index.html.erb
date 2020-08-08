@@ -8,11 +8,11 @@
 		<th>性</th>
 		<th>名</th>
 		<th>ユーザーネーム</th>
+		<th>ショップ</th>
 		<th>メールアドレス</th>
 		<th>レベル</th>
-		<th>有効</th>
-		<th>id</th>
-		<th>ショップ</th>
+		<th>ステータス</th>
+		<th></th>
 	</tr>
 </thead>
 <tbody>
@@ -22,11 +22,11 @@
 <td><%= local.last_name %></td>
 <td><%= local.first_name %></td>
 <td><%= local.user_name %></td>
+<td><%= local.shop.name %></td>
 <td><%= local.email %></td>
 <td><%= local.level %></td>
 <td><%= local.is_active %></td>
-<td><%= local.id %></td>
-<td><%= local.shop.name %></td>
+<td><%= link_to "編集", edit_admin_local_path(local) %></td>
 </tr>
 <% end %>
 
