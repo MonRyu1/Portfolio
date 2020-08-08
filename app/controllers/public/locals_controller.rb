@@ -14,13 +14,18 @@ class Public::LocalsController < ApplicationController
   end
 
   def confirm
+    @local = current_local
   end
 
   def leave
+    @local = Local.find(params[:id])
+    @local.update(is_active: false)
+    reset_session
+    redirect_to root_path
   end
 
   private
   def local_params
-    params.require(:local).permit(:last_name, :first_name, :local_image, :user_name, :level, :shop_id)
+    params.require(:local).permit(:last_name, :first_name, :local_image, :user_name, :level, :shop_id, :is_active)
   end
 end
