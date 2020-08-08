@@ -25,12 +25,18 @@
 <% end %>
 
 <h1>サーフスポット一覧</h1>
-<% @spots.each do |spot| %>
-	<%= spot.area.name %><br>
-	<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x100" %><br>
-	<%= spot.name%><br>
-	<%= spot.address %><br>
-	<%= spot.feature %><br>
-	<%= spot.parking %><br>
-	<%= spot.id %><br>
-<% end %>
+<div class="main">
+	<div class="content">
+		<% @spots.each do |spot| %>
+			<div>
+				<%= spot.area.name %><br>
+				<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x100" %><br>
+				<%= spot.name%><br>
+				<%= spot.address %><br>
+				<%= spot.feature %><br>
+				<%= spot.parking %><br>
+				<%= spot.id %><br>
+			</div>
+		<% end %>
+	</div>
+</div>

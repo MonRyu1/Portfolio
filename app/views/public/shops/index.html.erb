@@ -1,11 +1,28 @@
 <h1>Public::Shops#index</h1>
 <p>Find me in app/views/public/shops/index.html.erb</p>
-<% @shops.each do |shop| %>
-<%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", :size => "100x100" %><br>
-<%= shop.name %><br>
-<%= shop.area.name %><br>
-<%= shop.address %><br>
-<%= shop.phone_number %><br>
-<%= shop.email %><br>
-<%= shop.about %><br>
+
+<% @areas.each do |area| %>
+<%= link_to area.name, shops_path(@shop, area_id: area.id) %>
+<% end %><br>
+
+<% if @area != nil %>
+	<% @area.shops.each do |shop| %>
+		<%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", :size => "100x100" %><br>
+		<%= shop.name %><br>
+		<%= shop.area.name %><br>
+		<%= shop.address %><br>
+		<%= shop.phone_number %><br>
+		<%= shop.email %><br>
+		<%= shop.about %><br>
+	<% end %>
+<% else %>
+	<% @shops.each do |shop| %>
+		<%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", :size => "100x100" %><br>
+		<%= shop.name %><br>
+		<%= shop.area.name %><br>
+		<%= shop.address %><br>
+		<%= shop.phone_number %><br>
+		<%= shop.email %><br>
+		<%= shop.about %><br>
+	<% end %>
 <% end %>

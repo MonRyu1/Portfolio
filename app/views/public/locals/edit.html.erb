@@ -30,7 +30,13 @@
     <%= f.select :level, User.levels.keys, {} %>
   </div>
 
-    <div class="actions">
+  <div class="field">
+    <%= f.label :ステータス %><br />
+    <%= f.radio_button :is_active, "true", checked: true %>有効
+    <%= f.radio_button :is_active, "false" %>退会済み
+  </div>
+
+  <div class="actions">
     <%= f.submit "更新" %>
   </div>
 <% end %>
