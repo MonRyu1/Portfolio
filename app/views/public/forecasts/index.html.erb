@@ -41,7 +41,7 @@
 			<% elsif 10 <= @wind_deg && @wind_deg <= 80 %>
 				<%= image_tag 'north_east.png', :size => "50x50" %>
 			<% elsif 80 < @wind_deg && @wind_deg < 100 %>
-				<%= image_tag 'east', :size => "50x50" %>
+				<%= image_tag 'east.png', :size => "50x50" %>
 			<% elsif 100 <= @wind_deg && @wind_deg <= 170 %>
 				<%= image_tag 'south_east.png', :size => "50x50" %>
 			<% elsif 170 < @wind_deg && @wind_deg < 190 %>
@@ -58,11 +58,11 @@
 		<% end %>
 	</p>
 	<p>
-		<% tokyo_sunrise = @sunrise+ @timezone %>
+		<% tokyo_sunrise = @sunrise + @timezone %>
 		日の出 : <%= Time.at(tokyo_sunrise).strftime("%H:%M")  %>
 	</p>
 	<p>
-		<% tokyo_sunset = @sunset+ @timezone %>
+		<% tokyo_sunset = @sunset + @timezone %>
 		日の入り : <%= Time.at(tokyo_sunset).strftime("%H:%M") %>
 	</p>
 </div>
