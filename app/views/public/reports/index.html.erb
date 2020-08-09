@@ -4,6 +4,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>投稿日</th>
 			<th>投稿写真</th>
 			<th>ユーザーID</th>
 			<th>スポット</th>
@@ -20,6 +21,7 @@
 	<tbody>
 		<% @reports.each do |report| %>
 		<tr>
+			<td><%= report.created_at.strftime('%m/%d') %></td>
 			<td><%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "100x100" %></td>
 			<td><%= report.user.id %></td>
 			<td><%= report.spot.name %></td>
@@ -27,7 +29,7 @@
 			<td><%= report.size %></td>
 			<td><%= report.review %></td>
 			<td><%= report.board %></td>
-			<td><%= report.time %></td>
+			<td><%= report.time.strftime('%H:%M') %></td>
 			<td><%= report.wind %></td>
 			<td><%= report.temperature %></td>
 			<td><%= report.water_temperature %></td>
