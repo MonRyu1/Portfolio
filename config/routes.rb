@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin/top#top'
   get 'about' => 'about#about'
   get "users/confirm" => "public/users#confirm"
+  get "locals/confirm" => "public/locals#confirm"
+  put "/users/:id/leave" => "public/users#leave", as: 'users_leave'
+  put "/locals/:id/leave" => "public/locals#leave", as: 'locals_leave'
 
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',

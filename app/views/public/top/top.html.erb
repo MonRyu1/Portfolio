@@ -3,49 +3,43 @@
 
 <% if user_signed_in? || local_signed_in? || admin_signed_in? %>
 
-<div class="container"><div class="row"><div class="col-sm-8">
-<h3>波情報一覧</h3>
-<table>
-	<thead>
-		<tr>
-			<th>投稿写真</th>
-			<th>ユーザー</th>
-			<th>スポット</th>
-			<th>波評価</th>
-			<th>波の大きさ</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @reports.each do |report| %>
-		<tr>
-			<td>
-				<%= link_to report_path(report) do %>
+<div class="container"><div class="row">
+<div class="col-sm-8">
+	<%= link_to reports_path do %>
+		<h3>波情報</h3>
+	<% end %>
+	<h3>最新レビュー</h3>
+	<% @reports.each do |report| %>
+		<% if report.created_at.strftime('%Y-%m-%d') == Date.today.to_s %>
+			<%= link_to report_path(report) do %>
 				<%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "100x100" %>
-				<% end %>
-			</td>
-			<td><%= report.user.user_name %></td>
-			<td><%= report.spot.name %></td>
-			<td><div id="star-rate-<%= report.id %>"></div></td>
-				<script>
-					$('#star-rate-<%= report.id %>').raty({
-						size      : 36,
-						numberMax : 5,
-						starOff   : '<%= asset_path('star-off.png') %>',
-						starOn    : '<%= asset_path('star-on.png') %>',
-						starHalf  : '<%= asset_path('star-half.png') %>',
-						half      : true,
-						readOnly  : true,
-						score     : <%= report.rate %>,
-					});
-				</script>
-			<td><%= report.size %></td>
-		</tr>
+			<% end %>
+			<table>
+				<tr><th>ユーザー</th><td><%= report.user.user_name %></td></tr>
+				<tr><th>日付</th><td><%= report.created_at.strftime('%Y-%m-%d') %></td></tr>
+				<tr><th>スポット</th><td><%= report.spot.name %></td></tr>
+				<tr><th>波評価</th><td><div id="star-rate-<%= report.id %>"></div></td></tr>
+					<script>
+						$('#star-rate-<%= report.id %>').raty({
+							size      : 36,
+							number    : 5,
+							starOff   : '<%= asset_path('star-off.png') %>',
+							starOn    : '<%= asset_path('star-on.png') %>',
+							starHalf  : '<%= asset_path('star-half.png') %>',
+							half      : true,
+							readOnly  : true,
+							score     : <%= report.rate %>,
+						});
+					</script>
+				<tr><th>サイズ</th><td><%= report.size %></td></tr>
+			</table>
 		<% end %>
-	</tbody>
-</table>
+	<% end %>
 </div>
 <div class="col-sm-4">
-<h3>波予報一覧</h3>
+<%= link_to forecasts_path do %>
+<h3>波予報</h3>
+<% end %>
 <% @forecasts.each do |forecast| %>
 	<table>
 		<tr>
@@ -81,27 +75,16 @@
 <% else %>
 <h1>ログインしてください</h1>
 <div class="container"><div class="row"><div class="col-sm-8">
-<h3>波情報一覧</h3>
-<table>
-	<thead>
-		<tr>
-			<th>投稿写真</th>
-			<th>ユーザー</th>
-			<th>スポット</th>
-			<th>波評価</th>
-			<th>波の大きさ</th>
-			</tr>
-	</thead>
-	<tbody>
-		<% @reports.each do |report| %>
-		<tr>
-			<td><%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "100x100" %></td>
-			<td><%= report.user.user_name %></td>
-			<td><%= report.spot.name %></td>
-			<td><div id="star-rate-<%= report.id %>"></div>
+<h3>波情報</h3>
+	<% @reports.each do |report| %>
+		<%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "100x100" %>
+		<table>
+			<tr><th>スポット</th><td><%= report.spot.name %></td></tr>
+			<tr><th>波評価</th><td><div id="star-rate-<%= report.id %>"></div></td></tr>
 				<script>
 					$('#star-rate-<%= report.id %>').raty({
-						size      : 50,
+						size      : 36,
+						numberMax : 5,
 						starOff   : '<%= asset_path('star-off.png') %>',
 						starOn    : '<%= asset_path('star-on.png') %>',
 						starHalf  : '<%= asset_path('star-half.png') %>',
@@ -110,15 +93,12 @@
 						score     : <%= report.rate %>,
 					});
 				</script>
-			</td>
-			<td><%= report.size %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+			<tr><th>サイズ</th><td><%= report.size %></td></tr>
+		</table>
+	<% end %>
 </div>
 <div class="col-sm-4">
-<h3>波予報一覧</h3>
+<h3>波予報</h3>
 <% @forecasts.each do |forecast| %>
 	<table>
 		<tr>
