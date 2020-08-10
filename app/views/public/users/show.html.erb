@@ -19,7 +19,7 @@
 					<tr>
 						<td>
 							<p><%= @user.user_name %></p>
-							<p><%= attachment_image_tag @user, :user_image, fallback: "no-image.png", :size => "70x70" %></p>
+							<p><%= attachment_image_tag @user, :user_image, fallback: "no-profile-img.png", :size => "70x70" %></p>
 						</td>
 						<td><%= @user.last_name %> <%= @user.first_name %></td>
 						<td><%= @user.email %></td>

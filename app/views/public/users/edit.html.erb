@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-12">
       <%= form_for @user do |f| %>
-      	<%= attachment_image_tag @user, :user_image, fallback: "no-image.png", :size => "200x200" %><br>
+      	<%= attachment_image_tag @user, :user_image, fallback: "no-profile-img.png", :size => "200x200" %><br>
       	<%= f.attachment_field :user_image %><br>
         <div class="field">
           <%= f.label :性 %>
