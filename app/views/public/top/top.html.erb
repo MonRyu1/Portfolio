@@ -40,7 +40,9 @@
 <%= link_to forecasts_path do %>
 <h3>波予報</h3>
 <% end %>
+<h3>明日の波</h3>
 <% @forecasts.each do |forecast| %>
+<% if forecast.date == Date.tomorrow.to_s %>
 	<table>
 		<tr>
 			<th>ユーザーネーム</th>
@@ -67,8 +69,10 @@
 			</script></td>
 		</tr>
 		<tr><th>サイズ</th><td colspan="4"><%= forecast.size %></td></tr>
+		<tr><th>日付</th><td colspan="4"><%= forecast.date %></td></tr>
 	</tr>
 	</table>
+<% end %>
 <% end %>
 </div></div></div>
 
