@@ -1,29 +1,26 @@
 <h1>Admin::Shops#new</h1>
 <p>Find me in app/views/admin/shops/new.html.erb</p>
-<h1>ショップ新規登録</h1>
-<%= form_for @shop, url: admin_shops_path do |f| %>
-	<%= attachment_image_tag @shop, :shop_image, fallback: "no-image.png", :size => "100x100" %><br>
-		<%= f.attachment_field :shop_image %><br>
-
-	<%= f.label :エリア %>
-	<%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %><br>
-
-	<%= f.label :ショップ名 %>
-	<%= f.text_field :name %><br>
-
-	<%= f.label :住所 %>
-	<%= f.text_field :address %><br>
-
-	<%= f.label :電話番号 %>
-	<%= f.text_field :phone_number %><br>
-
-	<%= f.label :メールアドレス %>
-	<%= f.text_field :email %><br>
-
-	<%= f.label :概要　%>
-	<%= f.text_area :about %>
-
-	<%= f.submit %>
-
-
-<% end %>
+<div class="admin-shop-edit container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h3 class="title">ショップ新規登録</h3>
+			<%= form_for @shop, url: admin_shops_path do |f| %>
+				<%= attachment_image_tag @shop, :shop_image, fallback: "no-image.png", :size => "100x100" %>
+					<%= f.attachment_field :shop_image %>
+				<%= f.label :エリア %>
+				<%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %>
+				<%= f.label :ショップ名 %>
+				<%= f.text_field :name %>
+				<%= f.label :住所 %>
+				<%= f.text_field :address %>
+				<%= f.label :電話番号 %>
+				<%= f.text_field :phone_number %>
+				<%= f.label :メールアドレス %>
+				<%= f.text_field :email %>
+				<%= f.label :概要　%>
+				<%= f.text_area :about %>
+				<%= f.submit "新規登録", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>

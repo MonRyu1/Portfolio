@@ -20,7 +20,7 @@
 					<% @locals.each do |local| %>
 						<tr>
 							<td>
-								<p><%= attachment_image_tag local, :local_image, fallback: "no-image.png", :size => "50x50", class: "admin-local-img" %></p><%= local.user_name %>
+								<p><%= attachment_image_tag local, :local_image, fallback: "no-profile-img.png", :size => "50x50", class: "admin-local-img" %></p><%= local.user_name %>
 							</td>
 							<td><%= local.last_name %> <%= local.first_name %></td>
 							<td><%= local.shop.name %></td>

@@ -2,21 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main{
-  display:flex;
-  justify-content:center;
+.admin-spot-index .title {
+	text-align: center;
+	margin: 30px 0px;
 }
 
-.content{
-	padding:20px;
-  flex-grow:1;
+.admin-spot-index .main {
   display:flex;
-  flex-wrap:wrap;
 }
 
-.content > div{
-	margin: 10px;
-  flex-basis:200px;
-  border: 1px solid black;
+.admin-spot-index .content {
+	flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.admin-spot-index .content > div {
+	padding: 3px;
+	margin-bottom: 20px;
+  flex-basis: 200px;
+  text-align: center;
 }
 
