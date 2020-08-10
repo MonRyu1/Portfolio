@@ -1,13 +1,14 @@
 <h1>Admin::Users#edit</h1>
 <p>Find me in app/views/admin/users/edit.html.erb</p>
-
-<h4>ユーザーID : <%= @user.id %> <%= @user.user_name %>さんのステータスを変更します</h4>
-
-<%= form_for @user, url: admin_user_path(@user) do |f| %>
-
-<%= f.label :ステータス %><br />
-<%= f.radio_button :is_active, "true" %>有効
-<%= f.radio_button :is_active, "false" %>退会
-
-<%= f.submit "変更する", "data-confirm" => "本当に変更しますか？", class: "btn btn-danger" %>
-<% end %>
+<div class="admin-user-edit container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h3 class="title">"<%= @user.user_name %>"さんのステータスを変更します...</h3>
+			<%= form_for @user, url: admin_user_path(@user) do |f| %>
+				<p><%= f.radio_button :is_active, "true" %> 有効</p>
+				<p><%= f.radio_button :is_active, "false" %> 退会</p>
+				<p><%= f.submit "変更する", "data-confirm" => "本当に変更しますか？", class: "btn btn-danger" %></p>
+			<% end %>
+		</div>
+	</div>
+</div>

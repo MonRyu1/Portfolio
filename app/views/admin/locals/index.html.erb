@@ -1,34 +1,37 @@
 <h1>Admin::Locals#index</h1>
 <p>Find me in app/views/admin/locals/index.html.erb</p>
-<h1>ローカル一覧</h1>
-<table>
-	<thead>
-		<tr>
-		<th>プロフィール画像</th>
-		<th>性</th>
-		<th>名</th>
-		<th>ユーザーネーム</th>
-		<th>ショップ</th>
-		<th>メールアドレス</th>
-		<th>レベル</th>
-		<th>ステータス</th>
-		<th></th>
-	</tr>
-</thead>
-<tbody>
-<% @locals.each do |local| %>
-<tr>
-<td><%= attachment_image_tag local, :local_image, fallback: "no-image.png", :size => "70x70" %></td>
-<td><%= local.last_name %></td>
-<td><%= local.first_name %></td>
-<td><%= local.user_name %></td>
-<td><%= local.shop.name %></td>
-<td><%= local.email %></td>
-<td><%= local.level %></td>
-<td><%= local.is_active %></td>
-<td><%= link_to "編集", edit_admin_local_path(local) %></td>
-</tr>
-<% end %>
-
-</tbody>
-</table>
+<div class="admin-local-index container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="title">ローカル</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>ユーザーネーム</th>
+						<th>性 名</th>
+						<th>ショップ</th>
+						<th>メールアドレス</th>
+						<th>レベル</th>
+						<th>ステータス</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @locals.each do |local| %>
+						<tr>
+							<td>
+								<p><%= attachment_image_tag local, :local_image, fallback: "no-image.png", :size => "50x50", class: "admin-local-img" %></p><%= local.user_name %>
+							</td>
+							<td><%= local.last_name %> <%= local.first_name %></td>
+							<td><%= local.shop.name %></td>
+							<td><%= local.email %></td>
+							<td><%= local.level %></td>
+							<td><%= local.is_active %></td>
+							<td><%= link_to "編集する", edit_admin_local_path(local), class: "btn btn-primary" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

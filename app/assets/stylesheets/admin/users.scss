@@ -1,3 +1,52 @@
 // Place all the styles related to the admin/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin-user-index .title {
+	text-align: center;
+	margin: 50px 0px;
+}
+
+.admin-user-index table {
+	border: 1px solid #C0C0C0;
+}
+
+.admin-user-index table thead tr th {
+	border: 1px solid #C0C0C0;
+	width: 200px;
+	text-align: center;
+	padding: 10px 0px;
+}
+
+.admin-user-index table tbody tr:nth-child(odd) {
+	background-color: #D7EEFF;
+}
+
+.admin-user-index table tbody tr td {
+	border: 1px solid #C0C0C0;
+	width: 200px;
+	text-align: center;
+	padding: 5px 0px;
+}
+
+.admin-user-img {
+	border-radius: 50px;
+}
+
+
+.admin-user-edit {
+	text-align: center;
+}
+
+.admin-user-edit .title {
+	margin: 50px 0px 30px 0px;
+}
+
+.admin-user-edit p {
+	display: inline-block;
+	margin: 0px 10px;
+}
+
+.admin-user-edit {
+	text-align: center;
+}
