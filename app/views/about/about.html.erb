@@ -1,2 +1,17 @@
 <h1>About#about</h1>
 <p>Find me in app/views/about/about.html.erb</p>
+
+<div class="container">
+    <%= form_with url: about_path, method: :get, local: true do |f| %>
+      <% f.text_field :city_name, placeholder: "地名" %>
+    <% end %>
+</div>
+
+<div>
+<p>朝6時の気温 : <%= @temp %></p>
+<p><%= @dt_txt %></p>
+<p>昼12時の気温 : <%= @temp2 %></p>
+<p><%= @dt_txt2 %></p>
+<p>夕方6時の気温 : <%= @temp3 %></p>
+<p><%= @dt_txt3 %></p>
+</div>
