@@ -1,55 +1,47 @@
 <h1>Public::Reports#new</h1>
 <p>Find me in app/views/public/reports/new.html.erb</p>
 <h1>新規波情報投稿</h1>
-
-<%= form_for @report do |f| %>
-
-<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "100x100" %><br>
-<%= f.attachment_field :report_image %><br>
-
-<%= f.label :ユーザーID %>
-<%= f.text_field :user_id, value:current_user.id %><br>
-
-<%= f.label :サーフスポット %>
-<%= f.collection_select :spot_id, Spot.all, :id, :name, :prompt => "select" %><br>
-
-<div id="star">
-	<%= f.label :評価 %>
-	<%= f.hidden_field :rate, id: :review_star %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+			<%= form_for @report do |f| %>
+				<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "200x200" %><br>
+				<%= f.attachment_field :report_image %><br>
+		</div>
+		<div class="col-sm-8">
+				<%= f.hidden_field :user_id, value:current_user.id %><br>
+				<%= f.label :スポット %>
+				<%= f.collection_select :spot_id, Spot.all, :id, :name, :prompt => "select" %><br>
+				<div id="star">
+					<%= f.label :評価 %>
+					<%= f.hidden_field :rate, id: :review_star %>
+				</div>
+				<script>
+					$('#star').raty({
+						size      : 50,
+						starOff   : '<%= asset_path('star-off.png') %>',
+						starOn    : '<%= asset_path('star-on.png') %>',
+						starHalf  : '<%= asset_path('star-half.png') %>',
+						scoreName : 'report[rate]',
+						half      : true,
+					});
+				</script>
+				<%= f.label :サイズ %>
+				<%= f.select :size, Report.sizes.keys, {} %><br>
+				<%= f.label :レビュー %>
+				<%= f.text_area :review %><br>
+				<%= f.label :使用板 %>
+				<%= f.text_field :board %><br>
+				<%= f.label :入水時間 %>
+				<%= f.time_field :time, value:Time.now %><br>
+				<%= f.label :風 %>
+				<%= f.number_field :wind, step: "0.1" %><br>
+				<%= f.label :気温 %>
+				<%= f.number_field :temperature, step: "0.1" %><br>
+				<%= f.label :水温 %>
+				<%= f.number_field :water_temperature, step: "0.1" %><br>
+				<%= f.submit "レポートする", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
 </div>
-
-<script>
-	$('#star').raty({
-		size      : 50,
-		starOff   : '<%= asset_path('star-off.png') %>',
-		starOn    : '<%= asset_path('star-on.png') %>',
-		starHalf  : '<%= asset_path('star-half.png') %>',
-		scoreName : 'report[rate]',
-		half      : true,
-	});
-</script>
-
-<%= f.label :サイズ %>
-<%= f.select :size, Report.sizes.keys, {} %><br>
-
-<%= f.label :レビュー %>
-<%= f.text_area :review %><br>
-
-<%= f.label :使用板 %>
-<%= f.text_field :board %><br>
-
-<%= f.label :入水時間 %>
-<%= f.time_field :time, value:Time.now %><br>
-
-<%= f.label :風 %>
-<%= f.number_field :wind, step: "0.1" %><br>
-
-<%= f.label :気温 %>
-<%= f.number_field :temperature, step: "0.1" %><br>
-
-<%= f.label :水温 %>
-<%= f.number_field :water_temperature, step: "0.1" %><br>
-
-<%= f.submit %>
-
-<% end %>

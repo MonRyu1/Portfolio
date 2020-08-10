@@ -1,42 +1,35 @@
 <h1>Public::Locals#edit</h1>
 <p>Find me in app/views/public/locals/edit.html.erb</p>
-<%= form_for @local do |f| %>
-
-  <%= attachment_image_tag @local, :local_image, fallback: "no-image.png", :size => "200x200" %><br>
-  <%= f.attachment_field :local_image %><br>
-
-  <div class="field">
-    <%= f.label :性 %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_for @local do |f| %>
+        <%= attachment_image_tag @local, :local_image, fallback: "no-image.png", :size => "200x200" %>
+        <%= f.attachment_field :local_image %>
+        <div class="field">
+          <%= f.label :性 %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+        </div>
+        <div class="field">
+          <%= f.label :名 %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+        </div>
+        <div class="field">
+          <%= f.label :ユーザーネーム %>
+          <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+        </div>
+        <div class="field">
+          <%= f.label :ショップ %>
+          <%= f.collection_select :shop_id, Shop.all, :id, :name , :prompt => "select" %>
+        </div>
+        <div class="field">
+          <%= f.label :レベル %>
+          <%= f.select :level, User.levels.keys, {} %>
+        </div>
+        <div class="actions">
+          <%= f.submit "変更する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :名 %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ショップ %><br />
-    <%= f.collection_select :shop_id, Shop.all, :id, :name , :prompt => "select" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :レベル %><br />
-    <%= f.select :level, User.levels.keys, {} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ステータス %><br />
-    <%= f.radio_button :is_active, "true", checked: true %>有効
-    <%= f.radio_button :is_active, "false" %>退会済み
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
+</div>
