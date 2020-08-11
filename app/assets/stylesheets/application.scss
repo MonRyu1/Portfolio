@@ -18,3 +18,54 @@
   @import "bootstrap";
 
 
+.header-top {
+  padding: 20px;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.header-top > div {
+  margin:0 10px;
+}
+
+.header-top > :first-child {
+  margin-right:auto;
+}
+
+#tab-menu a {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+#tab-contents #tab {
+  position: absolute;
+  margin: 2px;
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  border: 1px solid black;
+  position: fixed;
+  top: 70px;
+  right: 68px;
+}
+
+#tab-contents p{
+  color:#000;
+  line-height: 2.5;
+}
+
+.header-bottom {
+  padding: 20px;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.header-bottom > div {
+  margin:0 10px;
+}

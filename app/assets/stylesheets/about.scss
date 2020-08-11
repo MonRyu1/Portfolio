@@ -1,3 +1,27 @@
 // Place all the styles related to the about controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#tab-menu a {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+
+#tab-contents #tab {
+	margin: 2px;
+	width: 300px;
+  background: #fff;
+  border: 1px solid black;
+}
+
+#tab-contents p{
+  color:#000;
+  line-height: 2.5;
+}
