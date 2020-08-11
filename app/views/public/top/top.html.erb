@@ -1,5 +1,14 @@
 <h1>Public::Top#top</h1>
 <p>Find me in app/views/public/top/top.html.erb</p>
+<div id="container">
+  <div id="theTarget">
+	  <img src="<%= asset_path "TopPics/Top1.jpeg" %>">
+	  <img src="<%= asset_path "TopPics/Top2.jpeg" %>">
+	  <img src="<%= asset_path "TopPics/Top3.jpeg" %>">
+	  <img src="<%= asset_path "TopPics/Top4.jpeg" %>">
+	  <img src="<%= asset_path "TopPics/Top5.jpeg" %>">
+  </div>
+</div>
 
 <% if user_signed_in? || local_signed_in? || admin_signed_in? %>
 	<div class="container">
@@ -21,9 +30,9 @@
 									$('#star-rate-<%= report.id %>').raty({
 										size      : 36,
 										number    : 5,
-										starOff   : '<%= asset_path('star-off.png') %>',
-										starOn    : '<%= asset_path('star-on.png') %>',
-										starHalf  : '<%= asset_path('star-half.png') %>',
+										starOff   : '<%= asset_path('stars/star-off.png') %>',
+										starOn    : '<%= asset_path('stars/star-on.png') %>',
+										starHalf  : '<%= asset_path('stars/star-half.png') %>',
 										half      : true,
 										readOnly  : true,
 										score     : <%= report.rate %>,
@@ -55,9 +64,9 @@
 									$('#star-rate2-<%= forecast.id %>').raty({
 										size      : 36,
 										numberMux : 5,
-										starOff   : '<%= asset_path('star-off.png') %>',
-										starOn    : '<%= asset_path('star-on.png') %>',
-										starHalf  : '<%= asset_path('star-half.png') %>',
+										starOff   : '<%= asset_path('stars/star-off.png') %>',
+										starOn    : '<%= asset_path('stars/star-on.png') %>',
+										starHalf  : '<%= asset_path('stars/star-half.png') %>',
 										half      : true,
 										readOnly  : true,
 										score     : <%= forecast.rate %>,
@@ -111,9 +120,9 @@
 								$('#star-rate-<%= report.id %>').raty({
 									size      : 36,
 									numberMax : 5,
-									starOff   : '<%= asset_path('star-off.png') %>',
-									starOn    : '<%= asset_path('star-on.png') %>',
-									starHalf  : '<%= asset_path('star-half.png') %>',
+									starOff   : '<%= asset_path('stars/star-off.png') %>',
+									starOn    : '<%= asset_path('stars/star-on.png') %>',
+									starHalf  : '<%= asset_path('stars/star-half.png') %>',
 									half      : true,
 									readOnly  : true,
 									score     : <%= report.rate %>,
@@ -135,9 +144,9 @@
 								<script>
 									$('#star-rate2-<%= forecast.id %>').raty({
 										size      : 50,
-										starOff   : '<%= asset_path('star-off.png') %>',
-										starOn    : '<%= asset_path('star-on.png') %>',
-										starHalf  : '<%= asset_path('star-half.png') %>',
+										starOff   : '<%= asset_path('stars/star-off.png') %>',
+										starOn    : '<%= asset_path('stars/star-on.png') %>',
+										starHalf  : '<%= asset_path('stars/star-half.png') %>',
 										half      : true,
 										readOnly  : true,
 										score     : <%= forecast.rate %>,
