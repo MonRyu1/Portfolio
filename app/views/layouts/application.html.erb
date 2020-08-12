@@ -10,41 +10,12 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "トップ", root_path, class: "btn btn-default btn-user-lo" %>
-      <%= link_to "アバウト", about_path, class: "btn btn-default btn-user-lo" %>
-      <%= link_to "マイページ（ユーザー）", user_path(current_user), class: "btn btn-default btn-user-lo" %>
-      <%= link_to "波情報投稿", new_report_path, class: "btn btn-default btn-user-lo" %>
-      <%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-user-lo" %>
-      <%= link_to "スポット検索", areas_path, class: "btn btn-default btn-user-lo" %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-default btn-user-lo" %>
-    <% elsif local_signed_in? %>
-      <%= link_to "トップ", root_path, class: "btn btn-default btn-local-lo" %>
-      <%= link_to "アバウト", about_path, class: "btn btn-default btn-local-lo" %>
-      <%= link_to "マイページ（ローカル）", local_path(current_local), class: "btn btn-default  btn-local-lo" %>
-      <%= link_to "波予報投稿", new_forecast_path, class: "btn btn-default btn-local-lo" %>
-      <%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-local-lo" %>
-      <%= link_to "スポット検索", areas_path, class: "btn btn-default btn-local-lo" %>
-      <%= link_to "ログアウト", destroy_local_session_path, method: :delete, class: "btn btn-default btn-local-lo" %>
-    <% elsif admin_signed_in? %>
-      <%= link_to "トップ", admin_path, class: "btn btn-default btn-admin-lo"  %>
-      <%= link_to "ユーザー", admin_users_path, class: "btn btn-default btn-admin-lo" %>
-      <%= link_to "ローカル", admin_locals_path, class: "btn btn-default btn-admin-lo" %>
-      <%= link_to "波情報", admin_reports_path, class: "btn btn-default btn-admin-lo" %>
-      <%= link_to "波予報", admin_forecasts_path, class: "btn btn-default btn-admin-lo" %>
-      <%= link_to "ショップ", admin_shops_path, class: "btn btn-default btn-admin-lo"  %>
-      <%= link_to "スポット", admin_spots_path, class: "btn btn-default btn-admin-lo" %>
-      <%= link_to "エリア", admin_areas_path, class: "btn btn-default btn-admin-lo" %>
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default btn-admin-lo"  %>
-    <% else %>
-      <%= link_to "トップ", root_path, class: "btn btn-default btn-lo" %>
-      <%= link_to "アバウト", about_path, class: "btn btn-default btn-lo" %>
-      <%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-lo" %>
-      <%= link_to "スポット検索", areas_path, class: "btn btn-default btn-lo" %>
-      <%= link_to "ユーザーの方", user_session_path, class: "btn btn-default btn-lo" %>
-      <%= link_to "ローカルの方", local_session_path, class: "btn btn-default btn-lo" %>
-      <%= link_to "管理者の方", admin_session_path, class: "btn btn-default btn-lo" %>
-    <% end %>
+
+    <%= render 'layouts/header' %>
+
     <%= yield %>
+
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>

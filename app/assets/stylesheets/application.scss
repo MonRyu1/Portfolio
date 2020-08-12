@@ -11,7 +11,212 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_self
  */
  	@import "bootstrap-sprockets";
   @import "bootstrap";
+
+
+/* ヘッダー関連 */
+
+.header {
+  height: 60px;
+  line-height: 50px;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.header > div {
+  margin: 0 20px;
+}
+
+.header > :first-child {
+  margin-right:auto;
+}
+
+#tab-menu a {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+#tab-contents #tab {
+  position: absolute;
+  margin: 2px;
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  border: 1px solid black;
+  top: 70px;
+  right: 68px;
+}
+
+#tab-contents p {
+  color:#000;
+  line-height: 2.5;
+}
+
+
+/* フッター関連 */
+
+footer {
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  border-top: 1px solid #CCCCCC;
+}
+
+footer-bottom > div {
+  margin:0 10px;
+}
+
+
+/* サインイン・アップ画面関連 */
+
+/* 背景写真 */
+.user-background {
+  background-image: url(UserSign.jpeg);
+  background-size: cover;
+  backgorund-position: center;
+  height: 700px;
+}
+
+.local-background {
+  background-image: url(TopPics/Top2.jpeg);
+  background-size: cover;
+  backgorund-position: center;
+  height: 700px;
+}
+
+
+/* 入力フォーム背景透かし */
+.form-background {
+  height: 700px;
+  width: 50%;
+  background-color: rgba( 255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.local-form-background {
+  height: 700px;
+  width: 50%;
+  background-color: rgba( 255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+}
+
+
+/* サインインフォーム関連 */
+.signin-form {
+  width: 80%;
+  height: 80%;
+  display: inline-block;
+  padding: 20px 0;
+}
+
+.signin-form .field {
+  padding: 20px 0;
+}
+
+.signin-form input[type="email"] {
+  width: 100%;
+  height: 35px;
+}
+
+.signin-form input[type="password"] {
+  width: 100%;
+  height: 35px;
+}
+
+
+/* サインアップフォーム関連 */
+.signup-form {
+  width: 80%;
+  height: 80%;
+  display: inline-block;
+}
+
+.signup-form table {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.signup-form table tr th {
+  padding: 12px;
+}
+
+.signup-form input[type="text"] {
+  width: 100%;
+  height: 25px;
+}
+
+.signup-form .level {
+  width: 100%;
+  height: 25px;
+}
+
+.signup-form input[type="email"] {
+  width: 100%;
+  height: 25px;
+}
+
+.signup-form input[type="password"] {
+  width: 100%;
+  height: 25px;
+}
+
+.form-background .actions {
+  text-align: center;
+}
+
+.form-background .submit-btn {
+  width: 80%;
+}
+
+.local-form-background .actions {
+  text-align: center;
+}
+
+.local-form-background .submit-btn {
+  width: 80%;
+}
+
+/* リセットフォーム関連 */
+.reset-form {
+  width: 80%;
+  height: 80%;
+  display: inline-block;
+}
+
+.reset-form input[type="email"] {
+  width: 100%;
+  height: 35px;
+}
+
+.reset-form .field {
+  margin-top: 80px;
+}
+
+.reset-form .actions {
+  margin-top: 60px;
+}
+
+/* 管理者サインイン関連 */
+.admin-signin {
+  margin: 50px auto;
+}
+
+.admin-signin .field {
+  margin: 20px auto;
+}

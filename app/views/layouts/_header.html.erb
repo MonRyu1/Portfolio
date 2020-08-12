@@ -1,0 +1,53 @@
+<div class="header">
+  <diV class="header-logo">
+    <%= link_to root_path do %>
+      <img src="<%= asset_path "Logo.png" %>" width="200" height="65">
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div id="tab-menu">
+      <a class="trigger" href="#" >
+        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50">
+      </a>
+    </div>
+    <div id="tab-contents">
+      <div id="tab">
+        <p>ユーザー</p>
+      </div>
+    </div>
+  <% elsif local_signed_in? %>
+   <div id="tab-menu">
+      <a class="trigger" href="#" >
+        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50">
+      </a>
+    </div>
+    <div id="tab-contents">
+      <div id="tab">
+        <p>ローカル</p>
+      </div>
+    </div>
+  <% elsif admin_signed_in? %>
+    <div id="tab-menu">
+      <a class="trigger" href="#" >
+        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50">
+      </a>
+    </div>
+    <div id="tab-contents">
+      <div id="tab">
+        <p>管理者</p>
+      </div>
+    </div>
+  <% else %>
+  <div>
+    <%= link_to "アバウト", about_path %>
+  </div>
+  <% end %>
+  <script>
+    $('#tab-contents #tab').hide();
+    $('#tab-menu a').on('click', function() {
+      $(this).toggleClass('active');
+      $('#tab-contents #tab').fadeToggle();
+    return false;
+    });
+  </script>
+</diV>
