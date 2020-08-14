@@ -21,8 +21,8 @@
 /* ヘッダー関連 */
 
 .header {
-  height: 60px;
-  line-height: 50px;
+  height: 70px;
+  line-height: 70px;
   display:flex;
   justify-content:flex-end;
 }
@@ -36,30 +36,27 @@
 }
 
 #tab-menu a {
-  color: #fff;
-  padding: 20px;
   text-align: center;
-}
-
-#tab-menu .active {
-  background: #fff;
-  color: #000;
 }
 
 #tab-contents #tab {
   position: absolute;
-  margin: 2px;
   width: 220px;
   height: 220px;
   background: #fff;
-  border: 1px solid black;
+  border: 1px solid #EEEEEE;
   top: 70px;
-  right: 68px;
+  right: 40px;
+  z-index: 10;
 }
 
 #tab-contents p {
   color:#000;
   line-height: 2.5;
+}
+
+#tab-menu .user-img {
+  border-radius: 50px;
 }
 
 
@@ -89,7 +86,7 @@ footer-bottom > div {
 }
 
 .local-background {
-  background-image: url(TopPics/Top2.jpeg);
+  background-image: url(LocalSign.jpeg);
   background-size: cover;
   backgorund-position: center;
   height: 700px;
