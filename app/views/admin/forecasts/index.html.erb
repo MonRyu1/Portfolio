@@ -1,9 +1,7 @@
-<h1>Admin::Forecasts#index</h1>
-<p>Find me in app/views/admin/forecasts/index.html.erb</p>
 <div class="admin-forecast-index container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h3 class="title">波予報一覧</h3>
+			<h1 class="title">波予報一覧</h1>
 			<table>
 				<thead>
 					<tr>
@@ -24,9 +22,9 @@
 							<script>
 								$('#star-rate2-<%= forecast.id %>').raty({
 									size      : 50,
-									starOff   : '<%= asset_path('star-off.png') %>',
-									starOn    : '<%= asset_path('star-on.png') %>',
-									starHalf  : '<%= asset_path('star-half.png') %>',
+									starOff   : '<%= asset_path('stars/star-off.png') %>',
+									starOn    : '<%= asset_path('stars/star-on.png') %>',
+									starHalf  : '<%= asset_path('stars/star-half.png') %>',
 									half      : true,
 									readOnly  : true,
 									score     : <%= forecast.rate %>,

@@ -1,18 +1,16 @@
-<h1>Admin::Shops#index</h1>
-<p>Find me in app/views/admin/shops/index.html.erb</p>
 <div class="admin-shop-index container">
 	<div class="row">
 		<div class="col-sm-12">
 			<h3 class="title">サーフショップ一覧</h3>
-			<%= link_to "ショップ新規登録", new_admin_shop_path %>
+			<h4><%= link_to "ショップ新規登録", new_admin_shop_path %></h4>
 			<table>
 				<thead>
 					<tr>
 						<th>エリア</th>
 						<th>ショップ名</th>
-						<th>住所</th>
 						<th>連絡先</th>
 						<th class="about">詳細</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,12 +21,13 @@
 							<p><%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", :size => "100x100" %></p>
 							<p><%= shop.name %></p>
 						</td>
-						<td><%= shop.address %></td>
 						<td>
+							<p><%= shop.address %></p>
 							<p><%= shop.phone_number %></p>
 							<p><%= shop.email %></p>
 						</td>
 						<td><%= shop.about %></td>
+						<td><%= link_to "編集する", edit_admin_shop_path(shop), class: "btn btn-primary" %></td>
 					</tr><% end %>
 				</tbody>
 			</table>

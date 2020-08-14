@@ -1,0 +1,10 @@
+<div class="header-admin">
+  <div class="header-admin-logo">
+    <%= link_to admin_path do %>
+      <img src="<%= asset_path "LogoWhite.png" %>" width="200" height="65">
+    <% end %>
+  </div>
+  <div id="admin-logout">
+    <p><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %></p>
+  </div>
+</diV>

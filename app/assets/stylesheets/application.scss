@@ -21,42 +21,59 @@
 /* ヘッダー関連 */
 
 .header {
-  height: 70px;
-  line-height: 70px;
+  height: 80px;
+  line-height: 80px;
   display:flex;
   justify-content:flex-end;
+  border-bottom: 1px solid #CCCCCC;
 }
 
-.header > div {
-  margin: 0 20px;
+.header-admin {
+  height: 80px;
+  line-height: 80px;
+  display:flex;
+  justify-content:flex-end;
+  background-color: black;
 }
 
-.header > :first-child {
+/* ヘッダーロゴ */
+.header .header-logo,
+.header-admin .header-admin-logo {
+  margin-left: 30px;
   margin-right:auto;
 }
 
-#tab-menu a {
+
+/* ヘッダーアイコン関連 */
+#icon a {
+  margin-right: 30px;
   text-align: center;
+  opacity: 0.7;
 }
 
-#tab-contents #tab {
+#admin-logout p {
+  margin-right: 30px;
+}
+
+#icon-contents #tab {
   position: absolute;
-  width: 220px;
-  height: 220px;
-  background: #fff;
-  border: 1px solid #EEEEEE;
-  top: 70px;
-  right: 40px;
+  width: 200px;
+  height: auto;
+  background-color: rgba( 255, 255, 255, 0.8);
+  border: 1px solid #DDDDDD;
+  border-radius: 20px 0px 20px 20px;
+  top: 60px;
+  right: 80px;
   z-index: 10;
 }
 
-#tab-contents p {
-  color:#000;
-  line-height: 2.5;
+#icon .user-img {
+  border-radius: 50px;
+  text-align: center;
 }
 
-#tab-menu .user-img {
-  border-radius: 50px;
+#tab {
+  text-align: center;
 }
 
 
@@ -79,14 +96,14 @@ footer-bottom > div {
 
 /* 背景写真 */
 .user-background {
-  background-image: url(UserSign.jpeg);
+  background-image: image-url("UserSign.jpeg");
   background-size: cover;
   backgorund-position: center;
   height: 700px;
 }
 
 .local-background {
-  background-image: url(LocalSign.jpeg);
+  background-image: image-url("LocalSign.jpeg");
   background-size: cover;
   backgorund-position: center;
   height: 700px;
@@ -210,10 +227,15 @@ footer-bottom > div {
 }
 
 /* 管理者サインイン関連 */
+.admin-background {
+  background-color: rgba( 0, 0, 0, 0.4);
+  padding: 100px 0px;
+}
+
 .admin-signin {
-  margin: 50px auto;
+  text-align: center;
 }
 
 .admin-signin .field {
-  margin: 20px auto;
+  margin: 30px auto;
 }
