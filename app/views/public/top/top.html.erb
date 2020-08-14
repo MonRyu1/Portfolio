@@ -1,7 +1,7 @@
 <% if user_signed_in? || local_signed_in? || admin_signed_in? %>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
+			<div class="col-sm-12">
 				<h3><%= link_to "波情報はこちら", reports_path %></h3>
 				<h3>最新レビュー</h3>
 				<% @reports.each do |report| %>
@@ -31,7 +31,7 @@
 					<% end %>
 				<% end %>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-12">
 				<h3><%= link_to "波予報はこちら", forecasts_path %></h3>
 				<h3>明日の波</h3>
 				<% @forecasts.each do |forecast| %>
@@ -67,7 +67,7 @@
 					<% end %>
 				<% end %>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-12">
 				<h4>明日(<%= Date.tomorrow.strftime("%m/%d") %>)のお天気検索</h4>
 				<div class="container">
 			    <%= form_with url: root_path, method: :get, local: true do |f| %>
