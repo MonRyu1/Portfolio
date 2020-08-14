@@ -1,22 +1,2 @@
 <h1>About#about</h1>
 <p>Find me in app/views/about/about.html.erb</p>
-<div id="tab-menu">
-	<a class="trigger" href="#" >
-		<img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50">
-	</a>
-</div>
-
-<div id="tab-contents">
-	<div id="tab">
-		<p>TAB1のテキストが入ります。</p>
-	</div>
-</div>
-
-<script>
-	$('#tab-contents #tab').hide();
-	$('#tab-menu a').on('click', function() {
-		$(this).toggleClass('active');
-		$('#tab-contents #tab').fadeToggle();
-  return false;
-  });
-</script>

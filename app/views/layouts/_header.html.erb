@@ -7,7 +7,7 @@
   <% if user_signed_in? %>
     <div id="tab-menu">
       <a class="trigger" href="#" >
-        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50">
+        <%= attachment_image_tag current_user, :user_image, fallback: "no-profile-img.png", :size => "50x50", class: "user-img" %>
       </a>
     </div>
     <div id="tab-contents">
@@ -18,7 +18,7 @@
   <% elsif local_signed_in? %>
    <div id="tab-menu">
       <a class="trigger" href="#" >
-        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50">
+        <%= attachment_image_tag current_local, :local_image, fallback: "no-profile-img.png", :size => "50x50", class: "local-img" %>
       </a>
     </div>
     <div id="tab-contents">
@@ -29,7 +29,7 @@
   <% elsif admin_signed_in? %>
     <div id="tab-menu">
       <a class="trigger" href="#" >
-        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50">
+        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50" class="user-img" >
       </a>
     </div>
     <div id="tab-contents">
@@ -38,9 +38,18 @@
       </div>
     </div>
   <% else %>
-  <div>
-    <%= link_to "アバウト", about_path %>
-  </div>
+    <div id="tab-menu">
+      <a class="trigger" href="#" >
+        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50" class="user-img">
+      </a>
+    </div>
+    <div id="tab-contents">
+      <div id="tab">
+        <P><%= link_to "ユーザーログイン", user_session_path %></P>
+        <p><%= link_to "ローカルログイン", local_session_path %></p>
+        <p><%= link_to "管理者", admin_session_path %></p>
+      </div>
+    </div>
   <% end %>
   <script>
     $('#tab-contents #tab').hide();
