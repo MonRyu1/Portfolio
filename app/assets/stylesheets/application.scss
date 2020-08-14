@@ -21,17 +21,28 @@
 /* ヘッダー関連 */
 
 .header {
-  height: 70px;
-  line-height: 70px;
+  height: 80px;
+  line-height: 80px;
   display:flex;
   justify-content:flex-end;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.header-admin {
+  height: 80px;
+  line-height: 80px;
+  display:flex;
+  justify-content:flex-end;
+  background-color: black;
 }
 
 /* ヘッダーロゴ */
-.header .header-logo {
+.header .header-logo,
+.header-admin .header-admin-logo {
   margin-left: 30px;
   margin-right:auto;
 }
+
 
 /* ヘッダーアイコン関連 */
 #icon a {
@@ -85,14 +96,14 @@ footer-bottom > div {
 
 /* 背景写真 */
 .user-background {
-  background-image: url(UserSign.jpeg);
+  background-image: image-url("UserSign.jpeg");
   background-size: cover;
   backgorund-position: center;
   height: 700px;
 }
 
 .local-background {
-  background-image: url(LocalSign.jpeg);
+  background-image: image-url("LocalSign.jpeg");
   background-size: cover;
   backgorund-position: center;
   height: 700px;
@@ -216,8 +227,12 @@ footer-bottom > div {
 }
 
 /* 管理者サインイン関連 */
+.admin-background {
+  background-color: rgba( 0, 0, 0, 0.4);
+  padding: 100px 0px;
+}
+
 .admin-signin {
-  margin: 100px auto;
   text-align: center;
 }
 

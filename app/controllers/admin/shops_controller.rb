@@ -11,6 +11,7 @@ class Admin::ShopsController < ApplicationController
   end
 
   def edit
+    @shop = Shop.find(params[:id])
   end
 
   def create
@@ -20,9 +21,15 @@ class Admin::ShopsController < ApplicationController
   end
 
   def update
+    @shop = Shop.find(params[:id])
+    @shop.update(shop_params)
+    redirect_to admin_shops_path
   end
 
   def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    redirect_to admin_shops_path
   end
 
   private
