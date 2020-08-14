@@ -6,7 +6,7 @@
 			<table>
 				<tr>
 					<th><%= f.label :エリア %></th>
-					<td><%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %></td>
+					<td><%= f.collection_select(:area_id, Area.all, :id, :name, {prompt: "select"}, {class: "area"}) %></td>
 				</tr>
 				<tr>
 					<th><%= f.label :ショップ名 %></th>
@@ -26,15 +26,17 @@
 				</tr>
 				<tr>
 					<th><%= f.label :概要　%></th>
-					<td><%= f.text_area :about %></td>
+					<td><%= f.text_area :about, class: "about" %></td>
 				</tr>
 			</table>
 		</div>
 		<div class="form-image col-sm-6">
 			<%= attachment_image_tag @shop, :shop_image, fallback: "no-image.png", :size => "300x300" %>
-			<%= f.attachment_field :shop_image %>
-		</div>
+			<div id="image-button">
+				<%= f.attachment_field :shop_image %>
+			</div>
 			<%= f.submit "新規登録", class: "btn btn-primary submit-btn" %>
+		</div>
 		<% end %>
 	</div>
 </div>

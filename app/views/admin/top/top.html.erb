@@ -1,2 +1,31 @@
-<h1>Admin::Top#top</h1>
-<p>Find me in app/views/admin/top/top.html.erb</p>
+<div class="admin-top-background">
+	<div class="admin-top-contents">
+		<div class="admin-top container">
+			<div class="row">
+				<div class="flex col-sm-12">
+					<div class="button">
+						<%= link_to "ユーザー", admin_users_path, class: "btn btn-default btn-admin-lo" %>
+					</div>
+					<div class="button">
+						<%= link_to "ローカル", admin_locals_path, class: "btn btn-default btn-admin-lo" %>
+					</div>
+					<div class="button">
+						<%= link_to "波情報", admin_reports_path, class: "btn btn-default btn-admin-lo" %>
+					</div>
+					<div class="button">
+						<%= link_to "波予報", admin_forecasts_path, class: "btn btn-default btn-admin-lo" %>
+					</div>
+					<div class="button">
+						<%= link_to "ショップ", admin_shops_path, class: "btn btn-default btn-admin-lo"  %>
+					</div>
+					<div class="button">
+						<%= link_to "スポット", admin_spots_path, class: "btn btn-default btn-admin-lo" %>
+					</div>
+					<div class="button">
+						<%= link_to "エリア", admin_areas_path, class: "btn btn-default btn-admin-lo" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

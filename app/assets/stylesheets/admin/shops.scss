@@ -11,6 +11,7 @@
 .admin-shop-index .title {
 	text-align: center;
 	margin: 50px 0px;
+	font-weight: bolder;
 }
 
 .admin-shop-index table {
@@ -39,42 +40,81 @@
 }
 
 
-/* ショップ新規登録関連 */
+/* ショップ新規登録、編集関連 */
 
-.admin-shop-new {
+.admin-shop-new,
+.admin-shop-edit {
 	text-align: center;
 	margin-bottom: 100px;
 }
 
-.admin-shop-new .title {
-	margin: 50px 0px 30px 0px;
+.admin-shop-new .title,
+.admin-shop-edit .title {
+	margin: 50px auto;
+	font-weight: bolder;
 }
 
-.admin-shop-new .form {
-	height: 700px;
+/* ショップ新規登録、編集入力フォーム */
+
+.admin-shop-new .form,
+.admin-shop-edit .form {
+	height: 520px;
 }
 
-.admin-shop-new table {
-	border: 1px solid #C0C0C0;
+.admin-shop-new table,
+.admin-shop-edit table {
 	margin: 0 auto;
 	width: 100%;
-	height: 600px;
+	height: 500px;
 }
 
-.admin-shop-new table tr th {
+.admin-shop-new table tr th,
+.admin-shop-edit table tr th {
 	text-align: center;
-	border: 1px solid #C0C0C0;
 	width: 30%;
 }
 
-.admin-shop-new table tr td {
-	border: 1px solid #C0C0C0;
+.admin-shop-new table tr td,
+.admin-shop-edit table tr td {
 	width: 70%;
 }
 
-.admin-shop-new .submit-btn {
-	margin-top: 130px;
-	width: 30%;
+.admin-shop-new .form input[type="text"],
+.admin-shop-edit .form input[type="text"] {
+  width: 80%;
+  height: 25px;
 }
 
-/* ショップ編集関連 */
+.admin-shop-new .form .area,
+.admin-shop-edit .form .area {
+  width: 80%;
+  height: 25px;
+}
+
+.admin-shop-new .form .about,
+.admin-shop-edit .form .about {
+  width: 80%;
+  height: 100px;
+}
+
+.admin-shop-new .form input[type="email"],
+.admin-shop-edit .form input[type="email"] {
+  width: 80%;
+  height: 25px;
+}
+
+.admin-shop-new .form-image #image-button,
+.admin-shop-edit .form-image #image-button {
+	margin-top: 30px;
+}
+
+.admin-shop-new .submit-btn,
+.admin-shop-edit .submit-btn {
+	width: 50%;
+	margin-top: 70px;
+}
+
+.admin-shop-edit .delete-btn {
+	width: 35%;
+	margin-top: 40px;
+}
