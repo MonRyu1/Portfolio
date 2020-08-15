@@ -1,15 +1,21 @@
-<h1>Admin::Areas#index</h1>
-<p>Find me in app/views/admin/areas/index.html.erb</p>
-<h1>エリア新規登録</h1>
-
-<%= form_for @area, url: admin_areas_path do |f| %>
-<%= f.label :地名 %>
-<%= f.text_field :name, autofocus: true %>
-<%= f.submit "追加" %>
-<% end %>
-
-<h1>エリア一覧</h1>
-<% @areas.each do |area| %>
-<%= area.id %>
-<%= area.name %>
-<% end %>
+<div class="admin-area container">
+	<div class="row">
+		<div class="admin-area-new col-sm-3">
+			<h3>エリア新規登録</h3>
+			<%= form_for @area, url: admin_areas_path do |f| %>
+				<div>
+					<%= f.label :地名 %>
+					<%= f.text_field :name, autofocus: true %>
+				</div>
+				<div><%= f.submit "追加", class: "btn btn-primary" %></div>
+			<% end %>
+		</div>
+		<div class="admin-area-index sol-sm-9">
+			<h2>エリア一覧</h2>
+			<% @areas.each do |area| %>
+				<%= area.id %>
+				<%= area.name %>
+			<% end %>
+		</div>
+	</div>
+</div>

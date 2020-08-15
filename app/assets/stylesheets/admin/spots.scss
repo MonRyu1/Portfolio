@@ -5,7 +5,7 @@
 
 /* スポット一覧関連 */
 
-.admin-spot-index{
+.admin-spot-index {
   margin: 50px 0px 100px 0px;
 }
 
@@ -41,6 +41,14 @@
 
 /* スポット新規作成関連 */
 
+.admin-spot-new {
+  padding: 0em 1em 2em 1em;
+  background: white;
+  border-top: solid 4px black;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
 .admin-spot-new table {
   margin: 20px 0px 40px 0px;
   width: 100%;
@@ -49,6 +57,10 @@
 
 .admin-spot-new table tr th {
   padding: 2px 7px;
+}
+
+.admin-spot-new .submit-btn {
+  width: 60%;
 }
 
 

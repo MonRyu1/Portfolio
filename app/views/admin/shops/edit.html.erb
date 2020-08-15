@@ -33,7 +33,7 @@
 		<div class="form-image col-sm-6">
 			<%= attachment_image_tag @shop, :shop_image, fallback: "no-image.png", :size => "300x300" %>
 			<div id="image-button"><%= f.attachment_field :shop_image %></div>
-			<%= f.submit "更新する", class: "btn btn-primary submit-btn" %>
+			<%= f.submit "更新", class: "btn btn-primary submit-btn" %>
 		</div>
 		<% end %>
 	</div>
