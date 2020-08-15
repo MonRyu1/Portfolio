@@ -24,6 +24,9 @@ class Public::ReportsController < ApplicationController
   end
 
   def destroy
+    @report = Report.find(params[:id])
+    @report.destroy
+    redirect_to admin_reports_path
   end
 
   private

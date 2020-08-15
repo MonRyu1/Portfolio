@@ -6,19 +6,21 @@
 				<thead>
 					<tr>
 						<th>ユーザー</th>
-						<th>スポット</th>
-						<th>評価</th>
+						<th>スポット / 評価</th>
 						<th class="review">レビュー</th>
 						<th>日照時間</th>
 						<th>詳細</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @forecasts.each do |forecast| %>
 					<tr>
 						<td><p><%= attachment_image_tag forecast.local, :local_image, fallback: "no-profile-img.png", :size => "50x50", class: "admin-user-img" %></p><p><%= forecast.local.user_name %></p></td>
-						<td><%= forecast.spot.name %></td>
-						<td><%= forecast.size %><div id="star-rate2-<%= forecast.id %>"></div>
+						<td>
+							<p><%= forecast.spot.name %></p>
+							<p><%= forecast.size %></p>
+							<div id="star-rate2-<%= forecast.id %>"></div>
 							<script>
 								$('#star-rate2-<%= forecast.id %>').raty({
 									size      : 50,
@@ -39,6 +41,9 @@
 							<p>風 : <%= forecast.wind %></p>
 							<p>気温 : <%= forecast.temperature %></p>
 							<p>水温 : <%= forecast.water_temperature %></p>
+						</td>
+						<td>
+							<%= link_to "削除する", forecast_path(forecast), method: :delete, data: { confirm: '本当に削除しますか？' } %>
 						</td>
 					</tr>
 					<% end %>

@@ -11,6 +11,7 @@ class Admin::SpotsController < ApplicationController
   end
 
   def edit
+    @spot = Spot.find(params[:id])
   end
 
   def create
@@ -20,9 +21,15 @@ class Admin::SpotsController < ApplicationController
   end
 
   def update
+    @spot = Spot.find(params[:id])
+    @spot.update(spot_params)
+    redirect_to admin_spots_path
   end
 
   def destroy
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_to admin_spots_path
   end
 
   private
