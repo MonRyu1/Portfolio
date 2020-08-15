@@ -10,9 +10,9 @@
 			<script>
 				$('#star-rate-<%= forecast.id %>').raty({
 					size      : 50,
-					starOff   : '<%= asset_path('star-off.png') %>',
-					starOn    : '<%= asset_path('star-on.png') %>',
-					starHalf  : '<%= asset_path('star-half.png') %>',
+					starOff   : '<%= asset_path('stars/star-off.png') %>',
+					starOn    : '<%= asset_path('stars/star-on.png') %>',
+					starHalf  : '<%= asset_path('stars/star-half.png') %>',
 					half      : true,
 					readOnly  : true,
 					score     : <%= forecast.rate %>,
@@ -37,21 +37,21 @@
 	<p>風向き :
 		<% if @wind_deg != nil %>
 			<% if 350 < @wind_deg || (@wind_deg != 0 && @wind_deg < 10) %>
-				<%= image_tag 'north.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/north.png', :size => "50x50" %>
 			<% elsif 10 <= @wind_deg && @wind_deg <= 80 %>
-				<%= image_tag 'north_east.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/north_east.png', :size => "50x50" %>
 			<% elsif 80 < @wind_deg && @wind_deg < 100 %>
-				<%= image_tag 'east.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/east.png', :size => "50x50" %>
 			<% elsif 100 <= @wind_deg && @wind_deg <= 170 %>
-				<%= image_tag 'south_east.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/south_east.png', :size => "50x50" %>
 			<% elsif 170 < @wind_deg && @wind_deg < 190 %>
-				<%= image_tag 'south.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/south.png', :size => "50x50" %>
 			<% elsif 190 <= @wind_deg && @wind_deg <= 260%>
-				<%= image_tag 'south_west.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/south_west.png', :size => "50x50" %>
 			<% elsif 260 < @wind_deg && @wind_deg < 280 %>
-				<%= image_tag 'west.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/west.png', :size => "50x50" %>
 			<% elsif 280 <= @wind_deg && @wind_deg <= 350 %>
-				<%= image_tag 'north_west.png', :size => "50x50" %>
+				<%= image_tag 'Arrows/north_west.png', :size => "50x50" %>
 			<% else %>
 				<%= image_tag 'no_image.png', :size => "50x50" %>
 			<% end %>
