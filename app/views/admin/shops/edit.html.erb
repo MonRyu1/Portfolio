@@ -1,2 +1,41 @@
-<h1>Admin::Shops#edit</h1>
-<p>Find me in app/views/admin/shops/edit.html.erb</p>
+<div class="admin-shop-edit container">
+	<h3 class="title">ショップ編集</h3>
+	<div class="form row">
+		<%= form_for @shop, url: admin_shop_path do |f| %>
+		<div class="form-detail col-sm-6">
+			<table>
+				<tr>
+					<th><%= f.label :エリア %></th>
+					<td><%= f.collection_select(:area_id, Area.all, :id, :name, {prompt: "select"}, {class: "area"}) %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :ショップ名 %></th>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :住所 %></th>
+					<td><%= f.text_field :address %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :電話番号 %></th>
+					<td><%= f.text_field :phone_number %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :メールアドレス %></th>
+					<td><%= f.text_field :email %></td>
+				</tr>
+				<tr>
+					<th><%= f.label :概要　%></th>
+					<td><%= f.text_area :about, class: "about" %></td>
+				</tr>
+			</table>
+		</div>
+		<div class="form-image col-sm-6">
+			<%= attachment_image_tag @shop, :shop_image, fallback: "no-image.png", :size => "300x300" %>
+			<div id="image-button"><%= f.attachment_field :shop_image %></div>
+			<%= f.submit "更新", class: "btn btn-primary submit-btn" %>
+		</div>
+		<% end %>
+	</div>
+	<%= link_to "このショップを削除する", admin_shop_path(@shop), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger delete-btn" %>
+</div>

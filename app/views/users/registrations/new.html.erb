@@ -1,49 +1,48 @@
-<h2>新規会員登録（ユーザー）</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :性 %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+<div class="user-background">
+  <div class="form-background">
+    <div class="signup-form">
+      <h2><strong>サインアップ</strong></h2>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+        <table>
+          <tr>
+            <th><%= f.label :性 %></th>
+            <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :名 %></th>
+            <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :ユーザーネーム %></th>
+            <td><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :レベル %></th>
+            <td><%= f.select :level, User.levels.keys, {}, {class: "level"} %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :メールアドレス %></th>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :パスワード %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> 文字以上)</em>
+              <% end %>
+            </th>
+            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :パスワード（確認用）%></th>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          </tr>
+        </table>
+        <div class="actions">
+          <%= f.submit "サインアップ", class: "btn btn-primary submit-btn" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :名 %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :レベル %><br />
-    <%= f.select :level, User.levels.keys, {} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

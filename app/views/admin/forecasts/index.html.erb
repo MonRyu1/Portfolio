@@ -1,47 +1,54 @@
-<h1>Admin::Forecasts#index</h1>
-<p>Find me in app/views/admin/forecasts/index.html.erb</p>
-<h3>波予報一覧</h3>
-<table>
-	<thead>
-		<tr>
-			<th>ユーザー</th>
-			<th>スポット</th>
-			<th>波評価</th>
-			<th>波の大きさ</th>
-			<th>レビュー</th>
-			<th>日の出</th>
-			<th>日没</th>
-			<th>風</th>
-			<th>気温</th>
-			<th>水温</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @forecasts.each do |forecast| %>
-		<tr>
-			<td><%= forecast.local.user_name %></td>
-			<td><%= forecast.spot.name %></td>
-			<td><div id="star-rate2-<%= forecast.id %>"></div>
-				<script>
-					$('#star-rate2-<%= forecast.id %>').raty({
-						size      : 50,
-						starOff   : '<%= asset_path('star-off.png') %>',
-						starOn    : '<%= asset_path('star-on.png') %>',
-						starHalf  : '<%= asset_path('star-half.png') %>',
-						half      : true,
-						readOnly  : true,
-						score     : <%= forecast.rate %>,
-					});
-				</script>
-			</td>
-			<td><%= forecast.size %></td>
-			<td><%= forecast.review %></td>
-			<td><%= forecast.sunrise.strftime('%H:%M') %></td>
-			<td><%= forecast.sunset.strftime('%H:%M') %></td>
-			<td><%= forecast.wind %></td>
-			<td><%= forecast.temperature %></td>
-			<td><%= forecast.water_temperature %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="admin-forecast-index container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="title">波予報一覧</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>ユーザー</th>
+						<th>スポット / 評価</th>
+						<th class="review">レビュー</th>
+						<th>日照時間</th>
+						<th>詳細</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @forecasts.each do |forecast| %>
+					<tr>
+						<td><p><%= attachment_image_tag forecast.local, :local_image, fallback: "no-profile-img.png", :size => "50x50", class: "admin-user-img" %></p><p><%= forecast.local.user_name %></p></td>
+						<td>
+							<p><%= forecast.spot.name %></p>
+							<p><%= forecast.size %></p>
+							<div id="star-rate2-<%= forecast.id %>"></div>
+							<script>
+								$('#star-rate2-<%= forecast.id %>').raty({
+									size      : 50,
+									starOff   : '<%= asset_path('stars/star-off.png') %>',
+									starOn    : '<%= asset_path('stars/star-on.png') %>',
+									starHalf  : '<%= asset_path('stars/star-half.png') %>',
+									half      : true,
+									readOnly  : true,
+									score     : <%= forecast.rate %>,
+								});
+							</script>
+						</td>
+						<td><%= forecast.review %></td>
+						<td>
+							<p>日の出 : <%= forecast.sunrise.strftime('%H:%M') %></p>
+							<p>日の入 : <%= forecast.sunset.strftime('%H:%M') %></p>
+						<td>
+							<p>風 : <%= forecast.wind %></p>
+							<p>気温 : <%= forecast.temperature %></p>
+							<p>水温 : <%= forecast.water_temperature %></p>
+						</td>
+						<td>
+							<%= link_to "削除", forecast_path(forecast), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

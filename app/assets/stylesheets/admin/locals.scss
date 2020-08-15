@@ -2,9 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/* ローカル管理一覧 */
+
+.admin-local-index {
+	margin-bottom: 100px;
+}
+
 .admin-local-index .title {
 	text-align: center;
 	margin: 50px 0px;
+	font-weight: bolder;
 }
 
 .admin-local-index table {
@@ -33,12 +41,17 @@
 	border-radius: 50px;
 }
 
+
+/* ローカルステータス変更確認 */
+
 .admin-local-edit {
 	text-align: center;
+	margin: 200px;
 }
 
 .admin-local-edit .title {
-	margin: 50px 0px 30px 0px;
+	margin-bottom: 50px;
+	font-weight: bolder;
 }
 
 .admin-local-edit p {
