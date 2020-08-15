@@ -43,7 +43,7 @@
 							<p>水温 : <%= forecast.water_temperature %></p>
 						</td>
 						<td>
-							<%= link_to "削除する", forecast_path(forecast), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+							<%= link_to "削除", forecast_path(forecast), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
 						</td>
 					</tr>
 					<% end %>
