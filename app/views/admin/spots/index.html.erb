@@ -1,40 +1,54 @@
-<h1>Admin::Spots#index</h1>
-<p>Find me in app/views/admin/spots/index.html.erb</p>
 <div class="admin-spot-index container">
 	<div class="row">
+		<div class="admin-spot-new col-sm-3">
+			<h4 class="title">サーフスポット新規登録</h4>
+			<%= form_for @spot, url: admin_spots_path do |f| %>
+				<%= attachment_image_tag @spot, :spot_image, fallback: "no-image.png", :size => "100x100" %><br>
+				<%= f.attachment_field :spot_image %><br>
+				<table>
+					<tr>
+						<th><%= f.label :エリア %></th>
+						<td><%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :名称 %></th>
+						<td><%= f.text_field :name %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :住所 %></th>
+						<td><%= f.text_field :address %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :地形 %></th>
+						<td><%= f.select :feature, Spot.features.keys, {} %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :駐車場 %></th>
+						<td><%= f.select :parking, Spot.parkings.keys, {} %></td>
+					</tr>
+				</table>
+				<%= f.submit "追加", class: "btn btn-primary submit-btn" %>
+			<% end %>
+		</div>
 		<div class="col-sm-9">
 			<h3 class="title">サーフスポット一覧</h3>
 			<div class="main">
 				<div class="content">
 					<% @spots.each do |spot| %>
 						<div>
-							<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x100" %><br>
-							<%= spot.area.name %> / <%= spot.name%><br>
-							<%= spot.address %><br>
-							<%= spot.feature %><br>
-							<%= spot.parking %><br>
+							<p>
+								<%= link_to edit_admin_spot_path(spot) do %>
+									<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "150x150", class: "spot-image" %>
+								<% end %>
+							</p>
+							<p><%= spot.area.name %> / <%= spot.name%></p>
+							<p><%= spot.address %></p>
+							<p><%= spot.feature %></p>
+							<p><%= spot.parking %></p>
 						</div>
 					<% end %>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-3">
-			<h4 class="title">サーフスポット新規登録</h4>
-			<%= form_for @spot, url: admin_spots_path do |f| %>
-				<%= attachment_image_tag @spot, :spot_image, fallback: "no-image.png", :size => "100x100" %><br>
-				<%= f.attachment_field :spot_image %><br>
-				<%= f.label :エリア %>
-				<%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %><br>
-				<%= f.label :スポット名 %>
-				<%= f.text_field :name %><br>
-				<%= f.label :住所 %>
-				<%= f.text_field :address %><br>
-				<%= f.label :地形 %>
-				<%= f.select :feature, Spot.features.keys, {} %><br>
-				<%= f.label :駐車場 %>
-				<%= f.select :parking, Spot.parkings.keys, {} %><br>
-				<%= f.submit "追加", class: "btn btn-primary" %>
-			<% end %>
 		</div>
 	</div>
 </div>

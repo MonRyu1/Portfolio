@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer">
   <% if user_signed_in? %>
     <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-user-lo" %></div>
     <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-user-lo" %></div>
@@ -7,15 +7,6 @@
     <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-local-lo" %></div>
     <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-local-lo" %></div>
     <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-local-lo" %></div>
-  <% elsif admin_signed_in? %>
-    <div><%= link_to "ユーザー", admin_users_path, class: "btn btn-default btn-admin-lo" %></div>
-    <div><%= link_to "ローカル", admin_locals_path, class: "btn btn-default btn-admin-lo" %></div>
-    <div><%= link_to "波情報", admin_reports_path, class: "btn btn-default btn-admin-lo" %></div>
-    <div><%= link_to "波予報", admin_forecasts_path, class: "btn btn-default btn-admin-lo" %></div>
-    <div><%= link_to "ショップ", admin_shops_path, class: "btn btn-default btn-admin-lo"  %></div>
-    <div><%= link_to "スポット", admin_spots_path, class: "btn btn-default btn-admin-lo" %></div>
-    <div><%= link_to "エリア", admin_areas_path, class: "btn btn-default btn-admin-lo" %></div>
-    <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default btn-admin-lo"  %></div>
   <% else %>
     <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-lo" %></div>
     <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-lo" %></div>

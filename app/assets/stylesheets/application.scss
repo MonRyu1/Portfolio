@@ -79,16 +79,38 @@
 
 /* フッター関連 */
 
-footer {
+.footer {
   width: 100%;
   height: 200px;
   padding: 20px;
-  display: flex;
   border-top: 1px solid #CCCCCC;
 }
 
-footer-bottom > div {
+.footer > div {
   margin:0 10px;
+}
+
+
+/* 管理者フッター関連 */
+
+.footer-admin {
+  background-color: black;
+}
+
+
+.footer-admin .container {
+  padding: 40px 0px;
+}
+
+.footer-admin .container .button-box {
+  text-align: center;
+}
+
+.footer-admin .btn {
+  width: 200px;
+  padding: 7px 0px;
+  margin: 5px 0px;
+  border-radius: 10px;
 }
 
 

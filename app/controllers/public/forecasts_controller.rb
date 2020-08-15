@@ -39,6 +39,9 @@ class Public::ForecastsController < ApplicationController
   end
 
   def destroy
+    @forecast = Forecast.find(params[:id])
+    @forecast.destroy
+    redirect_to admin_forecasts_path
   end
 
   private

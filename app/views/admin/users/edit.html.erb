@@ -1,7 +1,7 @@
 <div class="admin-user-edit container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h3 class="title">"<%= @user.user_name %>"さんのステータスを変更します...</h3>
+			<h3 class="title">"<%= @user.user_name %>"さんのステータスを変更します</h3>
 			<%= form_for @user, url: admin_user_path(@user) do |f| %>
 				<p><%= f.radio_button :is_active, "true" %> 有効</p>
 				<p><%= f.radio_button :is_active, "false" %> 退会</p>
