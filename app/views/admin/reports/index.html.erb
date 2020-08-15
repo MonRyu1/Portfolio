@@ -9,8 +9,8 @@
 						<th>スポット</th>
 						<th>評価</th>
 						<th class="review">レビュー</th>
-						<th>入水時間</th>
 						<th>詳細</th>
+						<th class="delete"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,11 +32,14 @@
 							</script>
 						</td>
 						<td><%= report.review %></td>
-						<td><%= report.time.strftime('%H:%M') %></td>
 						<td>
+							<p>入水時間 : <%= report.time.strftime('%H:%M') %></p>
 							<p>風 : <%= report.wind %></p>
 							<p>気温 : <%= report.temperature %></p>
 							<p>水温 : <%= report.water_temperature %></p>
+						</td>
+						<td>
+							<%= link_to "削除する", report_path(report), method: :delete, data: { confirm: '本当に削除しますか？' } %>
 						</td>
 					</tr>
 					<% end %>

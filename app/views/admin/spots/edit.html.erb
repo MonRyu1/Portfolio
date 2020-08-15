@@ -1,2 +1,39 @@
-<h1>Admin::Spots#edit</h1>
-<p>Find me in app/views/admin/spots/edit.html.erb</p>
+<div class="admin-spot-edit container">
+	<h2 class="title">サーフスポット編集</h2>
+	<div class="row">
+		<%= form_for @spot, url: admin_spot_path do |f| %>
+			<div class="form-image col-sm-6">
+				<div>
+					<%= attachment_image_tag @spot, :spot_image, fallback: "no-image.png", :size => "300x300" %>
+					<%= f.attachment_field :spot_image %>
+				</div>
+			</div>
+			<div class="form-text col-sm-6">
+				<table>
+					<tr>
+						<th><%= f.label :エリア %></th>
+						<td><%= f.collection_select :area_id, Area.all, :id, :name, :prompt => "select" %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :名称 %></th>
+						<td><%= f.text_field :name %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :住所 %></th>
+						<td><%= f.text_field :address %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :地形 %></th>
+						<td><%= f.select :feature, Spot.features.keys, {} %></td>
+					</tr>
+					<tr>
+						<th><%= f.label :駐車場 %></th>
+						<td><%= f.select :parking, Spot.parkings.keys, {} %></td>
+					</tr>
+				</table>
+			</div>
+			<%= f.submit "更新する", class: "btn btn-primary submit-btn" %>
+			<%= link_to "削除する", admin_spot_path(@spot), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger delete-btn" %>
+		<% end %>
+	</div>
+</div>
