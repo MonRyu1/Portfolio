@@ -17,9 +17,9 @@
 			<script>
 				$('#star-rate2-<%= forecast.id %>').raty({
 					size      : 50,
-					starOff   : '<%= asset_path('star-off.png') %>',
-					starOn    : '<%= asset_path('star-on.png') %>',
-					starHalf  : '<%= asset_path('star-half.png') %>',
+					starOff   : '<%= asset_path('stars/star-off.png') %>',
+					starOn    : '<%= asset_path('stars/star-on.png') %>',
+					starHalf  : '<%= asset_path('stars/star-half.png') %>',
 					half      : true,
 					readOnly  : true,
 					score     : <%= forecast.rate %>,
