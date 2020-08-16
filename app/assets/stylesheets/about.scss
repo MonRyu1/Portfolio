@@ -1,3 +1,71 @@
 // Place all the styles related to the about controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.box1{
+
+width: 500px;
+
+height: auto;
+
+background-color: gray;
+
+font-size:0;
+
+overflow-x: auto;
+
+white-space: nowrap;
+
+}
+
+.test2 {
+
+display: inline-block;
+
+width: 200px;
+
+height: 200px;
+
+background: black;
+
+margin-right:3px;
+
+}
+
+.test3 {
+
+display: inline-block;
+
+width: 200px;
+
+height: 200px;
+
+background: blue;
+
+}
+
+
+.box26 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #62c1ce;
+}
+.box26 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -27px;
+    left: -3px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #62c1ce;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+.box26 p {
+    margin: 0; 
+    padding: 0;
+}
