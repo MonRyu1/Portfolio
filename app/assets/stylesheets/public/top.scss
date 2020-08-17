@@ -52,6 +52,7 @@
 	margin-right:10px;
 }
 
+
 /* 波予報 */
 .public-forecast-box {
 	width: 100%;
@@ -98,6 +99,7 @@
 
 	position: relative;
 	border: solid 3px #3399FF;
+	border-radius: 10px;
 	padding: 30px 10px 5px 0px;
 
 	overflow-x: auto;
@@ -120,9 +122,13 @@
 .new-report {
 	display: inline-block;
 	width: 200px;
-	height: 200px;
+	height: auto;
 	background-color: #fff;
 	margin-right:10px;
+}
+
+.new-report .report-image {
+	border-radius: 10px;
 }
 
 /* 波予報 */
@@ -133,6 +139,7 @@
 
 	position: relative;
 	border: solid 3px #62c1ce;
+	border-radius: 10px;
 	padding: 30px 10px 5px 0px;
 
 	overflow-x: auto;
@@ -155,7 +162,15 @@
 .new-forecast {
 	display: inline-block;
 	width: 200px;
-	height: 200px;
+	height: auto;
 	background-color: #fff;
 	margin-right:10px;
+}
+
+.new-forecast .forecast-image {
+	border-radius: 10px;
+}
+
+.action {
+	opacity: 0.8;
 }

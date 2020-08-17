@@ -1,5 +1,3 @@
-<h1>Public::Reports#show</h1>
-<p>Find me in app/views/public/reports/show.html.erb</p>
 <h3><%= @report.spot.name %></h3>
 <%= link_to report_path(@report) do %>
 <%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "600x450" %>
