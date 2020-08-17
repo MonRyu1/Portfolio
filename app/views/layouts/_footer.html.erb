@@ -1,15 +1,5 @@
 <footer class="footer">
-  <% if user_signed_in? %>
-    <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-user-lo" %></div>
-    <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-user-lo" %></div>
-    <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-user-lo" %></div>
-  <% elsif local_signed_in? %>
-    <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-local-lo" %></div>
-    <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-local-lo" %></div>
-    <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-local-lo" %></div>
-  <% else %>
-    <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-lo" %></div>
-    <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-lo" %></div>
-    <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-lo" %></div>
-  <% end %>
+  <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-lo" %></div>
+  <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-lo" %></div>
+  <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-lo" %></div>
 </footer>

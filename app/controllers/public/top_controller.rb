@@ -12,14 +12,17 @@ class Public::TopController < ApplicationController
 	  		if dt == Time.parse(Date.tomorrow.to_s).to_i + 21600
 	  			@description = result["list"][num]["weather"][0]["description"]
 	  			@wind = result["list"][num]["wind"]["speed"]
+	  			@wind_deg = result["list"][num]["wind"]["deg"]
 	  			@temp = result["list"][num]["main"]["temp"]
 	  		elsif dt == Time.parse(Date.tomorrow.to_s).to_i + 21600*2
 	  			@description2 = result["list"][num]["weather"][0]["description"]
 	  			@wind2 = result["list"][num]["wind"]["speed"]
+	  			@wind_deg2 = result["list"][num]["wind"]["deg"]
 	  			@temp2 = result["list"][num]["main"]["temp"]
 	  		elsif dt == Time.parse(Date.tomorrow.to_s).to_i + 21600*3
 	  			@description3 = result["list"][num]["weather"][0]["description"]
 	  			@wind3 = result["list"][num]["wind"]["speed"]
+	  			@wind_deg3 = result["list"][num]["wind"]["deg"]
 	  			@temp3 = result["list"][num]["main"]["temp"]
 	  		end
   		end
