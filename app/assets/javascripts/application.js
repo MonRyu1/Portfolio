@@ -30,6 +30,7 @@
  *
  */
 
+
 $(function(){
 $("document").ready(function() {
 
@@ -813,3 +814,4 @@ $("#theTarget").skippr({
     targetType:   'hint'
   };
 })(jQuery);
+

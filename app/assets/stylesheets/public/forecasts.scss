@@ -1,3 +1,49 @@
 // Place all the styles related to the public/forecasts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.forecast-index {
+	margin: 50px 0px 100px 0px;
+}
+
+.forecast-index .title {
+	font-weight: bolder;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.forecast-content {
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: center;
+}
+
+.forecast-box {
+	margin: 10px;
+	flex-basis:200px;
+}
+
+.forecast-box > div {
+	margin: 5px;
+}
+
+.forecast-image {
+	border-radius: 10px;
+}
+
+.forecast-local-image {
+	border-radius: 50px;
+}
+
+.date-rate {
+	display: flex;
+	justify-content: space-between;
+}
+
+.local p {
+	margin-right: 5px;
+	display: inlin-block;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+}
