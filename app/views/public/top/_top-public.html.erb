@@ -1,0 +1,53 @@
+<div class="public-report-box">
+	<span class="box-title">Reports</span>
+	<ul>
+		<% @reports.each do |report| %>
+			<li class="public-report">
+				<%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "200x200" %>
+				<div class="report-detail">
+					<div><%= report.spot.name %></div>
+					<div id="star-rate-<%= report.id %>"></div>
+					<script>
+						$('#star-rate-<%= report.id %>').raty({
+							size      : 36,
+							number    : 5,
+							starOff   : '<%= asset_path('stars/star-off.png') %>',
+							starOn    : '<%= asset_path('stars/star-on.png') %>',
+							starHalf  : '<%= asset_path('stars/star-half.png') %>',
+							half      : true,
+							readOnly  : true,
+							score     : <%= report.rate %>,
+						});
+					</script>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="public-forecast-box">
+	<span class="box-title">Forecasts</span>
+	<ul>
+		<% @forecasts.each do |forecast| %>
+			<li class="public-forecast">
+				<%= attachment_image_tag forecast.spot, :spot_image, fallback: "no-image.png", :size => "200x200" %>
+				<div class="report-detail">
+					<div><%= forecast.spot.name %></div>
+					<div id="star-rate2-<%= forecast.id %>"></div>
+					<script>
+						$('#star-rate2-<%= forecast.id %>').raty({
+							size      : 36,
+							numberMux : 5,
+							starOff   : '<%= asset_path('stars/star-off.png') %>',
+							starOn    : '<%= asset_path('stars/star-on.png') %>',
+							starHalf  : '<%= asset_path('stars/star-half.png') %>',
+							half      : true,
+							readOnly  : true,
+							score     : <%= forecast.rate %>,
+						});
+					</script>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+</div>

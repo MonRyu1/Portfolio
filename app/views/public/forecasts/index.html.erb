@@ -1,69 +1,47 @@
-<h1>Public::Forecasts#index</h1>
-<p>Find me in app/views/public/forecasts/index.html.erb</p>
-<div class="container"><div class="row">
-<div class=col-sm-8>
-	<h3>波予報一覧</h3>
-	<% @forecasts.each do |forecast| %>
-		<%= forecast.local.user_name %><br>
-		<%= forecast.spot.name %><br>
-		<div id="star-rate-<%= forecast.id %>"></div><br>
-			<script>
-				$('#star-rate-<%= forecast.id %>').raty({
-					size      : 50,
-					starOff   : '<%= asset_path('star-off.png') %>',
-					starOn    : '<%= asset_path('star-on.png') %>',
-					starHalf  : '<%= asset_path('star-half.png') %>',
-					half      : true,
-					readOnly  : true,
-					score     : <%= forecast.rate %>,
-				});
-			</script>
-		<%= forecast.size %><br>
-		<%= forecast.date %><br>
-		<%= forecast.review %><br>
-		<%= forecast.sunset.strftime('%H:%M') %><br>
-		<%= forecast.sunset.strftime('%H:%M') %><br>
-		<%= forecast.wind %><br>
-		<%= forecast.temperature %><br>
-		<%= forecast.water_temperature %><br>
-	<% end %>
+<div class="forecast-index container">
+	<div class="row">
+		<div class=col-sm-12>
+			<h1 class="title">FORECAST</h1>
+			<div class="forecast-content">
+				<% @forecasts.each do |forecast| %>
+
+					<div class="forecast-box">
+
+						<div>
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+							<%= forecast.spot.name %>
+						</div>
+
+						<%= link_to forecast_path(forecast) do %>
+							<%= attachment_image_tag forecast.spot, :spot_image, fallback: "no-image.png", :size => "250x200", class: "forecast-image" %>
+						<% end %>
+
+						<div class="date-rate">
+							<p><%= forecast.date %></p>
+							<p id="star-rate2-<%= forecast.id %>"></p>
+							<script>
+								$('#star-rate2-<%= forecast.id %>').raty({
+									size      : 36,
+									numberMux : 5,
+									starOff   : '<%= asset_path('stars/star-off.png') %>',
+									starOn    : '<%= asset_path('stars/star-on.png') %>',
+									starHalf  : '<%= asset_path('stars/star-half.png') %>',
+									half      : true,
+									readOnly  : true,
+									score     : <%= forecast.rate %>,
+								});
+							</script>
+						</div>
+
+
+						<div class="local">
+							<p><%= attachment_image_tag forecast.local, :local_image, fallback: "no-image.png", :size => "50x50", class: "forecast-local-image" %></p>
+							<p><%= forecast.local.user_name %></p>
+						</div>
+
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="col-sm-4">
-	<h3>各地の天気</h3>
-	<p>地名 : <%= @name %></p>
-	<p>最高気温 : <%= @temp_max %></p>
-	<p>最低気温 : <%= @temp_min %></p>
-	<p>風 : <%= @wind %></p>
-	<p>風向き :
-		<% if @wind_deg != nil %>
-			<% if 350 < @wind_deg || (@wind_deg != 0 && @wind_deg < 10) %>
-				<%= image_tag 'north.png', :size => "50x50" %>
-			<% elsif 10 <= @wind_deg && @wind_deg <= 80 %>
-				<%= image_tag 'north_east.png', :size => "50x50" %>
-			<% elsif 80 < @wind_deg && @wind_deg < 100 %>
-				<%= image_tag 'east.png', :size => "50x50" %>
-			<% elsif 100 <= @wind_deg && @wind_deg <= 170 %>
-				<%= image_tag 'south_east.png', :size => "50x50" %>
-			<% elsif 170 < @wind_deg && @wind_deg < 190 %>
-				<%= image_tag 'south.png', :size => "50x50" %>
-			<% elsif 190 <= @wind_deg && @wind_deg <= 260%>
-				<%= image_tag 'south_west.png', :size => "50x50" %>
-			<% elsif 260 < @wind_deg && @wind_deg < 280 %>
-				<%= image_tag 'west.png', :size => "50x50" %>
-			<% elsif 280 <= @wind_deg && @wind_deg <= 350 %>
-				<%= image_tag 'north_west.png', :size => "50x50" %>
-			<% else %>
-				<%= image_tag 'no_image.png', :size => "50x50" %>
-			<% end %>
-		<% end %>
-	</p>
-	<p>
-		<% tokyo_sunrise = @sunrise + @timezone %>
-		日の出 : <%= Time.at(tokyo_sunrise).strftime("%H:%M")  %>
-	</p>
-	<p>
-		<% tokyo_sunset = @sunset + @timezone %>
-		日の入り : <%= Time.at(tokyo_sunset).strftime("%H:%M") %>
-	</p>
-</div>
-</div></div>

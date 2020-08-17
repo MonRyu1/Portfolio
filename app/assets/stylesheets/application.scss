@@ -25,7 +25,6 @@
   line-height: 80px;
   display:flex;
   justify-content:flex-end;
-  border-bottom: 1px solid #CCCCCC;
 }
 
 .header-admin {
@@ -48,7 +47,12 @@
 #icon a {
   margin-right: 30px;
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.9;
+}
+
+#icon .user-img {
+  border-radius: 50px;
+  text-align: center;
 }
 
 #admin-logout p {
@@ -57,23 +61,39 @@
 
 #icon-contents #tab {
   position: absolute;
+  padding: 7px 10px;
   width: 200px;
   height: auto;
-  background-color: rgba( 255, 255, 255, 0.8);
-  border: 1px solid #DDDDDD;
-  border-radius: 20px 0px 20px 20px;
-  top: 60px;
-  right: 80px;
-  z-index: 10;
+  font-size: 16px;
+  background-color: rgba( 255, 255, 255, 0.9);
+  border: solid 1px #DDDDDD;
+  border-radius: 10px;
+  text-align: center;
+  top: 80px;
+  right: 0px;
+  z-index: 2;
 }
 
-#icon .user-img {
-  border-radius: 50px;
-  text-align: center;
+#icon-contents #tab:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 74%;
+  margin-left: -15px;
+  border: 12px solid transparent;
+  border-bottom: 12px solid #EEEEEE;
+  z-index: 2;
 }
 
-#tab {
-  text-align: center;
+#icon-contents #tab:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 74%;
+  margin-left: -17px;
+  border: 14px solid transparent;
+  border-bottom: 14px solid #EEEEE;
+  z-index: 1;
 }
 
 
