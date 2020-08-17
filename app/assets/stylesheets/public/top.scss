@@ -52,6 +52,12 @@
 	margin-right:10px;
 }
 
+.public-report .report-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
 
 /* 波予報 */
 .public-forecast-box {
@@ -88,8 +94,30 @@
 	margin-right:10px;
 }
 
+.public-forecast .forecast-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
 
 /* ログイン後、トップページ */
+
+.report-container {
+	margin-bottom: 100px;
+}
+
+.report-container .title,
+.forecast-container .title, {
+	border-left: 4px solid #DDDDDD;
+	border-radius: 3px;
+	font-weight: bolder;
+	padding-left: 2%;
+}
+
+.link {
+	float: right;
+}
 
 /* 波情報 */
 .new-report-box {
@@ -98,7 +126,7 @@
 	background-color: #fff;
 
 	position: relative;
-	border: solid 3px #3399FF;
+	border: solid 3px black;
 	border-radius: 10px;
 	padding: 30px 10px 5px 0px;
 
@@ -114,7 +142,7 @@
   padding: 0 9px;
   height: 25px;
   line-height: 25px;
-  background: #3399FF;
+  background: black;
   color: #ffffff;
   font-weight: bold;
 }
@@ -128,7 +156,9 @@
 }
 
 .new-report .report-image {
+	margin-bottom: 5px;
 	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
 }
 
 /* 波予報 */
@@ -138,7 +168,7 @@
 	background-color: #fff;
 
 	position: relative;
-	border: solid 3px #62c1ce;
+	border: solid 3px black;
 	border-radius: 10px;
 	padding: 30px 10px 5px 0px;
 
@@ -154,7 +184,7 @@
   padding: 0 9px;
   height: 25px;
   line-height: 25px;
-  background: #62c1ce;
+  background: black;
   color: #ffffff;
   font-weight: bold;
 }
@@ -168,9 +198,92 @@
 }
 
 .new-forecast .forecast-image {
+	margin-bottom: 5px;
 	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
 }
 
 .action {
 	opacity: 0.8;
+}
+
+
+/* 天気検索 */
+.weather-box {
+	padding: 0.5em 1em;
+  margin: 2em 0;
+  color: black;
+  background: white;
+  border-top: solid 4px black;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.weather-box table {
+	width: 100%;
+}
+
+.weather-box table tr th,
+.weather-box table tr td {
+	text-align: center;
+	padding: 5px 0px;
+}
+
+.city-name {
+	font-weight: bolder;
+	padding: 15px 0px 5px 0px;
+}
+
+.time-box {
+	width: 100%;
+	border-top: 1px solid #DDDDDD;
+}
+
+.time {
+	font-size: 18px;
+}
+
+
+/* トップ画像 */
+
+.top-report-visual {
+	background-image: image-url('Top-report.jpeg');
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 250px;
+}
+
+.top-report-background {
+	background-color: rgba( 0, 0, 0, 0.4);
+	width: 100%;
+	height: 250px;
+}
+
+.top-report-background p {
+	text-align: center;
+	color: #fff;
+	line-height: 250px;
+	font-size: 30px;
+}
+
+
+.top-shop-visual {
+	background-image: image-url('Top-shop.jpg');
+	background-size: cover;
+	width: 100%;
+	height: 250px;
+}
+
+.top-shop-background {
+	background-color: rgba( 0, 0, 0, 0.4);
+	width: 100%;
+	height: 250px;
+}
+
+.top-shop-background h3 {
+	text-align: center;
+	color: #fff;
+	line-height: 250px;
 }
