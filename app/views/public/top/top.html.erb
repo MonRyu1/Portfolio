@@ -1,4 +1,9 @@
 <% if user_signed_in? || local_signed_in? || admin_signed_in? %>
+	<div class="top-report-visual">
+		<div class="top-report-background">
+			<p>波情報 & 波予報</p>
+		</div>
+	</div>
 	<div class="top-contents container">
 		<div class="row">
 			<div class="col-sm-9">
@@ -11,6 +16,12 @@
 				<%= render 'public/top/top-weather' %>
 
 			</div>
+		</div>
+	</div>
+
+	<div class="top-shop-visual">
+		<div class="top-shop-background">
+			<h3>ショップ</h3>
 		</div>
 	</div>
 <% else %>

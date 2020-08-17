@@ -3,7 +3,7 @@
 	<ul>
 		<% @reports.each do |report| %>
 			<li class="public-report">
-				<%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "200x200" %>
+				<%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "200x200", class: "report-image" %>
 				<div class="report-detail">
 					<div><%= report.spot.name %></div>
 					<div id="star-rate-<%= report.id %>"></div>
@@ -30,7 +30,7 @@
 	<ul>
 		<% @forecasts.each do |forecast| %>
 			<li class="public-forecast">
-				<%= attachment_image_tag forecast.spot, :spot_image, fallback: "no-image.png", :size => "200x200" %>
+				<%= attachment_image_tag forecast.spot, :spot_image, fallback: "no-image.png", :size => "200x200", class: "forecast-image" %>
 				<div class="report-detail">
 					<div><%= forecast.spot.name %></div>
 					<div id="star-rate2-<%= forecast.id %>"></div>
