@@ -28,5 +28,6 @@ class Public::TopController < ApplicationController
   		end
   		@city = result["city"]["name"]
   	end
+  	@shops = Shop.order("RANDOM()").limit(4)
   end
 end
