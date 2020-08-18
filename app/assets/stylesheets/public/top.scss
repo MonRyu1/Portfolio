@@ -245,6 +245,36 @@
 }
 
 
+
+/* トップ、ショップ一覧関連 */
+
+.top-shop-container {
+	width: 100%;
+	margin: 100px 0px 30px 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.top-shop-box {
+	flex-basis: 200px;
+	text-align: center;
+}
+
+.top-shop-image {
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+}
+
+.top-shop-link {
+	float: right;
+	margin-bottom: 100px;
+}
+
+
+
+
 /* トップ画像 */
 
 .top-report-visual {
