@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*  波情報一覧関連 */
+
 .report-index {
 	margin: 50px 0px 100px 0px;
 }
@@ -50,4 +52,116 @@
 	float: left;
 	height: 50px;
 	line-height: 50px;
+}
+
+
+/*  波情報詳細関連 */
+
+.report-show {
+	margin: 50px 0px 100px 0px;
+}
+
+
+/*  投稿画像まわり */
+.report-show .user-image {
+	border-radius: 50px;
+	margin-bottom: 10px;
+}
+
+.report-show .image-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 350px;
+	margin: 0 auto;
+}
+
+.report-show .report-show-image {
+	border-radius: 5px;
+	width: 350px;
+	height: 280px;
+	margin-bottom: 20px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.report-top {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+/*  各アイコン */
+.report-show .size {
+	background-image: image-url('report-logo/wave.png');
+	background-position: center;
+	background-size: cover;
+	width: 22px;
+	height: 22px;
+}
+
+.report-show .board {
+	background-image: image-url('report-logo/board.png');
+	background-position: center;
+	background-size: cover;
+	width: 22px;
+	height: 22px;
+}
+
+.report-show .time {
+	background-image: image-url('report-logo/time.png');
+	background-position: center;
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+}
+
+.report-show .wind {
+	background-image: image-url('report-logo/wind.png');
+	background-position: center;
+	background-size: contain;
+	width: 20px;
+	height: 22px;
+}
+
+.report-show .temperature {
+	background-image: image-url('report-logo/temp.png');
+	background-position: center;
+	background-size: contain;
+	width: 10px;
+	height: 23px;
+}
+
+.report-show .water_temperature {
+	background-image: image-url('report-logo/waterTemp.png');
+	background-position: center;
+	background-size: contain;
+	width: 14px;
+	height: 20px;
+}
+
+
+/*  詳細レイアウト */
+.report-show .report-detail {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.report-show .report-weather {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.report-detail-box {
+	margin: 15px 0px;
+}
+
+.report-detail-title p {
+	margin: 0px 5px;
+	height: 25px;
+}
+
+.report-detail-title {
+	display: flex;
 }
