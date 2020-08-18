@@ -6,23 +6,28 @@
 				<div class="report-new-image">
 					<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "350x280" %><br>
 					<%= f.attachment_field :report_image %>
-					<div id="star">
-						<%= f.label :星評価 %>
-						<%= f.hidden_field :rate, id: :review_star %>
-					</div>
-						<script>
-							$('#star').raty({
-								size      : 50,
-								starOff   : '<%= asset_path('stars/star-off.png') %>',
-								starOn    : '<%= asset_path('stars/star-on.png') %>',
-								starHalf  : '<%= asset_path('stars/star-half.png') %>',
-								scoreName : 'report[rate]',
-								half      : true,
-							});
-						</script>
 				</div>
 				<div class="report-new-detail">
 					<table>
+							<tr>
+								<th><%= f.label :波評価 %></th>
+								<td>
+									<div id="star">
+										<%= f.hidden_field :rate, id: :review_star %>
+									</div>
+								</td>
+							</tr>
+							<script>
+								$('#star').raty({
+									size      : 50,
+									starOff   : '<%= asset_path('stars/star-off.png') %>',
+									starOn    : '<%= asset_path('stars/star-on.png') %>',
+									starHalf  : '<%= asset_path('stars/star-half.png') %>',
+									scoreName : 'report[rate]',
+									half      : true,
+								});
+							</script>
+
 						<tr>
 							<th><%= f.label :入水時間 %></th>
 							<td><%= f.time_field :time, value:Time.now %></td>
@@ -71,10 +76,10 @@
 
 		<div class="side-bar col-sm-4">
 			<div class="weather-box">
-				<h4>現在の天気検索</h4>
+				<h4>ー現在の天気検索ー</h4>
 				<%= form_with url: new_report_path, method: :get, local: true do |f| %>
 	    		<p><%= f.text_field :city_name, placeholder: "市町村名" %></p>
-	    		<p><%= f.submit "SEARCH" %></p>
+	    		<p><%= f.submit "検索" %></p>
 	  		<% end %>
 	  		<% if @name != nil %>
 		  		<h4 class="city-name"><%= @name %>の天気</h4>
