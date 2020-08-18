@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*  波予報一覧関連 */
+
 .forecast-index {
 	margin: 50px 0px 100px 0px;
 }
@@ -50,4 +52,117 @@
 	float: left;
 	height: 50px;
 	line-height: 50px;
+}
+
+
+
+/*  波予報詳細関連 */
+
+.forecast-show {
+	margin: 50px 0px 100px 0px;
+}
+
+
+/*  投稿画像まわり */
+.forecast-show .local-image {
+	border-radius: 50px;
+	margin-bottom: 10px;
+}
+
+.forecast-show .image-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 350px;
+	margin: 0 auto;
+}
+
+.forecast-show .forecast-show-image {
+	border-radius: 5px;
+	width: 350px;
+	height: 280px;
+	margin-bottom: 20px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.forecast-top {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+/*  各アイコン */
+.forecast-show .size {
+	background-image: image-url('report-logo/wave.png');
+	background-position: center;
+	background-size: cover;
+	width: 22px;
+	height: 22px;
+}
+
+.forecast-show .sunrise {
+	background-image: image-url('report-logo/sunrise.png');
+	background-position: center;
+	background-size: cover;
+	width: 25px;
+	height: 25px;
+}
+
+.forecast-show .sunset {
+	background-image: image-url('report-logo/sunset.png');
+	background-position: center;
+	background-size: cover;
+	width: 25px;
+	height: 25px;
+}
+
+.forecast-show .wind {
+	background-image: image-url('report-logo/wind.png');
+	background-position: center;
+	background-size: contain;
+	width: 20px;
+	height: 22px;
+}
+
+.forecast-show .temperature {
+	background-image: image-url('report-logo/temp.png');
+	background-position: center;
+	background-size: contain;
+	width: 10px;
+	height: 23px;
+}
+
+.forecast-show .water_temperature {
+	background-image: image-url('report-logo/waterTemp.png');
+	background-position: center;
+	background-size: contain;
+	width: 14px;
+	height: 20px;
+}
+
+
+/*  詳細レイアウト */
+.forecast-show .forecast-detail {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.forecast-show .forecast-weather {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.forecast-detail-box {
+	margin: 15px 0px;
+}
+
+.forecast-detail-title p {
+	margin: 0px 5px;
+	height: 25px;
+}
+
+.forecast-detail-title {
+	display: flex;
 }

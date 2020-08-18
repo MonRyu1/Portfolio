@@ -1,35 +1,96 @@
-<h1>Public::Forecasts#show</h1>
-<p>Find me in app/views/public/forecasts/show.html.erb</p>
+<div class="forecast-show container">
+	<div class="row">
+		<div class="col-sm-12">
 
-<h3><%= @forecast.spot.name %></h3>
-<%= attachment_image_tag @forecast.spot, :spot_image, fallback: "no-image.png", :size => "600x450" %>
-<h4>Posted by </h4><p><%= @forecast.local.user_name %></p>
-<table>
-	<tr><th>波評価</th>
-		<td colspan="2"><div id="star-rate-<%= @forecast.id %>"></div>
-			<script>
-				$('#star-rate-<%= @forecast.id %>').raty({
-				size      : 50,
-				number    : 5,
-				starOff   : '<%= asset_path('stars/star-off.png') %>',
-				starOn    : '<%= asset_path('stars/star-on.png') %>',
-				starHalf  : '<%= asset_path('stars/star-half.png') %>',
-				half      : true,
-				readOnly  : true,
-				score     : <%= @forecast.rate %>,
-				});
-			</script>
-		</td>
-  	<tr><th>サイズ</th><td colspan="4"><%= @forecast.size %></td></tr>
-		<tr><th>日付</th><td colspan="4"><%= @forecast.date %></td></tr>
-		<tr><th>詳細</th><td colspan="4"><%= @forecast.review %></td></tr>
-		<tr>
-			<th>日の出</th>	<td colspan="2"><%= @forecast.sunset.strftime('%H:%M') %></td>
-			<th>日没</th><td colspan="2"><%= @forecast.sunset.strftime('%H:%M') %></td>
-		</tr>
-		<tr>
-			<th>風</th><td><%= @forecast.wind %></td>
-			<th>気温</th><td><%= @forecast.temperature %></td>
-			<th>水温</th><td><%= @forecast.water_temperature %></td>
-		</tr>
-</table>
+			<div class="forecast-top">
+
+				<div class="image-top">
+					<%= attachment_image_tag @forecast.local, :local_image, fallback: "no-image.png", :size => "50x50", class: "local-image" %>
+					<h4>
+						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+						<%= @forecast.spot.name %>
+					</h4>
+				</div>
+
+				<div>
+					<%= attachment_image_tag @forecast.spot, :spot_image, fallback: "no-image.png", class: "forecast-show-image" %>
+				</div>
+				<div>
+					<span id="star-rate-<%= @forecast.id %>"></span>
+				</div>
+							<script>
+								$('#star-rate-<%= @forecast.id %>').raty({
+								size      : 50,
+								number    : 5,
+								starOff   : '<%= asset_path('stars/star-off.png') %>',
+								starOn    : '<%= asset_path('stars/star-on.png') %>',
+								starHalf  : '<%= asset_path('stars/star-half.png') %>',
+								half      : true,
+								readOnly  : true,
+								score     : <%= @forecast.rate %>,
+								});
+							</script>
+			</div>
+
+			<div class="forecast-detail">
+
+				<div class="forecast-detail-box">
+					<div class="forecast-detail-title">
+						<p class="size"></p>
+						<p>サイズ</p>
+					</div>
+					<h3><%= @forecast.size %></h3>
+				</div>
+
+				<div class="forecast-detail-box">
+					<div class="forecast-detail-title">
+						<p class="sunrise"></p>
+						<p>日の出</p>
+					</div>
+					<h3><%= @forecast.sunrise.strftime('%H:%M') %></h3>
+				</div>
+
+				<div class="forecast-detail-box">
+					<div class="forecast-detail-title">
+						<p class="sunset"></p>
+						<p>日の入</p>
+					</div>
+					<h3><%= @forecast.sunset.strftime('%H:%M') %></h3>
+				</div>
+
+			</div>
+
+			<div class="forecast-weather">
+
+				<div class="forecast-detail-box">
+					<div class="forecast-detail-title">
+						<p class="wind"></p>
+						<p>風</p>
+						</div>
+					<h3><%= @forecast.wind %> m/s</h3>
+				</div>
+
+				<div class="forecast-detail-box">
+					<div class="forecast-detail-title">
+						<p class="temperature"></p>
+						<p>気温</p>
+					</div>
+					<h3><%= @forecast.temperature %> ℃</h3>
+				</div>
+
+				<div class="forecast-detail-box">
+					<div class="forecast-detail-title">
+						<p class="water_temperature"></p>
+						<p>水温</p>
+					</div>
+					<h3><%= @forecast.water_temperature %> ℃</h3>
+				</div>
+
+			</div>
+
+				<h2><%= @forecast.date %>の波予想</h2>
+				<p><%= @forecast.review %></p>
+
+		</div>
+	</div>
+</div>

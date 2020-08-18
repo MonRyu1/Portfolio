@@ -3,29 +3,32 @@
 <h1>新規波情報投稿</h1>
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-12">
 			<%= form_for @report do |f| %>
 				<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "200x200" %><br>
 				<%= f.attachment_field :report_image %><br>
-		</div>
-		<div class="col-sm-8">
-				<%= f.hidden_field :user_id, value:current_user.id %><br>
+
+				<%= f.label :ユーザーID %>
+				<%= f.text_field :user_id, value:current_user.id %><br>
+
 				<%= f.label :スポット %>
 				<%= f.collection_select :spot_id, Spot.all, :id, :name, :prompt => "select" %><br>
+
 				<div id="star">
 					<%= f.label :評価 %>
 					<%= f.hidden_field :rate, id: :review_star %>
 				</div>
-				<script>
-					$('#star').raty({
-						size      : 50,
-						starOff   : '<%= asset_path('stars/star-off.png') %>',
-						starOn    : '<%= asset_path('stars/star-on.png') %>',
-						starHalf  : '<%= asset_path('stars/star-half.png') %>',
-						scoreName : 'report[rate]',
-						half      : true,
-					});
-				</script>
+					<script>
+						$('#star').raty({
+							size      : 50,
+							starOff   : '<%= asset_path('stars/star-off.png') %>',
+							starOn    : '<%= asset_path('stars/star-on.png') %>',
+							starHalf  : '<%= asset_path('stars/star-half.png') %>',
+							scoreName : 'report[rate]',
+							half      : true,
+						});
+					</script>
+
 				<%= f.label :サイズ %>
 				<%= f.select :size, Report.sizes.keys, {} %><br>
 				<%= f.label :レビュー %>
