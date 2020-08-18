@@ -1,31 +1,96 @@
-<h3><%= @report.spot.name %></h3>
-<%= link_to report_path(@report) do %>
-<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "600x450" %>
-<% end %>
-<h4>Posted by </h4><p><%= @report.user.user_name %></p>
-<table>
-	<tr><th>波評価</th>
-		<td colspan="2"><div id="star-rate-<%= @report.id %>"></div>
-			<script>
-				$('#star-rate-<%= @report.id %>').raty({
-				size      : 50,
-				number    : 5,
-				starOff   : '<%= asset_path('stars/star-off.png') %>',
-				starOn    : '<%= asset_path('stars/star-on.png') %>',
-				starHalf  : '<%= asset_path('stars/star-half.png') %>',
-				half      : true,
-				readOnly  : true,
-				score     : <%= @report.rate %>,
-				});
-			</script>
-		</td>
-  <th>波の大きさ</th><td colspan="2"><%= @report.size %></td></tr>
-	<tr><th>レビュー</th><td colspan="4"><%= @report.review %></td></tr>
-	<tr><th>使用板</th><td colspan="2"><%= @report.board %></td></tr>
-	<tr><th>入水時間</th><td colspan="2"><%= @report.time.strftime('%H:%M') %></td></tr>
-	<tr>
-		<th>風</th><td><%= @report.wind %></td>
-		<th>気温</th><td><%= @report.temperature %></td>
-		<th>水温</th><td><%= @report.water_temperature %></td>
-	</tr>
-</table>
+<div class="report-show container">
+	<div class="row">
+		<div class="col-sm-12">
+
+			<div class="report-top">
+
+					<div class="image-top">
+						<%= attachment_image_tag @report.user, :user_image, fallback: "no-image.png", :size => "50x50", class: "user-image" %>
+						<h4>
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+							<%= @report.spot.name %>
+						</h4>
+					</div>
+
+					<div>
+						<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", class: "report-show-image" %>
+					</div>
+					<div>
+						<span id="star-rate-<%= @report.id %>"></span>
+					</div>
+								<script>
+									$('#star-rate-<%= @report.id %>').raty({
+									size      : 50,
+									number    : 5,
+									starOff   : '<%= asset_path('stars/star-off.png') %>',
+									starOn    : '<%= asset_path('stars/star-on.png') %>',
+									starHalf  : '<%= asset_path('stars/star-half.png') %>',
+									half      : true,
+									readOnly  : true,
+									score     : <%= @report.rate %>,
+									});
+								</script>
+
+			</div>
+
+			<div class="report-detail">
+
+				<div class="report-detail-box">
+					<div class="report-detail-title">
+						<p class="size"></p>
+						<p>サイズ</p>
+					</div>
+					<h3><%= @report.size %></h3>
+				</div>
+
+				<div class="report-detail-box">
+					<div class="report-detail-title">
+						<p class="board"></p>
+						<p>ボード</p>
+					</div>
+					<h3><%= @report.board %></h3>
+				</div>
+
+				<div class="report-detail-box">
+					<div class="report-detail-title">
+						<p class="time"></p>
+						<p>入水時間</p>
+					</div>
+					<h3><%= @report.time.strftime('%H:%M') %></h3>
+				</div>
+
+			</div>
+			<div class="report-weather">
+
+				<div class="report-detail-box">
+					<div class="report-detail-title">
+						<p class="wind"></p>
+						<p>風</p>
+						</div>
+					<h3><%= @report.wind %> m/s</h3>
+				</div>
+
+				<div class="report-detail-box">
+					<div class="report-detail-title">
+						<p class="temperature"></p>
+						<p>気温</p>
+					</div>
+					<h3><%= @report.temperature %> ℃</h3>
+				</div>
+
+				<div class="report-detail-box">
+					<div class="report-detail-title">
+						<p class="water_temperature"></p>
+						<p>水温</p>
+					</div>
+					<h3><%= @report.water_temperature %> ℃</h3>
+				</div>
+
+			</div>
+
+				<h2>レビュー</h2>
+				<p><%= @report.review %></p>
+
+		</div>
+	</div>
+</div>
