@@ -13,8 +13,32 @@
 	height: 70vh;
 }
 
+.top-visual-background {
+	background-color: rgba( 0, 0, 0, 0.4);
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.quotes {
+	font-family: 'Alata', sans-serif;
+	color: white;
+	text-align: center;
+	margin: 0px 5% 5% 0px;
+	opacity: 0.8;
+}
+
 .top-contents {
 	margin: 50px 0px 100px 0px;
+}
+
+.public-title, {
+	border-left: 4px solid #DDDDDD;
+	border-radius: 3px;
+	font-weight: bolder;
+	padding-left: 2%;
 }
 
 /* 波情報 */
@@ -312,8 +336,9 @@
 	height: 250px;
 }
 
-.top-shop-background h3 {
+.top-shop-background p {
 	text-align: center;
 	color: #fff;
 	line-height: 250px;
+	font-size: 30px;
 }
