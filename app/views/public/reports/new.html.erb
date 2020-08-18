@@ -1,50 +1,119 @@
-<h1>Public::Reports#new</h1>
-<p>Find me in app/views/public/reports/new.html.erb</p>
-<h1>新規波情報投稿</h1>
-<div class="container">
+<div class="report-new container">
   <div class="row">
-    <div class="col-sm-12">
-			<%= form_for @report do |f| %>
-				<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "200x200" %><br>
-				<%= f.attachment_field :report_image %><br>
-
-				<%= f.label :ユーザーID %>
-				<%= f.text_field :user_id, value:current_user.id %><br>
-
-				<%= f.label :スポット %>
-				<%= f.collection_select :spot_id, Spot.all, :id, :name, :prompt => "select" %><br>
-
-				<div id="star">
-					<%= f.label :評価 %>
-					<%= f.hidden_field :rate, id: :review_star %>
+  	<h1 class="title">波情報投稿</h1>
+    <div class="report-new-form col-sm-8">
+    	<%= form_for @report do |f| %>
+				<div class="report-new-image">
+					<%= attachment_image_tag @report, :report_image, fallback: "no-image.png", :size => "350x280" %><br>
+					<%= f.attachment_field :report_image %>
 				</div>
-					<script>
-						$('#star').raty({
-							size      : 50,
-							starOff   : '<%= asset_path('stars/star-off.png') %>',
-							starOn    : '<%= asset_path('stars/star-on.png') %>',
-							starHalf  : '<%= asset_path('stars/star-half.png') %>',
-							scoreName : 'report[rate]',
-							half      : true,
-						});
-					</script>
+				<div class="report-new-detail">
+					<table>
+							<tr>
+								<th><%= f.label :波評価 %></th>
+								<td>
+									<div id="star">
+										<%= f.hidden_field :rate, id: :review_star %>
+									</div>
+								</td>
+							</tr>
+							<script>
+								$('#star').raty({
+									size      : 50,
+									starOff   : '<%= asset_path('stars/star-off.png') %>',
+									starOn    : '<%= asset_path('stars/star-on.png') %>',
+									starHalf  : '<%= asset_path('stars/star-half.png') %>',
+									scoreName : 'report[rate]',
+									half      : true,
+								});
+							</script>
 
-				<%= f.label :サイズ %>
-				<%= f.select :size, Report.sizes.keys, {} %><br>
-				<%= f.label :レビュー %>
-				<%= f.text_area :review %><br>
-				<%= f.label :使用板 %>
-				<%= f.text_field :board %><br>
-				<%= f.label :入水時間 %>
-				<%= f.time_field :time, value:Time.now %><br>
-				<%= f.label :風 %>
-				<%= f.number_field :wind, step: "0.1" %><br>
-				<%= f.label :気温 %>
-				<%= f.number_field :temperature, step: "0.1" %><br>
-				<%= f.label :水温 %>
-				<%= f.number_field :water_temperature, step: "0.1" %><br>
-				<%= f.submit "レポートする", class: "btn btn-primary" %>
+						<tr>
+							<th><%= f.label :入水時間 %></th>
+							<td><%= f.time_field :time, value:Time.now %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :スポット %></th>
+							<td><%= f.collection_select(:spot_id, Spot.all, :id, :name, {prompt: "select"}, {class: "form"}) %></td>
+						</tr>
+
+						<tr>
+							<th><%= f.label :サイズ %></th>
+							<td><%= f.select :size, Report.sizes.keys, {}, class: "form" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :使用板 %></th>
+							<td><%= f.text_field :board %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :風 %></th>
+							<td><%= f.number_field :wind, step: "0.1", class: "form" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :気温 %></th>
+							<td><%= f.number_field :temperature, step: "0.1", class: "form" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :水温 %></th>
+							<td><%= f.number_field :water_temperature, step: "0.1", class: "form" %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :レビュー %></th>
+							<td><%= f.text_area :review, class: "review-form" %></td>
+						</tr>
+
+						<tr>
+							<td><%= f.hidden_field :user_id, value:current_user.id %></td>
+						</tr>
+
+					</table>
+
+						<%= f.submit "投稿する", class: "btn btn-primary submit-btn" %>
+
+				</div>
 			<% end %>
 		</div>
+
+		<div class="side-bar col-sm-4">
+			<div class="weather-box">
+				<h4>ー現在の天気検索ー</h4>
+				<%= form_with url: new_report_path, method: :get, local: true do |f| %>
+	    		<p><%= f.text_field :city_name, placeholder: "市町村名" %></p>
+	    		<p><%= f.submit "検索" %></p>
+	  		<% end %>
+	  		<% if @name != nil %>
+		  		<h4 class="city-name"><%= @name %>の天気</h4>
+		  		<table>
+						<tr><th>最高気温</th><td><%= @temp_max %> ℃</td></tr>
+						<tr><th>最低気温</th><td><%= @temp_min %> ℃</td></tr>
+						<tr><th>風</th><td><%= @wind %> m/s</td></tr>
+						<tr>
+							<th>風向き</th>
+							<td><%= render "public/reports/new-windDeg", wind_deg: @wind_deg %></td>
+						</tr>
+						<tr>
+							<% sunrise = @sunrise + @timezone %>
+							<th>日の出</th>
+							<td><%= Time.at(sunrise).strftime("%H:%M") %></td>
+						</tr>
+						<tr>
+							<% sunset = @sunset + @timezone %>
+							<th>日の入</th>
+							<td><%= Time.at(sunset).strftime("%H:%M") %></td>
+						</tr>
+					</table>
+				<% elsif %>
+					<table>
+						<tr><th>最高気温</th></tr>
+						<tr><th>最低気温</th></tr>
+						<tr><th>風</th></tr>
+						<tr><th>風向き</th></tr>
+						<tr><th>日の出</th></tr>
+						<tr><th>日の入</th></tr>
+					</table>
+				<% end %>
+			</div>
+		</div>
+
 	</div>
 </div>

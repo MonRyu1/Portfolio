@@ -1,0 +1,21 @@
+<% if wind_deg != nil %>
+	<% if 350 < wind_deg || (wind_deg != 0 && wind_deg < 10) %>
+		<%= image_tag 'Arrows/north.png', :size => "50x50" %>
+	<% elsif 10 <= wind_deg && wind_deg <= 80 %>
+		<%= image_tag 'Arrows/north_east.png', :size => "50x50" %>
+	<% elsif 80 < wind_deg && wind_deg < 100 %>
+		<%= image_tag 'Arrows/east.png', :size => "50x50" %>
+	<% elsif 100 <= wind_deg && wind_deg <= 170 %>
+		<%= image_tag 'Arrows/south_east.png', :size => "50x50" %>
+	<% elsif 170 < wind_deg && wind_deg < 190 %>
+		<%= image_tag 'Arrows/south.png', :size => "50x50" %>
+	<% elsif 190 <= wind_deg && wind_deg <= 260%>
+		<%= image_tag 'Arrows/south_west.png', :size => "50x50" %>
+	<% elsif 260 < wind_deg && wind_deg < 280 %>
+		<%= image_tag 'Arrows/west.png', :size => "50x50" %>
+	<% elsif 280 <= wind_deg && wind_deg <= 350 %>
+		<%= image_tag 'Arrows/north_west.png', :size => "50x50" %>
+	<% else %>
+		<%= image_tag 'no-image.png', :size => "50x50" %>
+	<% end %>
+<% end %>
