@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
 /* ユーザー詳細関連 */
 
 .user-show {
@@ -11,7 +10,7 @@
 }
 
 .user-show .title {
-	margin-left: 20%;
+	text-align: center;
 	font-weight: bold;
 }
 
@@ -20,10 +19,10 @@
 	text-align: center;
 }
 
-.user-image {
-	width: 300px;
-	height: 300px;
-	border-radius: 300px;
+.user-show .user-image {
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
 }
 
 .user-show .detail table {
@@ -58,7 +57,7 @@
 }
 
 .user-edit .title {
-	margin-left: 20%;
+	text-align: center;
 	font-weight: bold;
 }
 
@@ -68,9 +67,9 @@
 }
 
 .edit-user-image {
-	width: 300px;
-	height: 300px;
-	border-radius: 300px;
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
 }
 
 .user-edit .image-btn {
@@ -94,4 +93,33 @@
 .user-edit-form .submit-btn {
 	margin-top: 20px;
 	width: 200px;
+}
+
+
+/* ユーザー退会確認関連 */
+
+.user-confirm {
+	background-image: image-url("TopPics/Top3.jpeg");
+  background-size: cover;
+  backgorund-position: center;
+  height: 500px;
+  width: 100%;
+}
+
+.user-confirm-background {
+	height: 500px;
+  width: 100%;
+  background-color: rgba( 255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-confirm-box h2 {
+	padding: 20px 0px;
+}
+
+.confirm-btn {
+	width: 100px;
+	margin: 20px;
 }

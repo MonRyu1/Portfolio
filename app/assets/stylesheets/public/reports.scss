@@ -63,12 +63,12 @@
 
 
 /*  投稿画像関連 */
-.report-show .user-image {
+.report-show .report-user-image {
 	border-radius: 50px;
 	margin-bottom: 10px;
 }
 
-.report-show .image-top {
+.report-top .image-top {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -166,6 +166,14 @@
 	display: flex;
 }
 
+.report-review {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.report-review h2 {
+	font-weight: bolder;
+}
 
 
 /*  波情報新規投稿関連  */

@@ -63,8 +63,8 @@
 }
 
 
-/*  投稿画像まわり */
-.forecast-show .local-image {
+/*  投稿画像関連 */
+.forecast-show .forecast-local-image {
 	border-radius: 50px;
 	margin-bottom: 10px;
 }
@@ -167,6 +167,14 @@
 	display: flex;
 }
 
+.forecast-review {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.forecast-review h2 {
+	font-weight: bolder;
+}
 
 
 /*  波詳細新規投稿関連  */
