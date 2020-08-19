@@ -5,7 +5,7 @@
 			<div class="forecast-top">
 
 				<div class="image-top">
-					<%= attachment_image_tag @forecast.local, :local_image, fallback: "no-image.png", :size => "50x50", class: "local-image" %>
+					<%= attachment_image_tag @forecast.local, :local_image, fallback: "no-image.png", :size => "50x50", class: "forecast-local-image" %>
 					<h4>
 						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						<%= @forecast.spot.name %>
@@ -88,8 +88,10 @@
 
 			</div>
 
-				<h2><%= @forecast.date %>の波予想</h2>
-				<p><%= @forecast.review %></p>
+			<div class="forecast-review">
+				<h2><%= @forecast.date %>の波は？</h2>
+				<h4><%= @forecast.review %></h4>
+			</div>
 
 		</div>
 	</div>

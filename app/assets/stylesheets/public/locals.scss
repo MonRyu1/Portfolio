@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 /* ローカル詳細関連 */
 
 .local-show {
@@ -9,7 +10,7 @@
 }
 
 .local-show .title {
-	margin-left: 20%;
+	text-align: center;
 	font-weight: bold;
 }
 
@@ -19,9 +20,9 @@
 }
 
 .local-show .local-image {
-	width: 300px;
-	height: 300px;
-	border-radius: 300px;
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
 }
 
 .local-show .detail table {
@@ -55,7 +56,7 @@
 }
 
 .local-edit .title {
-	margin-left: 20%;
+	text-align: center;
 	font-weight: bold;
 }
 
@@ -65,9 +66,9 @@
 }
 
 .edit-local-image {
-	width: 300px;
-	height: 300px;
-	border-radius: 300px;
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
 }
 
 .local-edit .image-btn {
@@ -91,4 +92,33 @@
 .local-edit-form .submit-btn {
 	margin-top: 20px;
 	width: 200px;
+}
+
+
+/* ローカル退会確認関連 */
+
+.local-confirm {
+	background-image: image-url("TopPics/Top3.jpeg");
+  background-size: cover;
+  backgorund-position: center;
+  height: 500px;
+  width: 100%;
+}
+
+.local-confirm-background {
+	height: 500px;
+  width: 100%;
+  background-color: rgba( 255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.local-confirm-box h2 {
+	padding: 20px 0px;
+}
+
+.confirm-btn {
+	width: 100px;
+	margin: 20px;
 }
