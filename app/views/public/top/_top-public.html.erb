@@ -53,3 +53,16 @@
 		<% end %>
 	</ul>
 </div>
+
+
+<h2 class="public-title">ショップ</h2>
+<div class="public-shop-container">
+	<% @shops.each do |shop| %>
+		<div class="public-shop-box">
+			<%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", class: "public-shop-image" %>
+			<div class="public-shop-name">
+				<h4><%= shop.name %> (<%= shop.area.name %>)</h4>
+			</div>
+		</div>
+	<% end %>
+</div>
