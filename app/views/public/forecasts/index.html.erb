@@ -1,45 +1,94 @@
 <div class="forecast-index container">
 	<div class="row">
 		<div class=col-sm-12>
-			<h1 class="title">波予報</h1>
+			<h1 class="title">各地の波予報</h1>
+			<div class="area-box">
+				<%= link_to "一覧", forecasts_path, class: "btn btn-info area-btn" %>
+				<% @areas.each do |area| %>
+					<%= link_to area.name, forecasts_path(@forecast, area_id: area.id), class: "btn btn-default area-btn" %>
+				<% end %><br>
+			</div>
 			<div class="forecast-content">
-				<% @forecasts.each do |forecast| %>
+				<% if @area != nil %>
+					<% @area.spots.each do |spot| %>
+						<% spot.forecasts.each do |forecast| %>
 
-					<div class="forecast-box">
+							<div class="forecast-box">
 
-						<div>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-							<%= forecast.spot.name %>
-						</div>
+								<div>
+									<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+									<%= forecast.spot.name %>
+								</div>
 
-						<%= link_to forecast_path(forecast) do %>
-							<%= attachment_image_tag forecast.spot, :spot_image, fallback: "no-image.png", :size => "250x200", class: "forecast-image" %>
+								<%= link_to forecast_path(forecast) do %>
+									<%= attachment_image_tag forecast.spot, :spot_image, fallback: "no-image.png", :size => "250x200", class: "forecast-image" %>
+								<% end %>
+
+								<div class="date-rate">
+									<p><%= forecast.date %></p>
+									<p id="star-rate2-<%= forecast.id %>"></p>
+									<script>
+										$('#star-rate2-<%= forecast.id %>').raty({
+											size      : 36,
+											numberMux : 5,
+											starOff   : '<%= asset_path('stars/star-off.png') %>',
+											starOn    : '<%= asset_path('stars/star-on.png') %>',
+											starHalf  : '<%= asset_path('stars/star-half.png') %>',
+											half      : true,
+											readOnly  : true,
+											score     : <%= forecast.rate %>,
+										});
+									</script>
+								</div>
+
+
+								<div class="local">
+									<p><%= attachment_image_tag forecast.local, :local_image, fallback: "no-image.png", :size => "50x50", class: "forecast-local-image" %></p>
+									<p><%= forecast.local.user_name %></p>
+								</div>
+
+							</div>
 						<% end %>
+					<% end %>
+				<% else %>
+					<% @forecasts.each do |forecast| %>
 
-						<div class="date-rate">
-							<p><%= forecast.date %></p>
-							<p id="star-rate2-<%= forecast.id %>"></p>
-							<script>
-								$('#star-rate2-<%= forecast.id %>').raty({
-									size      : 36,
-									numberMux : 5,
-									starOff   : '<%= asset_path('stars/star-off.png') %>',
-									starOn    : '<%= asset_path('stars/star-on.png') %>',
-									starHalf  : '<%= asset_path('stars/star-half.png') %>',
-									half      : true,
-									readOnly  : true,
-									score     : <%= forecast.rate %>,
-								});
-							</script>
+						<div class="forecast-box">
+
+							<div>
+								<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+								<%= forecast.spot.name %>
+							</div>
+
+							<%= link_to forecast_path(forecast) do %>
+								<%= attachment_image_tag forecast.spot, :spot_image, fallback: "no-image.png", :size => "250x200", class: "forecast-image" %>
+							<% end %>
+
+							<div class="date-rate">
+								<p><%= forecast.date %></p>
+								<p id="star-rate2-<%= forecast.id %>"></p>
+								<script>
+									$('#star-rate2-<%= forecast.id %>').raty({
+										size      : 36,
+										numberMux : 5,
+										starOff   : '<%= asset_path('stars/star-off.png') %>',
+										starOn    : '<%= asset_path('stars/star-on.png') %>',
+										starHalf  : '<%= asset_path('stars/star-half.png') %>',
+										half      : true,
+										readOnly  : true,
+										score     : <%= forecast.rate %>,
+									});
+								</script>
+							</div>
+
+
+							<div class="local">
+								<p><%= attachment_image_tag forecast.local, :local_image, fallback: "no-image.png", :size => "50x50", class: "forecast-local-image" %></p>
+								<p><%= forecast.local.user_name %></p>
+							</div>
+
 						</div>
-
-
-						<div class="local">
-							<p><%= attachment_image_tag forecast.local, :local_image, fallback: "no-image.png", :size => "50x50", class: "forecast-local-image" %></p>
-							<p><%= forecast.local.user_name %></p>
-						</div>
-
-					</div>
+					<% end %>
 				<% end %>
 			</div>
 		</div>

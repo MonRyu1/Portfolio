@@ -17,7 +17,7 @@
 							<%= spot.name %>
 						</div>
 
-						<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x80", class: "spot-image" %>
+						<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x100", class: "spot-image" %>
 
 						<div class="spot-detail">
 							<p><%= spot.address %></p>
@@ -40,7 +40,7 @@
 					<div class=shop-box>
 
 						<%= link_to shop_path(shop) do %>
-							<%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", :size => "100x80", class: "shop-image" %>
+							<%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", :size => "100x100", class: "shop-image" %>
 						<% end %>
 
 						<div class="shop-detail">

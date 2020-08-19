@@ -1,6 +1,11 @@
 class Public::ForecastsController < ApplicationController
   def index
-    @forecasts = Forecast.all.order(created_at: :desc)
+    @areas = Area.all
+    if params[:area_id] != nil
+      @area = Area.find(params[:area_id])
+    else
+      @forecasts = Forecast.all.order(created_at: :desc)
+    end
   end
 
   def new
