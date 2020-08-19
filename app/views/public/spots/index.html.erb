@@ -1,37 +1,40 @@
 <div class="spot-index container">
 	<div class="row">
 		<div class="area-box col-sm-3">
+			<%= link_to "一覧", spots_path, class: "btn btn-info btn-block area-btn" %>
 			<% @areas.each do |area| %>
 				<%= link_to area.name, spots_path(@spot, area_id: area.id), class: "btn btn-default area-btn" %>
 			<% end %><br>
 		</div>
 		<div class="col-sm-9">
 			<% if @area != nil %>
-				<h2><%= @area.name %>のスポット</h2>
+				<h2 class="title"><%= @area.name %>のスポット</h2>
 				<div class="spot-index-box">
 					<% @area.spots.each do |spot| %>
 						<div class="spot-container">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+							<%= spot.name %>
 							<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "200x160", class: "spot-image" %><br>
 							<div class="spot-detail">
-								<%= spot.name %><br>
-								<%= spot.address %><br>
-								<%= spot.feature %><br>
-								<%= spot.parking %><br>
+								<p><%= spot.address %></p>
+								<p><%= spot.feature %></p>
+								<p>駐車場<%= spot.parking %></p>
 							</div>
 						</div>
 					<% end %>
 				</div>
 			<% else %>
-				<h2>スポット</h2>
+				<h2 class="title">スポット一覧</h2>
 				<div class="spot-index-box">
 					<% @spots.each do |spot| %>
 						<div class="spot-container">
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+							<%= spot.name %>
 							<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "200x160", class: "spot-image" %><br>
 							<div class="spot-detail">
-								<%= spot.name %><br>
-								<%= spot.address %><br>
-								<%= spot.feature %><br>
-								<%= spot.parking %><br>
+								<p><%= spot.address %></p>
+								<p><%= spot.feature %></p>
+								<p>駐車場<%= spot.parking %></p>
 							</div>
 						</div>
 					<% end %>

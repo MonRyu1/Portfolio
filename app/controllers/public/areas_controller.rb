@@ -4,5 +4,6 @@ class Public::AreasController < ApplicationController
   end
 
   def show
+  	@area = Area.find(params[:id])
   end
 end
