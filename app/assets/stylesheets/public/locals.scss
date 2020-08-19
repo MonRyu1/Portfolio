@@ -1,3 +1,94 @@
 // Place all the styles related to the public/locals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ローカル詳細関連 */
+
+.local-show {
+	margin: 50px 0px 100px 0px;
+}
+
+.local-show .title {
+	margin-left: 20%;
+	font-weight: bold;
+}
+
+.local-show-box {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.local-show .local-image {
+	width: 300px;
+	height: 300px;
+	border-radius: 300px;
+}
+
+.local-show .detail table {
+	margin: 10px auto;
+}
+
+.local-show .detail table tr th {
+	width: 150px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.local-show .detail table tr td {
+	width: 200px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.local-show .local-btn {
+	margin-top: 30px;
+	width: 200px;
+}
+
+
+/* ローカル編集関連 */
+
+.local-edit {
+	margin: 50px 0px 100px 0px;
+}
+
+.local-edit .title {
+	margin-left: 20%;
+	font-weight: bold;
+}
+
+.local-edit-form {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.edit-local-image {
+	width: 300px;
+	height: 300px;
+	border-radius: 300px;
+}
+
+.local-edit .image-btn {
+	margin: 15px auto;
+}
+
+.local-edit .detail-form table {
+	margin: 10px auto;
+}
+
+.local-edit .detail-form table tr th {
+	width: 150px;
+	padding: 15px 10px;
+}
+
+.local-edit .detail-form table tr td {
+	width: 200px;
+	padding: 15px 10px;
+}
+
+.local-edit-form .submit-btn {
+	margin-top: 20px;
+	width: 200px;
+}

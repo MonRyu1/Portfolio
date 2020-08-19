@@ -1,3 +1,97 @@
 // Place all the styles related to the public/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/* ユーザー詳細関連 */
+
+.user-show {
+	margin: 50px 0px 100px 0px;
+}
+
+.user-show .title {
+	margin-left: 20%;
+	font-weight: bold;
+}
+
+.user-show-box {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.user-image {
+	width: 300px;
+	height: 300px;
+	border-radius: 300px;
+}
+
+.user-show .detail table {
+	margin: 10px auto;
+}
+
+.user-show .detail table tr th {
+	width: 150px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.user-show .detail table tr td {
+	width: 200px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.user-show .user-btn {
+	margin-top: 30px;
+	width: 200px;
+}
+
+
+
+/* ユーザー編集関連 */
+
+.user-edit {
+	margin: 50px 0px 100px 0px;
+}
+
+.user-edit .title {
+	margin-left: 20%;
+	font-weight: bold;
+}
+
+.user-edit-form {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.edit-user-image {
+	width: 300px;
+	height: 300px;
+	border-radius: 300px;
+}
+
+.user-edit .image-btn {
+	margin: 15px auto;
+}
+
+.user-edit .detail-form table {
+	margin: 10px auto;
+}
+
+.user-edit .detail-form table tr th {
+	width: 150px;
+	padding: 15px 10px;
+}
+
+.user-edit .detail-form table tr td {
+	width: 200px;
+	padding: 15px 10px;
+}
+
+.user-edit-form .submit-btn {
+	margin-top: 20px;
+	width: 200px;
+}
