@@ -1,5 +1,12 @@
-<h1>Public::Areas#index</h1>
-<p>Find me in app/views/public/areas/index.html.erb</p>
-<% @areas.each do |area| %>
-<%= link_to area.name, spots_path(@spot, area_id: area.id) %>
-<% end %>
+<div class="area-index container">
+	<div class="row">
+		<div class="col-sm-12">
+			<% @areas.each do |area| %>
+				<% if area.id.between?(0, 4) %>
+					<%= area.id %>
+					<%= link_to area.name, area_path(area) %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,2 +1,58 @@
-<h1>Public::Areas#show</h1>
-<p>Find me in app/views/public/areas/show.html.erb</p>
+<div class="area-show container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="area-name"><%= @area.name %></h1>
+			<%= render 'public/areas/report-forecast', area: @area %>
+
+			<h2 class="area-show-title">スポット</h2>
+
+			<div class="spot-show-container">
+
+				<% @area.spots.each do |spot| %>
+
+					<div class="spot-box">
+
+						<div>
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+							<%= spot.name %>
+						</div>
+
+						<%= attachment_image_tag spot, :spot_image, fallback: "no-image.png", :size => "100x80", class: "spot-image" %>
+
+						<div class="spot-detail">
+							<p><%= spot.address %></p>
+							<p><%= spot.feature %></p>
+							<p>駐車場<%= spot.parking %></p>
+						</div>
+
+					</div>
+
+				<% end %>
+
+			</div>
+
+
+			<h2 class="area-show-title">ショップ</h2>
+			<div class="shop-show-container">
+
+				<% @area.shops.each do |shop| %>
+
+					<div class=shop-box>
+
+						<%= link_to shop_path(shop) do %>
+							<%= attachment_image_tag shop, :shop_image, fallback: "no-image.png", :size => "100x80", class: "shop-image" %>
+						<% end %>
+
+						<div class="shop-detail">
+							<h4><%= shop.name %> (<%= shop.area.name %>)</h4>
+						</div>
+
+					</div>
+
+				<% end %>
+
+			</div>
+
+		</div>
+	</div>
+</div>
