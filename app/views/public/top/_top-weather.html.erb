@@ -2,7 +2,7 @@
 	<h4>明日(<%= Date.tomorrow.strftime("%m/%d") %>)の天気</h4>
 	<%= form_with url: root_path, method: :get, local: true do |f| %>
     <%= f.text_field :city_name, placeholder: "市町村名" %>
-    <%= f.submit "SEARCH" %>
+    <%= f.submit "検索", class: "search-btn" %>
   <% end %>
 	<% if @city != nil %>
 		<h4 class="city-name"><%= @city %>の天気</h4>
