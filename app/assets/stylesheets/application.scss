@@ -61,6 +61,7 @@
 #icon .user-img {
   border-radius: 50px;
   text-align: center;
+  box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.18);
 }
 
 #admin-logout p {
@@ -121,7 +122,7 @@
 .footer {
   width: 100%;
   height: auto;
-  border-top: 1px solid;
+  border-top: 1px solid #CCCCCC;
 }
 
 .footer-top {

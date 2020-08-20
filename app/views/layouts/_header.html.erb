@@ -1,49 +1,21 @@
 <div class="header">
   <div class="header-logo">
     <%= link_to root_path do %>
-      <img src="<%= asset_path "Logo.png" %>" width="200" height="65">
+      <img src="<%= asset_path "Logo/Logo.png" %>" width="200" height="65">
     <% end %>
   </div>
-  <% if user_signed_in? %>
-    <div id="icon-contents">
-      <div id="tab">
-        <div><%= link_to "マイページ（ユーザー）", user_path(current_user) %></div>
-        <div><%= link_to "波情報投稿", new_report_path %></div>
-        <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
-      </div>
+  <div id="icon-contents">
+    <div id="tab">
+      <div><%= link_to "ユーザーログイン", user_session_path, :style=>"color:#808080;" %></div>
+      <div><%= link_to "ローカルログイン", local_session_path, :style=>"color:#808080;" %></div>
+      <div><%= link_to "管理者", admin_session_path, :style=>"color:#808080;" %></div>
     </div>
-    <div id="icon">
-      <a class="trigger" href="#" >
-        <%= attachment_image_tag current_user, :user_image, fallback: "no-profile-img.png", :size => "50x50", class: "user-img" %>
-      </a>
-    </div>
-  <% elsif local_signed_in? %>
-    <div id="icon-contents">
-      <div id="tab">
-        <div><%= link_to "マイページ（ローカル）", local_path(current_local) %></div>
-        <div><%= link_to "波予報投稿", new_forecast_path %></div>
-        <div><%= link_to "ログアウト", destroy_local_session_path, method: :delete %></div>
-      </div>
-    </div>
-    <div id="icon">
-      <a class="trigger" href="#" >
-        <%= attachment_image_tag current_local, :local_image, fallback: "no-profile-img.png", :size => "50x50", class: "user-img" %>
-      </a>
-    </div>
-  <% else %>
-    <div id="icon-contents">
-      <div id="tab">
-        <div><%= link_to "ユーザーログイン", user_session_path %></div>
-        <div><%= link_to "ローカルログイン", local_session_path %></div>
-        <div><%= link_to "管理者", admin_session_path %></div>
-      </div>
-    </div>
-    <div id="icon">
-      <a class="trigger" href="#" >
-        <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50" class="user-img">
-      </a>
-    </div>
-  <% end %>
+  </div>
+  <div id="icon">
+    <a class="trigger" href="#" >
+      <img src="<%= asset_path "no-profile-img.png" %>" width="50" height="50" class="user-img">
+    </a>
+  </div>
   <script>
     $('#icon-contents #tab').hide();
     $('#icon a').on('click', function() {
