@@ -1,6 +1,7 @@
 <div class="shop-index container">
 	<div class="row">
 		<div class="area-box col-sm-3">
+			<%= link_to "一覧", shops_path, class: "btn btn-info btn-block area-btn" %>
 			<% @areas.each do |area| %>
 				<p><%= link_to area.name, shops_path(@shop, area_id: area.id), class: "btn btn-default area-btn" %></p>
 			<% end %>
