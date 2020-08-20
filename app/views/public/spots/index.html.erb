@@ -6,7 +6,7 @@
 				<%= link_to area.name, spots_path(@spot, area_id: area.id), class: "btn btn-default area-btn" %>
 			<% end %><br>
 		</div>
-		<div class="col-sm-9">
+		<div class="spot-index-container col-sm-9">
 			<% if @area != nil %>
 				<h2 class="title"><%= @area.name %>のスポット</h2>
 				<div class="spot-index-box">
@@ -40,6 +40,7 @@
 					<% end %>
 				</div>
 			<% end %>
+			<div class="spot-paginate"><%= paginate @spots %></div>
 		</div>
 	</div>
 </div>
