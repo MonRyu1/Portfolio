@@ -4,9 +4,38 @@
 
 
 /* エリア一覧関連 */
+.area-visual {
+  background-image: image-url("TopPics/Top2.jpeg");
+  background-size: cover;
+  backgorund-position: center;
+  height: 700px;
+}
+
+.area-background {
+  height: 700px;
+  width: 100%;
+  background-color: rgba( 255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .area-index {
 	margin: 50px 0px 100px 0px;
+	text-align: center;
+}
+
+.area-select-box {
+	margin-bottom: 20px;
+}
+
+.big-area-select {
+	font-weight: bolder;
+}
+
+.area-select {
+	margin-right: 7px;
+	display: inline-block;
 }
 
 /* エリア詳細関連 */

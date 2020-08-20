@@ -2,70 +2,99 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.box1{
 
-width: 500px;
+/* アバウト関連 */
 
-height: auto;
-
-background-color: gray;
-
-font-size:0;
-
-overflow-x: auto;
-
-white-space: nowrap;
-
-}
-
-.test2 {
-
-display: inline-block;
-
-width: 200px;
-
-height: 200px;
-
-background: black;
-
-margin-right:3px;
-
-}
-
-.test3 {
-
-display: inline-block;
-
-width: 200px;
-
-height: 200px;
-
-background: blue;
-
+.about {
+	border-top: 1px solid #EEEEEE;
+  margin-bottom: 100px;
 }
 
 
-.box26 {
-    position: relative;
-    margin: 2em 0;
-    padding: 0.5em 1em;
-    border: solid 3px #62c1ce;
+/* ユーザー、ローカル詳細 */
+.about-user,
+.about-local {
+	width: 100%;
+	hright: 500px;
+	display: flex;
+	flex-wrap: wrap;
 }
-.box26 .box-title {
-    position: absolute;
-    display: inline-block;
-    top: -27px;
-    left: -3px;
-    padding: 0 9px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 17px;
-    background: #62c1ce;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
+
+.about-title {
+	font-weight: bolder;
+	margin-bottom: 30px;
 }
-.box26 p {
-    margin: 0; 
-    padding: 0;
+
+.link-btn {
+	margin-top: 30px;
+}
+
+.describe {
+	width: 50%;
+	height: 500px;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.describe p {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.about-user-background,
+.about-local-background {
+	width: 50%;
+	height: 500px;
+}
+
+.about-user-background {
+	background-image: image-url('about/user-about.jpg');
+	background-position: center;
+	background-size: cover;
+	box-shadow: -10px 10px 10px 5px rgba(0, 0, 0, 0.15);
+}
+
+.about-local-background {
+	background-image: image-url('about/local-about.jpg');
+	background-position: center;
+	background-size: cover;
+	box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ショップ、スポット、エリア詳細 */
+.others-contents {
+	background-image: image-url('about/about3.jpg');
+	background-position: center;
+	background-size: cover;
+	margin: 100px 0px 50px 0px;
+	width: 100%;
+	box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.others-contents-background {
+	background-color: rgba( 0, 0, 0, 0.1);
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.about-shop-box,
+.about-spot-box,
+.about-area-box {
+	margin: 20px;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #DDDDDD;
+	border-radius: 200px;
+	background-color: rgba( 255, 255, 255, 0.6);
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
 }
