@@ -1,4 +1,6 @@
 class Admin::ForecastsController < ApplicationController
+   before_action :authenticate_admin!
+
   def index
   	@forecasts = Forecast.all
   end

@@ -1,4 +1,6 @@
 class Public::ForecastsController < ApplicationController
+  before_action :authenticate_local!, only: [:new, :create]
+
   def index
     @areas = Area.all
     if params[:area_id] != nil
