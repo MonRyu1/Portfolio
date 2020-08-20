@@ -20,6 +20,10 @@
 
 
 /* スポット一覧 */
+.spot-index-container {
+	padding-bottom: 50px;
+}
+
 .spot-index .spot-container {
 	margin-bottom: 25px;
 }
@@ -52,4 +56,9 @@
 
 .spot-detail {
 	border-bottom: 1px solid #EEEEEE;
+}
+
+.spot-paginate {
+	position: absolute;
+	bottom: 0;
 }
