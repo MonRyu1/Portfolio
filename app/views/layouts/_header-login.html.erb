@@ -1,15 +1,15 @@
 <div class="header-login">
   <div class="header-login-logo">
     <%= link_to root_path do %>
-      <img src="<%= asset_path "LogoWhite.png" %>" width="200" height="65">
+      <img src="<%= asset_path "Logo/LogoWhite.png" %>" width="200" height="65">
     <% end %>
   </div>
   <% if user_signed_in? %>
     <div id="icon-contents">
       <div id="tab">
-        <div><%= link_to "マイページ（ユーザー）", user_path(current_user) %></div>
-        <div><%= link_to "波情報投稿", new_report_path %></div>
-        <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+        <div><%= link_to "マイページ", user_path(current_user), :style=>"color:#808080;" %></div>
+        <div><%= link_to "波情報投稿", new_report_path, :style=>"color:#808080;" %></div>
+        <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style=>"color:#808080;" %></div>
       </div>
     </div>
     <div id="icon">
@@ -20,9 +20,9 @@
   <% elsif local_signed_in? %>
     <div id="icon-contents">
       <div id="tab">
-        <div><%= link_to "マイページ（ローカル）", local_path(current_local) %></div>
-        <div><%= link_to "波予報投稿", new_forecast_path %></div>
-        <div><%= link_to "ログアウト", destroy_local_session_path, method: :delete %></div>
+        <div><%= link_to "マイページ", local_path(current_local), :style=>"color:#808080;" %></div>
+        <div><%= link_to "波予報投稿", new_forecast_path, :style=>"color:#808080;" %></div>
+        <div><%= link_to "ログアウト", destroy_local_session_path, method: :delete, :style=>"color:#808080;" %></div>
       </div>
     </div>
     <div id="icon">

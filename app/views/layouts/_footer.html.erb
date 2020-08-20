@@ -3,16 +3,16 @@
 		<div class="footer-top col-sm-12">
 			<div class="logo">
 				<%= link_to root_path do %>
-	      	<img src="<%= asset_path "Logo.png" %>" width="200" height="65">
+	      	<img src="<%= asset_path "Logo/LogoBlack.png" %>" width="200" height="65">
 	    	<% end %>
     	</div>
     	<div class="menu">
-    		<p>波情報</p>
-				<p>波予報</p>
-				<p>サーフショップ</p>
-				<p>サーフスポット</p>
-				<p>エリア</p>
-				<p>アバウト</p>
+    		<p><%= link_to "波情報", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "波予報", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "サーフショップ", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "サーフスポット", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "エリア", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "アバウト", about_path, :style=>"color:#000;" %></p>
 			</div>
 			<div class="sns">
 				<h4>FOLLOW US ON</h4>
