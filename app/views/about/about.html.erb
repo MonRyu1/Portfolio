@@ -1,2 +1,58 @@
-<h1>About#about</h1>
-<p>Find me in app/views/about/about.html.erb</p>
+<div class="about">
+
+	<div class="about-user">
+		<div class="describe">
+			<div>
+				<h2 class="about-title">ユーザー</h2>
+				<p>波情報の閲覧・投稿</p>
+				<p>波予報の閲覧</p>
+				<p>ショップ検索</p>
+				<p>ショップ検索</p>
+				<p>エリア検索</p>
+				<p><%= link_to "ユーザー登録 ＞＞", new_user_registration_path, class: "btn btn-default btn-lg link-btn" %></p>
+			</div>
+		</div>
+		<div class="about-user-background">
+		</div>
+	</div>
+
+	<div class="about-local">
+		<div class="about-local-background">
+		</div>
+		<div class="describe">
+			<div>
+				<h2 class="about-title">ローカル</h2>
+				<p>波予報の閲覧・投稿</p>
+				<p>波情報の閲覧</p>
+				<p>ショップ検索</p>
+				<p>ショップ検索</p>
+				<p>エリア検索</p>
+				<p><%= link_to "ローカル登録 ＞＞", new_local_registration_path, class: "btn btn-default btn-lg link-btn" %></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="others-contents">
+		<div class="others-contents-background">
+			<div class="about-shop-box">
+				<div>
+					<h3>ショップ</h3>
+					<p>全国のショップ検索</p>
+				</div>
+			</div>
+			<div class="about-spot-box">
+				<div>
+					<h3>スポット</h3>
+					<p>全国のショップ検索</p>
+				</div>
+			</div>
+			<div class="about-area-box">
+				<div>
+					<h3>エリア</h3>
+					<p>エリアから詳細検索</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,5 +1,65 @@
-<h1>Public::Areas#index</h1>
-<p>Find me in app/views/public/areas/index.html.erb</p>
-<% @areas.each do |area| %>
-<%= link_to area.name, spots_path(@spot, area_id: area.id) %>
-<% end %>
+<div class="area-visual">
+	<div class="area-background">
+		<div class="area-index container">
+			<div class="row">
+				<div class="col-sm-12">
+
+					<div class="area-select-box">
+						<h3 class="big-area-select">北海道・東北</h3>
+						<% @areas.each do |area| %>
+							<% if area.id.between?(2, 8) %>
+								<h4 class="area-select"><%= link_to area.name, area_path(area), :style=>"color:#000;" %></h4>
+							<% end %>
+						<% end %>
+					</div>
+
+					<div class="area-select-box">
+						<h3 class="big-area-select">関東</h3>
+						<% @areas.each do |area| %>
+							<% if area.id.between?(9, 12) %>
+								<h4 class="area-select"><%= link_to area.name, area_path(area), :style=>"color:#000;" %></h4>
+							<% end %>
+						<% end %>
+					</div>
+
+					<div class="area-select-box">
+						<h3 class="big-area-select">北陸・東海</h3>
+						<% @areas.each do |area| %>
+							<% if area.id.between?(13, 19) %>
+								<h4 class="area-select"><%= link_to area.name, area_path(area), :style=>"color:#000;" %></h4>
+							<% end %>
+						<% end %>
+					</div>
+
+					<div class="area-select-box">
+						<h3 class="big-area-select">関西</h3>
+						<% @areas.each do |area| %>
+							<% if area.id.between?(20, 22) %>
+								<h4 class="area-select"><%= link_to area.name, area_path(area), :style=>"color:#000;" %></h4>
+							<% end %>
+						<% end %>
+					</div>
+
+					<div class="area-select-box">
+						<h3 class="big-area-select">四国・中国</h3>
+						<% @areas.each do |area| %>
+							<% if area.id.between?(23, 27) %>
+								<h4 class="area-select"><%= link_to area.name, area_path(area), :style=>"color:#000;" %></h4>
+							<% end %>
+						<% end %>
+					</div>
+
+					<div class="area-select-box">
+						<h3 class="big-area-select">九州・沖縄</h3>
+						<% @areas.each do |area| %>
+							<% if area.id.between?(28, 34) %>
+								<h4 class="area-select"><%= link_to area.name, area_path(area), :style=>"color:#000;" %></h4>
+							<% end %>
+						<% end %>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

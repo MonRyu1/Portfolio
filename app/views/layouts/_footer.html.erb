@@ -1,15 +1,32 @@
-<footer class="footer">
-  <% if user_signed_in? %>
-    <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-user-lo" %></div>
-    <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-user-lo" %></div>
-    <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-user-lo" %></div>
-  <% elsif local_signed_in? %>
-    <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-local-lo" %></div>
-    <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-local-lo" %></div>
-    <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-local-lo" %></div>
-  <% else %>
-    <div><%= link_to "アバウト", about_path, class: "btn btn-default btn-lo" %></div>
-    <div><%= link_to "ショップ一覧", shops_path, class: "btn btn-default btn-lo" %></div>
-    <div><%= link_to "スポット検索", areas_path, class: "btn btn-default btn-lo" %></div>
-  <% end %>
-</footer>
+<div class="footer container">
+	<div class="row">
+		<div class="footer-top col-sm-12">
+			<div class="logo">
+				<%= link_to root_path do %>
+	      	<img src="<%= asset_path "Logo/LogoBlack.png" %>" width="200" height="65">
+	    	<% end %>
+    	</div>
+    	<div class="menu">
+    		<p><%= link_to "波情報", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "波予報", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "サーフショップ", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "サーフスポット", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "エリア", about_path, :style=>"color:#000;" %></p>
+				<p><%= link_to "アバウト", about_path, :style=>"color:#000;" %></p>
+			</div>
+			<div class="sns">
+				<h4>FOLLOW US ON</h4>
+				<i class="fab fa-facebook-f fa-2x"></i>
+				<i class="fab fa-instagram fa-2x"></i>
+				<i class="fab fa-twitter fa-2x"></i>
+				<i class="fab fa-youtube fa-2x"></i>
+				<h4>INSTALL OUR APPS</h4>
+				<i class="fab fa-apple fa-2x"></i>
+				<i class="fab fa-google-play fa-2x"></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer-bottom">
+	<span class="footer-text">©WaveWatch INC. All Rights Reserved. </span>
+</div>

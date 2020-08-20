@@ -1,10 +1,12 @@
-<h1>Public::Locals#confirm</h1>
-<p>Find me in app/views/public/locals/confirm.html.erb</p>
-<h2>本当に退会しますか？</h2>
-<p>退会する場合は、「退会する」をクリックしてください。</p><br>
+<div class="local-confirm">
+	<div class="local-confirm-background">
+		<div class="local-confirm-box">
+			<h2 class="title">本当に退会しますか？</h2>
+			<%= link_to "退会しない", local_path(current_local), class: "btn btn-primary confirm-btn" %>
 
-<%= link_to "退会しない", local_path(current_local) %>
-
-<% if local_signed_in? && @local.id == current_local.id %>
-<%= link_to "退会する", locals_leave_path(current_local), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
-<% end %>
+			<% if local_signed_in? && @local.id == current_local.id %>
+				<%= link_to "退会する", locals_leave_path(current_local), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger confirm-btn" %>
+			<% end %>
+		</div>
+	</div>
+</div>

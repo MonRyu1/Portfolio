@@ -1,3 +1,124 @@
 // Place all the styles related to the public/locals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* ローカル詳細関連 */
+
+.local-show {
+	margin: 50px 0px 100px 0px;
+}
+
+.local-show .title {
+	text-align: center;
+	font-weight: bold;
+}
+
+.local-show-box {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.local-show .local-image {
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
+}
+
+.local-show .detail table {
+	margin: 10px auto;
+}
+
+.local-show .detail table tr th {
+	width: 150px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.local-show .detail table tr td {
+	width: 200px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.local-show .local-btn {
+	margin-top: 30px;
+	width: 200px;
+}
+
+
+/* ローカル編集関連 */
+
+.local-edit {
+	margin: 50px 0px 100px 0px;
+}
+
+.local-edit .title {
+	text-align: center;
+	font-weight: bold;
+}
+
+.local-edit-form {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.edit-local-image {
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
+}
+
+.local-edit .image-btn {
+	margin: 15px auto;
+}
+
+.local-edit .detail-form table {
+	margin: 10px auto;
+}
+
+.local-edit .detail-form table tr th {
+	width: 150px;
+	padding: 15px 10px;
+}
+
+.local-edit .detail-form table tr td {
+	width: 200px;
+	padding: 15px 10px;
+}
+
+.local-edit-form .submit-btn {
+	margin-top: 20px;
+	width: 200px;
+}
+
+
+/* ローカル退会確認関連 */
+
+.local-confirm {
+	background-image: image-url("TopPics/Top3.jpeg");
+  background-size: cover;
+  backgorund-position: center;
+  height: 500px;
+  width: 100%;
+}
+
+.local-confirm-background {
+	height: 500px;
+  width: 100%;
+  background-color: rgba( 255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.local-confirm-box h2 {
+	padding: 20px 0px;
+}
+
+.confirm-btn {
+	width: 100px;
+	margin: 20px;
+}

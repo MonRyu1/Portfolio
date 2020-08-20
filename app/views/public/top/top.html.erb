@@ -1,151 +1,55 @@
 <% if user_signed_in? || local_signed_in? || admin_signed_in? %>
-	<div class="container">
+	<div class="top-report-visual">
+		<div class="top-report-background">
+			<p>波情報 & 波予報</p>
+		</div>
+	</div>
+	<div class="top-contents container">
+		<div class="row">
+			<div class="col-sm-9">
+
+				<%= render 'public/top/top-login' %>
+
+			</div>
+			<div class="col-sm-3">
+
+				<%= render 'public/top/top-weather' %>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="top-shop-visual">
+		<div class="top-shop-background">
+			<p>ショップ</p>
+		</div>
+	</div>
+	<div class="top-shop container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h3><%= link_to "波情報はこちら", reports_path %></h3>
-				<h3>最新レビュー</h3>
-				<% @reports.each do |report| %>
-					<% if report.created_at.strftime('%Y-%m-%d') == Date.today.to_s %>
-						<%= link_to report_path(report) do %>
-							<%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "100x100" %>
-						<% end %>
-						<table>
-							<tr><th>ユーザー</th><td><%= report.user.user_name %></td></tr>
-							<tr><th>日付</th><td><%= report.created_at.strftime('%Y-%m-%d') %></td></tr>
-							<tr><th>スポット</th><td><%= report.spot.name %></td></tr>
-							<tr><th>波評価</th><td><div id="star-rate-<%= report.id %>"></div></td></tr>
-								<script>
-									$('#star-rate-<%= report.id %>').raty({
-										size      : 36,
-										number    : 5,
-										starOff   : '<%= asset_path('stars/star-off.png') %>',
-										starOn    : '<%= asset_path('stars/star-on.png') %>',
-										starHalf  : '<%= asset_path('stars/star-half.png') %>',
-										half      : true,
-										readOnly  : true,
-										score     : <%= report.rate %>,
-									});
-								</script>
-							<tr><th>サイズ</th><td><%= report.size %></td></tr>
-						</table>
-					<% end %>
-				<% end %>
-			</div>
-			<div class="col-sm-12">
-				<h3><%= link_to "波予報はこちら", forecasts_path %></h3>
-				<h3>明日の波</h3>
-				<% @forecasts.each do |forecast| %>
-					<% if forecast.date == Date.tomorrow.to_s %>
-						<table>
-							<tr>
-								<th>ユーザーネーム</th>
-								<td colspan="4"><%= forecast.local.user_name %></td>
-							</tr>
-							<tr>
-								<th>スポット名</th>
-								<td colspan="4"><%= forecast.spot.name %></td>
-							</tr>
-							<tr>
-								<th>評価</th>
-								<td colspan="4"><div id="star-rate2-<%= forecast.id %>"></div>
-								<script>
-									$('#star-rate2-<%= forecast.id %>').raty({
-										size      : 36,
-										numberMux : 5,
-										starOff   : '<%= asset_path('stars/star-off.png') %>',
-										starOn    : '<%= asset_path('stars/star-on.png') %>',
-										starHalf  : '<%= asset_path('stars/star-half.png') %>',
-										half      : true,
-										readOnly  : true,
-										score     : <%= forecast.rate %>,
-									});
-								</script></td>
-							</tr>
-							<tr><th>サイズ</th><td colspan="4"><%= forecast.size %></td></tr>
-							<tr><th>日付</th><td colspan="4"><%= forecast.date %></td></tr>
-						</table>
-					<% end %>
-				<% end %>
-			</div>
-			<div class="col-sm-12">
-				<h4>明日(<%= Date.tomorrow.strftime("%m/%d") %>)のお天気検索</h4>
-				<div class="container">
-			    <%= form_with url: root_path, method: :get, local: true do |f| %>
-			      <% f.text_field :city_name, placeholder: "場所を入力してください" %>
-			    <% end %>
-				</div>
-				<% if @city != nil %>
-					<h4><%= @city %>の天気</h4>
-					<table>
-						<tr><th>朝6時</th><td></td></tr>
-						<tr><th>気温</th><td><%= @temp %></td></tr>
-						<tr><th>天気</th><td><%= @description %></td></tr>
-						<tr><th>風</th><td><%= @wind %></td></tr>
-						<tr><th>昼12時</th><td></td></tr>
-						<tr><th>気温</th><td><%= @temp2 %></td></tr>
-						<tr><th>天気</th><td><%= @description2 %></td></tr>
-						<tr><th>風</th><td><%= @wind2 %></td></tr>
-						<tr><th>夕方6時</th><td></td></tr>
-						<tr><th>気温</th><td><%= @temp3 %></td></tr>
-						<tr><th>天気</th><td><%= @description3 %></td></tr>
-						<tr><th>風</th><td><%= @wind3 %></td></p>
-					</table>
-				<% end %>
+
+				<%= render 'public/top/top-shop' %>
+
 			</div>
 		</div>
 	</div>
 <% else %>
-	<div class="top-visual"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8">
-				<h3>波情報</h3>
-				<% @reports.each do |report| %>
-					<%= attachment_image_tag report, :report_image, fallback: "no-image.png", :size => "100x100" %>
-					<table>
-						<tr><th>スポット</th><td><%= report.spot.name %></td></tr>
-						<tr><th>波評価</th><td><div id="star-rate-<%= report.id %>"></div></td></tr>
-							<script>
-								$('#star-rate-<%= report.id %>').raty({
-									size      : 36,
-									numberMax : 5,
-									starOff   : '<%= asset_path('stars/star-off.png') %>',
-									starOn    : '<%= asset_path('stars/star-on.png') %>',
-									starHalf  : '<%= asset_path('stars/star-half.png') %>',
-									half      : true,
-									readOnly  : true,
-									score     : <%= report.rate %>,
-								});
-							</script>
-						<tr><th>サイズ</th><td><%= report.size %></td></tr>
-					</table>
-				<% end %>
+	<div class="top-visual">
+		<div class="top-visual-background">
+			<div class="quotes">
+				<h3>“ It’s all about</h3>
+				<h3>where your mind’s at ... ”</h3><br>
+				<h5>by Kelly Slater</h5>
 			</div>
-			<div class="col-sm-4">
-				<h3>波予報</h3>
-				<% @forecasts.each do |forecast| %>
-					<table>
-						<tr>
-							<th>スポット名</th><td colspan="4"><%= forecast.spot.name %></td>
-						</tr>
-						<tr>
-							<th>評価</th><td colspan="4"><div id="star-rate2-<%= forecast.id %>"></div>
-								<script>
-									$('#star-rate2-<%= forecast.id %>').raty({
-										size      : 50,
-										starOff   : '<%= asset_path('stars/star-off.png') %>',
-										starOn    : '<%= asset_path('stars/star-on.png') %>',
-										starHalf  : '<%= asset_path('stars/star-half.png') %>',
-										half      : true,
-										readOnly  : true,
-										score     : <%= forecast.rate %>,
-									});
-								</script></td>
-						</tr>
-						<tr><th>サイズ</th><td colspan="4"><%= forecast.size %></td></tr>
-						<tr><th>日付</th><td colspan="4"><%= forecast.date %></td></tr>
-					</table>
-				<% end %>
+		</div>
+	</div>
+
+	<div class="top-contents container">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<%= render 'public/top/top-public' %>
+
 			</div>
 		</div>
 	</div>

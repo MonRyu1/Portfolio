@@ -1,3 +1,184 @@
 // Place all the styles related to the public/areas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* エリア一覧関連 */
+.area-visual {
+  background-image: image-url("TopPics/Top2.jpeg");
+  background-size: cover;
+  backgorund-position: center;
+  height: 700px;
+}
+
+.area-background {
+  height: 700px;
+  width: 100%;
+  background-color: rgba( 255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.area-index {
+	margin: 50px 0px 100px 0px;
+	text-align: center;
+}
+
+.area-select-box {
+	margin-bottom: 20px;
+}
+
+.big-area-select {
+	font-weight: bolder;
+}
+
+.area-select {
+	margin-right: 7px;
+	display: inline-block;
+}
+
+/* エリア詳細関連 */
+
+.area-show {
+	margin: 50px 0px 100px 0px;
+}
+
+.area-name {
+	text-align: center;
+	font-weight: bolder;
+	margin-bottom: 30px;
+}
+
+/* 波情報 */
+
+.area-show-report-container {
+	margin-bottom: 50px;
+}
+
+.area-show-title {
+	border-left: 4px solid #DDDDDD;
+	border-radius: 3px;
+	font-weight: bolder;
+	padding-left: 2%;
+}
+
+.area-show-report-container .link {
+	float: right;
+}
+
+.area-show-report-container .new-report-box {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+
+	position: relative;
+	border: solid 3px black;
+	border-radius: 10px;
+	padding: 30px 10px 5px 0px;
+
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.area-show-report-container .new-report {
+	display: inline-block;
+	width: 120px;
+	height: auto;
+	background-color: #fff;
+}
+
+.area-show-report-container .new-report .report-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+
+/* 波予報 */
+
+.area-show-forecast-container {
+	margin-bottom: 70px;
+}
+
+.area-show-forecast-container .new-forecast-box {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+
+	position: relative;
+	border: solid 3px black;
+	border-radius: 10px;
+	padding: 30px 10px 5px 0px;
+
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.area-show-forecast-container .new-forecast {
+	display: inline-block;
+	width: 120px;
+	height: auto;
+	margin-right: 30px;
+	background-color: #fff;
+}
+
+.area-show-forecast-container .new-forecast .forecast-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.area-show-forecast-container .action {
+	opacity: 0.8;
+}
+
+
+/* エリア詳細、スポット一覧 */
+.spot-show-container {
+	display: flex;
+	flex-wrap:wrap;
+	margin-bottom: 30px;
+}
+
+.spot-box {
+	margin: 10px;
+	flex-basis: 150px;
+}
+
+.spot-box > div {
+	margin: 5px;
+}
+
+.spot-box .spot-image {
+	margin: 0px 15px 10px 0px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.spot-box .spot-detail {
+	border-bottom: 1px solid #EEEEEE;
+}
+
+
+/* エリア詳細、ショップ一覧 */
+.shop-show-container {
+	display: flex;
+	flex-wrap:wrap;
+	margin-bottom: 30px;
+}
+
+.shop-box {
+	margin: 10px;
+	flex-basis: 150px;
+}
+
+.shop-box > div {
+	margin: 5px;
+}
+
+.shop-box .shop-image {
+	margin: 0px 15px 10px 0px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}

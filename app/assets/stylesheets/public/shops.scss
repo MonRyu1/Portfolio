@@ -1,3 +1,74 @@
 // Place all the styles related to the public/shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* ショップ一覧関連 */
+
+.shop-index {
+	margin: 50px 0px 100px 0px;
+}
+
+.area-box {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.area-btn {
+	width: 70px;
+	height: auto;
+	margin: 3px;
+}
+
+.shop-index .shop-container {
+	display: flex;
+	margin-bottom: 25px;
+}
+
+.shop-image {
+	margin-right: 15px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ショップ詳細関連 */
+
+.shop-show {
+	margin: 50px 0px 100px 0px;
+}
+
+.image-box {
+	text-align: center;
+}
+
+.shop-name {
+	width: 340px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 5px;
+	margin: 0 auto;
+}
+
+.shop-show .shop-image {
+	border-radius: 5px;
+	width: 350px;
+	height: 280px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.shop-show table {
+	margin-top: 80px;
+	text-align: center;
+}
+
+.shop-show table tr th {
+	width: 22%;
+	height: 50px;
+	padding-bottom: 10px;
+}
+
+.shop-show table tr td {
+	padding-bottom: 10px;
+}

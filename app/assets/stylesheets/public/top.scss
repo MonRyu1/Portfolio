@@ -2,10 +2,382 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/* ログイン前トップページ */
+
 .top-visual {
 	background-image: image-url('TopPics/Top1.jpeg');
 	background-position: center;
 	background-size: cover;
 	width: 100%;
-	height: 90vh;
+	height: 70vh;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.top-visual-background {
+	background-color: rgba( 0, 0, 0, 0.25);
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.quotes {
+	font-family: 'Alata', sans-serif;
+	color: white;
+	text-align: center;
+	margin: 5% 5% 5% 5%;
+	opacity: 0.9;
+}
+
+.top-contents {
+	margin: 50px 0px 100px 0px;
+}
+
+.public-title, {
+	border-left: 4px solid #DDDDDD;
+	border-radius: 3px;
+	font-weight: bolder;
+	padding-left: 2%;
+}
+
+/* 波情報 */
+.public-report-box {
+	width: 100%;
+	height: auto;
+
+	position: relative;
+	border: solid 3px #3399FF;
+	border-radius: 10px;
+	padding: 30px 10px 5px 0px;
+	margin: 50px 0px;
+
+	overflow-x: auto;
+	white-space: nowrap;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.public-report-box .box-title {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  background: #3399FF;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.public-report {
+	display: inline-block;
+	width: 200px;
+	height: auto;
+	background-color: #fff;
+	margin-right:10px;
+}
+
+.public-report .report-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+
+/* 波予報 */
+.public-forecast-box {
+	width: 100%;
+	height: auto;
+
+	position: relative;
+	border: solid 3px #62c1ce;
+	border-radius: 10px;
+	padding: 30px 10px 5px 0px;
+	margin: 50px 0px;
+
+	overflow-x: auto;
+	white-space: nowrap;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.public-forecast-box .box-title {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  background: #62c1ce;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.public-forecast {
+	display: inline-block;
+	width: 200px;
+	height: auto;
+	background-color: #fff;
+	margin-right:10px;
+}
+
+.public-forecast .forecast-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+
+/* トップ、ショップ一覧関連 */
+
+.public-shop-container {
+	width: 100%;
+	margin: 50px 0px 30px 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.public-shop-box {
+	flex-basis: 200px;
+	text-align: center;
+}
+
+.public-shop-image {
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.public-shop-link {
+	float: right;
+	margin-bottom: 100px;
+}
+
+
+
+
+/* ログイン後、トップページ */
+
+.report-container {
+	margin-bottom: 70px;
+}
+
+.report-container .title,
+.forecast-container .title, {
+	border-left: 4px solid #DDDDDD;
+	border-radius: 3px;
+	font-weight: bolder;
+	padding-left: 2%;
+}
+
+.link {
+	float: right;
+}
+
+/* 波情報 */
+.new-report-box {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+
+	position: relative;
+	border: solid 3px black;
+	border-radius: 10px;
+	padding: 30px 10px 5px 0px;
+
+	overflow-x: auto;
+	white-space: nowrap;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.new-report-box .box-title {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  background: black;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.new-report {
+	display: inline-block;
+	width: 200px;
+	height: auto;
+	background-color: #fff;
+}
+
+.new-report .report-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+/* 波予報 */
+.new-forecast-box {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+
+	position: relative;
+	border: solid 3px black;
+	border-radius: 10px;
+	padding: 30px 10px 5px 0px;
+
+	overflow-x: auto;
+	white-space: nowrap;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.new-forecast-box .box-title {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  background: black;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.new-forecast {
+	display: inline-block;
+	width: 200px;
+	height: auto;
+	background-color: #fff;
+}
+
+.new-forecast .forecast-image {
+	margin-bottom: 5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.action {
+	opacity: 0.8;
+}
+
+
+/* 天気検索 */
+.weather-box {
+	padding: 0.5em 1em;
+  margin: 2em 0;
+  color: black;
+  background: white;
+  border-top: solid 4px black;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.search-btn {
+	margin: 5px;
+}
+
+.weather-box table {
+	width: 100%;
+}
+
+.weather-box table tr th,
+.weather-box table tr td {
+	text-align: center;
+	padding: 5px 0px;
+}
+
+.city-name {
+	font-weight: bolder;
+	padding: 15px 0px 5px 0px;
+}
+
+.time-box {
+	width: 100%;
+	border-top: 1px solid #DDDDDD;
+}
+
+.time {
+	font-size: 18px;
+}
+
+
+
+/* トップ、ショップ一覧関連 */
+.top-shop-container {
+	width: 100%;
+	margin: 100px 0px 30px 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.top-shop-box {
+	flex-basis: 200px;
+	text-align: center;
+}
+
+.top-shop-image {
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.22);
+}
+
+.top-shop-link {
+	float: right;
+	margin-bottom: 100px;
+}
+
+
+
+
+/* トップ画像 */
+
+.top-report-visual {
+	background-image: image-url('TopPics/Top-report.jpeg');
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 250px;
+}
+
+.top-report-background {
+	background-color: rgba( 0, 0, 0, 0.4);
+	width: 100%;
+	height: 250px;
+}
+
+.top-report-background p {
+	text-align: center;
+	color: #fff;
+	line-height: 250px;
+	font-size: 30px;
+}
+
+
+.top-shop-visual {
+	background-image: image-url('TopPics/Top-shop.jpg');
+	background-size: cover;
+	width: 100%;
+	height: 250px;
+}
+
+.top-shop-background {
+	background-color: rgba( 0, 0, 0, 0.4);
+	width: 100%;
+	height: 250px;
+}
+
+.top-shop-background p {
+	text-align: center;
+	color: #fff;
+	line-height: 250px;
+	font-size: 30px;
 }

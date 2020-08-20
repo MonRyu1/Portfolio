@@ -1,34 +1,37 @@
-<h1>Public::Locals#edit</h1>
-<p>Find me in app/views/public/locals/edit.html.erb</p>
-<div class="container">
+<div class="local-edit container">
+  <h1 class="title">ローカル情報編集</h1>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="local-edit-form col-sm-12">
       <%= form_for @local do |f| %>
-        <%= attachment_image_tag @local, :local_image, fallback: "no-image.png", :size => "200x200" %>
-        <%= f.attachment_field :local_image %>
-        <div class="field">
-          <%= f.label :性 %>
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-        </div>
-        <div class="field">
-          <%= f.label :名 %>
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-        </div>
-        <div class="field">
-          <%= f.label :ユーザーネーム %>
-          <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
-        </div>
-        <div class="field">
-          <%= f.label :ショップ %>
-          <%= f.collection_select :shop_id, Shop.all, :id, :name , :prompt => "select" %>
-        </div>
-        <div class="field">
-          <%= f.label :レベル %>
-          <%= f.select :level, User.levels.keys, {} %>
-        </div>
-        <div class="actions">
-          <%= f.submit "変更する", class: "btn btn-primary" %>
-        </div>
+      <div class="image-form">
+        <%= attachment_image_tag @local, :local_image, fallback: "no-profile-img.png", class: "edit-local-image" %><br>
+        <%= f.attachment_field :local_image, class: "image-btn" %><br>
+      </div>
+      <div class="detail-form">
+        <table>
+          <tr>
+            <th><%= f.label :性 %></th>
+            <td><%= f.text_field :last_name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :名 %></th>
+            <td><%= f.text_field :first_name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :ユーザーネーム %></th>
+            <td><%= f.text_field :user_name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :ショップ %></th>
+            <td><%= f.collection_select :shop_id, Shop.all, :id, :name , :prompt => "select" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :レベル %></th>
+            <td><%= f.select :level, User.levels.keys, {} %></td>
+          </tr>
+        </table>
+      </div>
+        <%= f.submit "変更する", class: "btn btn-primary submit-btn" %>
       <% end %>
     </div>
   </div>

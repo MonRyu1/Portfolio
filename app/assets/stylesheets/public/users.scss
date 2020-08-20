@@ -1,3 +1,125 @@
 // Place all the styles related to the public/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* ユーザー詳細関連 */
+
+.user-show {
+	margin: 50px 0px 100px 0px;
+}
+
+.user-show .title {
+	text-align: center;
+	font-weight: bold;
+}
+
+.user-show-box {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.user-show .user-image {
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
+}
+
+.user-show .detail table {
+	margin: 10px auto;
+}
+
+.user-show .detail table tr th {
+	width: 150px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.user-show .detail table tr td {
+	width: 200px;
+	padding: 15px 10px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.user-show .user-btn {
+	margin-top: 30px;
+	width: 200px;
+}
+
+
+
+/* ユーザー編集関連 */
+
+.user-edit {
+	margin: 50px 0px 100px 0px;
+}
+
+.user-edit .title {
+	text-align: center;
+	font-weight: bold;
+}
+
+.user-edit-form {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.edit-user-image {
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
+}
+
+.user-edit .image-btn {
+	margin: 15px auto;
+}
+
+.user-edit .detail-form table {
+	margin: 10px auto;
+}
+
+.user-edit .detail-form table tr th {
+	width: 150px;
+	padding: 15px 10px;
+}
+
+.user-edit .detail-form table tr td {
+	width: 200px;
+	padding: 15px 10px;
+}
+
+.user-edit-form .submit-btn {
+	margin-top: 20px;
+	width: 200px;
+}
+
+
+/* ユーザー退会確認関連 */
+
+.user-confirm {
+	background-image: image-url("TopPics/Top3.jpeg");
+  background-size: cover;
+  backgorund-position: center;
+  height: 500px;
+  width: 100%;
+}
+
+.user-confirm-background {
+	height: 500px;
+  width: 100%;
+  background-color: rgba( 255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-confirm-box h2 {
+	padding: 20px 0px;
+}
+
+.confirm-btn {
+	width: 100px;
+	margin: 20px;
+}

@@ -1,2 +1,22 @@
-<h1>Public::Shops#show</h1>
-<p>Find me in app/views/public/shops/show.html.erb</p>
+<div class="shop-show container">
+	<div class="row">
+		<div class="image-box col-sm-5">
+			<div class="shop-name">
+				<h3><%= @shop.name %></h3>
+				<div>
+					<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+					<%= @shop.area.name %>
+				</div>
+			</div>
+			<%= attachment_image_tag @shop, :shop_image, fallback: "no-image.png", class: "shop-image" %>
+		</div>
+		<div class="detail col-sm-7">
+			<table>
+				<tr><th>住所</th><td><%= @shop.address %></td></tr>
+				<tr><th>電話番号</th><td><%= @shop.phone_number %></td></tr>
+				<tr><th>メールアドレス</th><td><%= @shop.email %></td></tr>
+				<tr><th>概要</th><td><%= @shop.about %></td></tr>
+			</table>
+		</div>
+	</div>
+</div>

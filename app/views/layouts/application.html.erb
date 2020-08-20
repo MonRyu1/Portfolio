@@ -4,6 +4,7 @@
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +12,9 @@
 
   <body>
 
-    <% if admin_signed_in? %>
+    <% if user_signed_in? || local_signed_in? %>
+      <%= render 'layouts/header-login' %>
+    <% elsif admin_signed_in? %>
       <%= render 'layouts/header-admin' %>
     <% else %>
       <%= render 'layouts/header' %>
@@ -19,7 +22,9 @@
 
     <%= yield %>
 
-    <% if admin_signed_in? %>
+    <% if user_signed_in? || local_signed_in? %>
+      <%= render 'layouts/footer-login' %>
+    <% elsif admin_signed_in? %>
       <%= render 'layouts/footer-admin' %>
     <% else %>
       <%= render 'layouts/footer' %>

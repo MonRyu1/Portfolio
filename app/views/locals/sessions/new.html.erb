@@ -1,6 +1,7 @@
 <div class="local-background">
   <div class="local-form-background">
     <div class="signin-form">
+      <h2 class="flash-message"><%= flash[:error] %></h2>
       <h2><strong>サインイン</strong></h2>
       <p>初めての方は  
         <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
