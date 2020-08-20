@@ -1,4 +1,6 @@
 class Public::LocalsController < ApplicationController
+   before_action :authenticate_local!
+
   def show
     @local = Local.find(params[:id])
   end

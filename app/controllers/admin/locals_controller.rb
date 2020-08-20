@@ -1,4 +1,6 @@
 class Admin::LocalsController < ApplicationController
+   before_action :authenticate_admin!
+
   def index
   	@locals = Local.all
   end

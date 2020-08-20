@@ -1,4 +1,6 @@
 class Public::ReportsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @areas = Area.all
     if params[:area_id] != nil
