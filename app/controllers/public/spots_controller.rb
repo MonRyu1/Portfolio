@@ -4,7 +4,7 @@ class Public::SpotsController < ApplicationController
   	if params[:area_id] != nil
   		@area = Area.find(params[:area_id])
   	else
-  		@spots = Spot.all
+  		@spots = Spot.all.page(params[:page]).reverse_order
   	end
   end
 

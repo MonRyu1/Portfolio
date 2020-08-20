@@ -6,7 +6,7 @@ class Public::ForecastsController < ApplicationController
     if params[:area_id] != nil
       @area = Area.find(params[:area_id])
     else
-      @forecasts = Forecast.all.order(created_at: :desc)
+      @forecasts = Forecast.all.order(created_at: :desc).page(params[:page]).reverse_order
     end
   end
 

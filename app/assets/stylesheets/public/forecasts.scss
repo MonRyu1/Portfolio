@@ -18,6 +18,7 @@
 	display: flex;
 	flex-wrap:wrap;
 	justify-content: center;
+	padding-bottom: 50px;
 }
 
 .forecast-box {
@@ -52,6 +53,11 @@
 	float: left;
 	height: 50px;
 	line-height: 50px;
+}
+
+.forecast-paginate {
+	position: absolute;
+	bottom: 0;
 }
 
 
