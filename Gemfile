@@ -68,10 +68,12 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
+# UIデザイン
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
-
 gem 'font-awesome-sass', '5.3.1'
 
+# ページ管理機能
 gem 'kaminari','~> 1.2.1'
+
 
