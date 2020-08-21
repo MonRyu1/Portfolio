@@ -1,7 +1,7 @@
 class Public::TopController < ApplicationController
   def top
-  	@reports = Report.all.order(created_at: :desc)
-  	@forecasts = Forecast.all.order(created_at: :desc)
+  	@reports = Report.all
+  	@forecasts = Forecast.all
   	if city_name = params[:city_name]
   		params = URI.encode_www_form({q: city_name})
 	  	uri = URI.parse("http://api.openweathermap.org/data/2.5/forecast?#{params}&units=metric&lang=ja&appid=d731bd5a1e17c0c772485f00cbf92579")
@@ -28,6 +28,6 @@ class Public::TopController < ApplicationController
   		end
   		@city = result["city"]["name"]
   	end
-  	@shops = Shop.order("RANDOM()").limit(4)
+  	@shops = Shop.order("RAND()").limit(4)
   end
 end
