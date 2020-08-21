@@ -6,7 +6,7 @@ class Public::ReportsController < ApplicationController
     if params[:area_id] != nil
       @area = Area.find(params[:area_id])
     else
-      @reports = Report.all.order(created_at: :desc).page(params[:page]).reverse_order
+      @reports = Report.all.page(params[:page]).reverse_order
     end
   end
 
