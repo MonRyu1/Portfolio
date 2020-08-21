@@ -3,7 +3,7 @@ class Public::TopController < ApplicationController
   	@reports = Report.all.order(created_at: :desc)
   	@forecasts = Forecast.all.order(created_at: :desc)
   	if city_name = params[:city_name]
-	  	params = URI.encode_www_form({q: city_name})
+  		params = URI.encode_www_form({q: city_name})
 	  	uri = URI.parse("http://api.openweathermap.org/data/2.5/forecast?#{params}&units=metric&lang=ja&appid=d731bd5a1e17c0c772485f00cbf92579")
 	  	response = Net::HTTP.get_response(uri)
 	  	result = JSON.parse(response.body)
